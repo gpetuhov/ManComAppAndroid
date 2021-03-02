@@ -1,4 +1,4 @@
-package ru.alconmanagementapp
+package ru.mancomapp
 
 import org.junit.Test
 

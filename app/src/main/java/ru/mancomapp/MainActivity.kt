@@ -1,4 +1,4 @@
-package ru.alconmanagementapp
+package ru.mancomapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
