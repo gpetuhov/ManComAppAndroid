@@ -3,6 +3,10 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
+
+    // Firebase
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 def appVersionCode = 00101    // NOTICE that version code and name may be DIFFERENT
@@ -26,9 +30,17 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+
+            // TODO: disable Crashlytics in debug, when required
+            manifestPlaceholders = [enableCrashReporting:"true"]
+        }
         release {
             minifyEnabled true
             shrinkResources true
+            manifestPlaceholders = [enableCrashReporting:"true"]
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -82,4 +94,9 @@ dependencies {
     // Android Remote Debugger
     // Do not upgrade (on 2021.03.03 version 1.1.0 breaks the build)
     implementation 'com.github.zerobranch:android-remote-debugger:1.0.1'
+
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:26.6.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
 }
