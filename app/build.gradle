@@ -27,6 +27,7 @@ android {
     buildTypes {
         release {
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -47,6 +48,14 @@ android {
             def formattedDate = date.format('dd.MM.YYYY_HH-mm')
 
             outputFileName = variant.baseName + SEP + appVersionName + SEP + formattedDate + ".apk"
+        }
+    }
+
+    flavorDimensions "target"
+    productFlavors {
+        alcon {
+            dimension "target"
+            applicationId "$applicationIdAlcon"
         }
     }
 }
