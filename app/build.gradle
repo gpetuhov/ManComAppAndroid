@@ -30,9 +30,17 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+
+            // TODO: disable Crashlytics in debug, when required
+            manifestPlaceholders = [enableCrashReporting:"true"]
+        }
         release {
             minifyEnabled true
             shrinkResources true
+            manifestPlaceholders = [enableCrashReporting:"true"]
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
