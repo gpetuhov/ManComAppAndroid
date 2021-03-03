@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "$applicationIdAlcon"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode appVersionCode
         versionName appVersionName
