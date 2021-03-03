@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "134865085260-n3ree2f7tp9484bjc0e1s2oc2k6d9etr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.alconmanagementapp",
+            "certificate_hash": "88e2fe05da7e004557b6df63d1c06e3e53ae0b8b"
+          }
+        },
+        {
           "client_id": "134865085260-ross35g6e4nsrhkethj45r8lnj53nvao.apps.googleusercontent.com",
           "client_type": 3
         }
