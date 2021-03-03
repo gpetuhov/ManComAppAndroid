@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">AlconManagementApp</string>
+    <string name="app_name" translatable="false">ManComApp</string>
     <string name="app_version">Version: %s</string>
 </resources>
