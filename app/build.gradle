@@ -9,8 +9,8 @@ plugins {
     id 'com.google.firebase.crashlytics'
 }
 
-def appVersionCode = 00101    // NOTICE that version code and name may be DIFFERENT
-def appVersionName = "0.1.1"
+def appVersionCode = 00102    // NOTICE that version code and name may be DIFFERENT
+def appVersionName = "0.1.2"
 
 def applicationIdAlcon = "ru.alconmanagementapp"
 def applicationIdOther = "ru.mancomapp"
