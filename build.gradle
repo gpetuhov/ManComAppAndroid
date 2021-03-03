@@ -18,6 +18,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+
+        // Android Remote Debugger
+        maven { url "https://jitpack.io" }
     }
 }
 
