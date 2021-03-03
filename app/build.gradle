@@ -9,6 +9,7 @@ def appVersionCode = 0010    // NOTICE that version code and name may be DIFFERE
 def appVersionName = "0.1.0"
 
 def applicationIdAlcon = "ru.alconmanagementapp"
+def applicationIdOther = "ru.mancomapp"
 
 android {
     compileSdkVersion 30
@@ -56,6 +57,10 @@ android {
         alcon {
             dimension "target"
             applicationId "$applicationIdAlcon"
+        }
+        other { // dummy flavor
+            dimension "target"
+            applicationId "$applicationIdOther"
         }
     }
 }
