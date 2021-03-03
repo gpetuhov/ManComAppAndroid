@@ -1,12 +1,15 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 }
 
-def appVersionCode = 0010    // NOTICE that version code and name may be DIFFERENT
-def appVersionName = "0.1.0"
+def appVersionCode = 00101    // NOTICE that version code and name may be DIFFERENT
+def appVersionName = "0.1.1"
 
 def applicationIdAlcon = "ru.alconmanagementapp"
+def applicationIdOther = "ru.mancomapp"
 
 android {
     compileSdkVersion 30
@@ -14,7 +17,7 @@ android {
 
     defaultConfig {
         applicationId "$applicationIdAlcon"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode appVersionCode
         versionName appVersionName
@@ -25,6 +28,7 @@ android {
     buildTypes {
         release {
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -47,6 +51,18 @@ android {
             outputFileName = variant.baseName + SEP + appVersionName + SEP + formattedDate + ".apk"
         }
     }
+
+    flavorDimensions "target"
+    productFlavors {
+        alcon {
+            dimension "target"
+            applicationId "$applicationIdAlcon"
+        }
+        other { // dummy flavor
+            dimension "target"
+            applicationId "$applicationIdOther"
+        }
+    }
 }
 
 dependencies {
@@ -59,4 +75,11 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    // Android Remote Debugger
+    // Do not upgrade (on 2021.03.03 version 1.1.0 breaks the build)
+    implementation 'com.github.zerobranch:android-remote-debugger:1.0.1'
 }
