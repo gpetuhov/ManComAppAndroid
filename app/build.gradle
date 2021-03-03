@@ -5,8 +5,8 @@ plugins {
     id 'kotlin-kapt'
 }
 
-def appVersionCode = 0010    // NOTICE that version code and name may be DIFFERENT
-def appVersionName = "0.1.0"
+def appVersionCode = 00101    // NOTICE that version code and name may be DIFFERENT
+def appVersionName = "0.1.1"
 
 def applicationIdAlcon = "ru.alconmanagementapp"
 def applicationIdOther = "ru.mancomapp"
