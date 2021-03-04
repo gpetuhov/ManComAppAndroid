@@ -4,4 +4,6 @@
 
     <!-- WelcomeFragment -->
     <string name="welcome_message">Добро пожаловать в приложение\n%s</string>
+    <string name="enter">Войти</string>
+
 </resources>

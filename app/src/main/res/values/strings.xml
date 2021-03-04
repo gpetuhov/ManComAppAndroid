@@ -5,4 +5,6 @@
     <!-- WelcomeFragment -->
     <string name="welcome_message">Welcome to\n%s</string>
     <string name="visible_app_name" translatable="false">Management Company Application</string>
+    <string name="enter">Войти</string>
+
 </resources>
