@@ -16,8 +16,10 @@
             android:name="firebase_crashlytics_collection_enabled"
             android:value="${enableCrashReporting}" />
 
-        <activity android:name="ru.mancomapp.ui.MainActivity"
-            android:screenOrientation="portrait">
+        <activity
+            android:name="ru.mancomapp.ui.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
