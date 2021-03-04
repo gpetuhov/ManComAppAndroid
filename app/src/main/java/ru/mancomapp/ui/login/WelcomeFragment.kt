@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_welcome.*
 import ru.mancomapp.BuildConfig
 import ru.mancomapp.R
@@ -22,10 +24,7 @@ class WelcomeFragment : Fragment() {
         welcome_text.text = getString(R.string.welcome_message, getString(R.string.visible_app_name))
         app_version.text = getString(R.string.app_version, BuildConfig.VERSION_NAME)
 
-        enter_button.setOnClickListener {
-            // TODO: implement
-            toast("Enter")
-        }
+        enter_button.setOnClickListener { navigateToLoginFragment() }
 
         get_credentials_button.setOnClickListener {
             // TODO: implement
@@ -36,5 +35,14 @@ class WelcomeFragment : Fragment() {
             // TODO: implement
             toast("Demo version")
         }
+    }
+
+    private fun navigateToLoginFragment() {
+        val action = WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment()
+        navigate(action)
+    }
+
+    private fun navigate(action: NavDirections) {
+        findNavController().navigate(action)
     }
 }
