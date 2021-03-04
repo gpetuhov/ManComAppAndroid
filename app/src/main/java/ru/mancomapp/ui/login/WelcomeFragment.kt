@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_welcome.*
 import ru.mancomapp.BuildConfig
 import ru.mancomapp.R
-import ru.mancomapp.util.extensions.toast
 
 class WelcomeFragment : Fragment() {
 
@@ -25,13 +24,8 @@ class WelcomeFragment : Fragment() {
         app_version.text = getString(R.string.app_version, BuildConfig.VERSION_NAME)
 
         enter_button.setOnClickListener { navigateToLoginFragment() }
-
         get_credentials_button.setOnClickListener { navigateToGetCredentialsFragment() }
-
-        demo_version_button.setOnClickListener {
-            // TODO: implement
-            toast("Demo version")
-        }
+        demo_version_button.setOnClickListener { navigateToHomeFragment() }
     }
 
     private fun navigateToLoginFragment() {
@@ -41,6 +35,11 @@ class WelcomeFragment : Fragment() {
 
     private fun navigateToGetCredentialsFragment() {
         val action = WelcomeFragmentDirections.actionWelcomeFragmentToGetCredentialsFragment()
+        navigate(action)
+    }
+
+    private fun navigateToHomeFragment() {
+        val action = WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment()
         navigate(action)
     }
 

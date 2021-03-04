@@ -21,6 +21,11 @@
             app:destination="@id/getCredentialsFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
     </fragment>
 
     <fragment
@@ -34,5 +39,11 @@
         android:name="ru.mancomapp.ui.login.GetCredentialsFragment"
         android:label="GetCredentialsFragment"
         tools:layout="@layout/fragment_get_credentials"/>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="ru.mancomapp.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"/>
 
 </navigation>
