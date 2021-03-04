@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_welcome.*
 import ru.mancomapp.BuildConfig
 import ru.mancomapp.R
+import ru.mancomapp.util.extensions.toast
 
 class WelcomeFragment : Fragment() {
 
@@ -20,5 +21,20 @@ class WelcomeFragment : Fragment() {
 
         welcome_text.text = getString(R.string.welcome_message, getString(R.string.visible_app_name))
         app_version.text = getString(R.string.app_version, BuildConfig.VERSION_NAME)
+
+        enter_button.setOnClickListener {
+            // TODO: implement
+            toast("Enter")
+        }
+
+        get_credentials_button.setOnClickListener {
+            // TODO: implement
+            toast("Get credentials")
+        }
+
+        demo_version_button.setOnClickListener {
+            // TODO: implement
+            toast("Demo version")
+        }
     }
 }
