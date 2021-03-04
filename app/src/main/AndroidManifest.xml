@@ -16,7 +16,7 @@
             android:name="firebase_crashlytics_collection_enabled"
             android:value="${enableCrashReporting}" />
 
-        <activity android:name="ru.mancomapp.MainActivity">
+        <activity android:name="ru.mancomapp.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,8 +1,10 @@
-package ru.mancomapp
+package ru.mancomapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
+import ru.mancomapp.BuildConfig
+import ru.mancomapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
