@@ -6,5 +6,6 @@
     <string name="welcome_message">Добро пожаловать в приложение\n%s</string>
     <string name="enter">Войти</string>
     <string name="get_credentials">Получить данные для входа</string>
+    <string name="demo_version">Демо версия</string>
 
 </resources>

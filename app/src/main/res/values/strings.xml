@@ -7,5 +7,6 @@
     <string name="visible_app_name" translatable="false">Management Company Application</string>
     <string name="enter">Enter</string>
     <string name="get_credentials">Get credentials</string>
+    <string name="demo_version">Demo version</string>
 
 </resources>

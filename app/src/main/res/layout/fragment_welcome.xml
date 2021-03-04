@@ -38,6 +38,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/enter_button" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/demo_version_button"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginBottom="@dimen/layout_margin"
+        android:text="@string/demo_version"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@id/app_version"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/get_credentials_button"
+        app:layout_constraintVertical_bias="1.0" />
+
     <TextView
         android:id="@+id/app_version"
         android:layout_width="wrap_content"
