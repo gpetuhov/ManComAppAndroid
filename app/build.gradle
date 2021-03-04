@@ -107,4 +107,8 @@ dependencies {
 
     // Preference
     implementation 'androidx.preference:preference-ktx:1.1.1'
+
+    // Jetpack Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 }
