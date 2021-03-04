@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_version">Версия: %s</string>
+
+    <!-- WelcomeFragment -->
+    <string name="welcome_message">Добро пожаловать в приложение\n%s</string>
 </resources>
