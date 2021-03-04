@@ -26,10 +26,7 @@ class WelcomeFragment : Fragment() {
 
         enter_button.setOnClickListener { navigateToLoginFragment() }
 
-        get_credentials_button.setOnClickListener {
-            // TODO: implement
-            toast("Get credentials")
-        }
+        get_credentials_button.setOnClickListener { navigateToGetCredentialsFragment() }
 
         demo_version_button.setOnClickListener {
             // TODO: implement
@@ -39,6 +36,11 @@ class WelcomeFragment : Fragment() {
 
     private fun navigateToLoginFragment() {
         val action = WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment()
+        navigate(action)
+    }
+
+    private fun navigateToGetCredentialsFragment() {
+        val action = WelcomeFragmentDirections.actionWelcomeFragmentToGetCredentialsFragment()
         navigate(action)
     }
 
