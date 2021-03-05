@@ -20,5 +20,6 @@
     <string name="login_hint">Enter login</string>
     <string name="password">Password</string>
     <string name="password_hint">Enter password</string>
+    <string name="privacy_policy_confirm">I agree to Privacy Policy…</string>
 
 </resources>

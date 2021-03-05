@@ -75,6 +75,18 @@
         app:layout_constraintTop_toBottomOf="@id/password_label"
         tools:ignore="Autofill" />
 
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/privacy_policy_checkbox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layout_margin"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginEnd="@dimen/layout_margin"
+        android:text="@string/privacy_policy_confirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password_input" />
+
     <TextView
         android:id="@+id/copyright"
         android:layout_width="0dp"
