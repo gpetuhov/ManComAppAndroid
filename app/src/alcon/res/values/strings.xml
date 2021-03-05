@@ -4,6 +4,6 @@
 
     <!-- GetCredentialsFragment -->
     <!-- TODO: change this -->
-    <string name="get_credentials_schedule_url" translatable="false">https://www.google.com/</string>
+    <string name="get_credentials_schedule_url" translatable="false">http://www.alcongroup.ru/contacts/</string>
 
 </resources>
