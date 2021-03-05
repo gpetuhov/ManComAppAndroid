@@ -1,5 +1,6 @@
 package ru.mancomapp.ui.login
 
+import androidx.annotation.StringRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,8 +25,6 @@ class LoginViewModel : ViewModel() {
         isLoginStarted = isLoginStartedLiveDataMutable
         isLoginSuccess = isLoginSuccessLiveDataMutable
         isLoginError = isLoginErrorLiveDataMutable
-
-        isLoginStartedLiveDataMutable.postValue(false)
     }
 
     override fun onCleared() {
@@ -35,27 +34,34 @@ class LoginViewModel : ViewModel() {
 
     fun login(loginCredentials: LoginCredentials) {
         if (loginCredentials.isEmpty()) {
-            val errorMessage = App.application.getString(R.string.login_input_empty)
-            isLoginErrorLiveDataMutable.postValue(errorMessage)
+            postLoginError(R.string.login_input_empty)
             return
         }
 
         if (!loginCredentials.isPrivacyPolicyConfirmed) {
-            val errorMessage = App.application.getString(R.string.privacy_policy_confirm_error)
-            isLoginErrorLiveDataMutable.postValue(errorMessage)
+            postLoginError(R.string.privacy_policy_confirm_error)
             return
         }
 
+        startLogin(loginCredentials)
+    }
+
+    private fun postLoginError(@StringRes errorMessageId: Int) {
+        val errorMessage = App.application.getString(errorMessageId)
+        isLoginErrorLiveDataMutable.postValue(errorMessage)
+    }
+
+    private fun startLogin(loginCredentials: LoginCredentials) {
         isLoginStartedLiveDataMutable.postValue(true)
 
         loginJob = viewModelScope.launch(Dispatchers.IO) {
             // TODO: implement
             delay(5000)
 
+            // TODO: handle login error and no network (server unavailable)
             val isSuccess = true
 
             withContext(Dispatchers.Main) {
-                isLoginStartedLiveDataMutable.postValue(false)
                 isLoginSuccessLiveDataMutable.postValue(isSuccess)
             }
         }

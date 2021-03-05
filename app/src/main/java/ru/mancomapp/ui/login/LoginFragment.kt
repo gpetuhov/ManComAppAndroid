@@ -58,6 +58,7 @@ class LoginFragment : Fragment() {
         if (isSuccess) {
             val intent = Intent(requireContext(), MainActivity::class.java)
             startActivity(intent)
+            activity?.finish()
         }
     }
 
