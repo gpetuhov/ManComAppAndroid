@@ -43,23 +43,22 @@ class LoginFragment : Fragment() {
 
     private fun subscribeViewModel() {
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        viewModel.isLoginStarted.observe(viewLifecycleOwner, { isStarted -> onLoginStarted(isStarted) })
+        viewModel.isLoginError.observe(viewLifecycleOwner, { errorMessage -> toast(errorMessage) })
+        viewModel.isLoginSuccess.observe(viewLifecycleOwner, { isSuccess -> onLoginSuccess(isSuccess) })
+    }
 
-        viewModel.isLoginStarted.observe(viewLifecycleOwner, { isStarted ->
-            if (isStarted) hideSoftKeyboard()
-            enableControls(!isStarted)
-            showProgress(isStarted)
-        })
+    private fun onLoginStarted(isStarted: Boolean) {
+        if (isStarted) hideSoftKeyboard()
+        enableControls(!isStarted)
+        showProgress(isStarted)
+    }
 
-        viewModel.isLoginError.observe(viewLifecycleOwner, { errorMessage ->
-            toast(errorMessage)
-        })
-
-        viewModel.isLoginSuccess.observe(viewLifecycleOwner, { isSuccess ->
-            if (isSuccess) {
-                val intent = Intent(requireContext(), MainActivity::class.java)
-                startActivity(intent)
-            }
-        })
+    private fun onLoginSuccess(isSuccess: Boolean) {
+        if (isSuccess) {
+            val intent = Intent(requireContext(), MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun enableControls(isEnabled: Boolean) {
