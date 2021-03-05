@@ -24,40 +24,31 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         subscribeViewModel()
-        initInputs()
 
         welcome_text.text = getString(R.string.welcome_message, getString(R.string.app_name))
         login_button.setOnClickListener { onLoginButtonClick() }
     }
 
-    private fun initInputs() {
-        login_input.doOnTextChanged { text, start, before, count ->
-            viewModel.onLoginChanged(text.toString())
-        }
-
-        password_input.doOnTextChanged { text, start, before, count ->
-            viewModel.onPasswordChanged(text.toString())
-        }
-
-        privacy_policy_checkbox.setOnCheckedChangeListener { buttonView, isChecked ->
-            viewModel.onPrivacyPolicyConfirmChanged(isChecked)
-        }
-    }
-
     private fun onLoginButtonClick() {
-        viewModel.login()
+        val credentials = LoginViewModel.LoginCredentials().apply {
+            login = login_input.text.toString()
+            password = password_input.text.toString()
+            isPrivacyPolicyConfirmed = privacy_policy_checkbox.isChecked
+        }
+
+        viewModel.login(credentials)
     }
 
     private fun subscribeViewModel() {
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-        viewModel.isLoginEnabledLiveData.observe(viewLifecycleOwner, { isEnabled ->
-            login_button.isEnabled = isEnabled
-        })
-
         viewModel.isLoginStarted.observe(viewLifecycleOwner, { isStarted ->
             enableLoginButton(!isStarted)
             showProgress(isStarted)
+        })
+
+        viewModel.isLoginError.observe(viewLifecycleOwner, { errorMessage ->
+            toast(errorMessage)
         })
     }
 
