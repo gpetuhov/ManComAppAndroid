@@ -1,5 +1,6 @@
 package ru.mancomapp.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_login.*
 import ru.mancomapp.R
+import ru.mancomapp.ui.MainActivity
 import ru.mancomapp.util.extensions.hideSoftKeyboard
 import ru.mancomapp.util.extensions.setVisible
 import ru.mancomapp.util.extensions.toast
@@ -53,8 +55,10 @@ class LoginFragment : Fragment() {
         })
 
         viewModel.isLoginSuccess.observe(viewLifecycleOwner, { isSuccess ->
-            // TODO
-            toast("Login success")
+            if (isSuccess) {
+                val intent = Intent(requireContext(), MainActivity::class.java)
+                startActivity(intent)
+            }
         })
     }
 
