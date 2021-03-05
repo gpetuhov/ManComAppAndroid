@@ -1,5 +1,6 @@
 package ru.mancomapp.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_welcome.*
 import ru.mancomapp.BuildConfig
 import ru.mancomapp.R
+import ru.mancomapp.ui.MainActivity
 
 class WelcomeFragment : Fragment() {
 
@@ -25,7 +27,7 @@ class WelcomeFragment : Fragment() {
 
         enter_button.setOnClickListener { navigateToLoginFragment() }
         get_credentials_button.setOnClickListener { navigateToGetCredentialsFragment() }
-        demo_version_button.setOnClickListener { navigateToHomeFragment() }
+        demo_version_button.setOnClickListener { onDemoVersionButtonClick() }
     }
 
     private fun navigateToLoginFragment() {
@@ -38,9 +40,10 @@ class WelcomeFragment : Fragment() {
         navigate(action)
     }
 
-    private fun navigateToHomeFragment() {
-        val action = WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment()
-        navigate(action)
+    private fun onDemoVersionButtonClick() {
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        startActivity(intent)
+        activity?.finish()
     }
 
     private fun navigate(action: NavDirections) {
