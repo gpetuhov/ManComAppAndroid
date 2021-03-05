@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">AlconManagementApp</string>
+    <string name="app_name" translatable="false">Alcon Management</string>
+
+    <!-- GetCredentialsFragment -->
+    <!-- TODO: change this -->
+    <string name="get_credentials_schedule_url" translatable="false">http://www.alcongroup.ru/contacts/</string>
+
 </resources>

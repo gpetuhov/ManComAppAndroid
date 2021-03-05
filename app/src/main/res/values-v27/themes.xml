@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.LoginActivity" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/md_white_1000</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/md_white_1000</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="colorSecondary">@color/md_blue_600</item>
+        <item name="colorSecondaryVariant">@color/md_blue_900</item>
+    </style>
+
+    <style name="AppTheme.MainActivity" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/md_white_1000</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/md_white_1000</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+</resources>

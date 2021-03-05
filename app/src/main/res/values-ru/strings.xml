@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_version">Версия: %s</string>
+
+    <!-- WelcomeFragment -->
+    <string name="welcome_message">Добро пожаловать в приложение\n%s</string>
+    <string name="enter">Войти</string>
+    <string name="get_credentials">Получить данные для входа</string>
+    <string name="demo_version">Демо версия</string>
+    <string name="copyright">Дисклеймер, копирайт и т.д.</string>
+
+    <!-- GetCredentialsFragment -->
+    <string name="get_credentials_info">Для получения логина и пароля обратитесь в управляющую компанию. С графиком работы можете ознакомиться %s</string>
+    <string name="here">здесь</string>
+    <string name="back">Назад</string>
+
+    <!-- LoginFragment -->
+    <string name="login">Логин</string>
+    <string name="login_hint">Введите логин</string>
+    <string name="password">Пароль</string>
+    <string name="password_hint">Введите пароль</string>
+    <string name="privacy_policy_confirm">Ознакомлен с Политикой обработки персональных данных и даю согласие…</string>
+    <string name="login_input_empty">Пожалуйста, заполните оба поля \"Логин\" и \"Пароль\"</string>
+    <string name="privacy_policy_confirm_error">Для продолжения использования приложения Вы должны принять условия соглашения и политики</string>
+
 </resources>

@@ -1,6 +1,9 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.kotlinVersion = "1.4.31"
+    ext.daggerVersion = '2.33'
+    ext.navigationVersion = "2.3.3"
+
     repositories {
         google()
         jcenter()
@@ -15,6 +18,9 @@ buildscript {
         // Firebase
         classpath 'com.google.gms:google-services:4.3.5'
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.5.1'
+
+        // Jetpack Navigation
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
     }
 }
 

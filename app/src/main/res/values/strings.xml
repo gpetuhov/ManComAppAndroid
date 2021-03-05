@@ -1,4 +1,27 @@
 <resources>
-    <string name="app_name" translatable="false">ManComApp</string>
+    <string name="app_name" translatable="false">Management Company</string>
     <string name="app_version">Version: %s</string>
+
+    <!-- WelcomeFragment -->
+    <string name="welcome_message">Welcome to\n%s</string>
+    <string name="enter">Enter</string>
+    <string name="get_credentials">Get credentials</string>
+    <string name="demo_version">Demo version</string>
+    <string name="copyright">Disclaimer, copyright etc.</string>
+
+    <!-- GetCredentialsFragment -->
+    <string name="get_credentials_info">Contact Management Company to get credentials. You can see working hours %s</string>
+    <string name="here">here</string>
+    <string name="get_credentials_schedule_url" translatable="false">https://www.google.com/</string>
+    <string name="back">Back</string>
+
+    <!-- LoginFragment -->
+    <string name="login">Login</string>
+    <string name="login_hint">Enter login</string>
+    <string name="password">Password</string>
+    <string name="password_hint">Enter password</string>
+    <string name="privacy_policy_confirm">I agree to Privacy Policy…</string>
+    <string name="login_input_empty">Please enter login and password</string>
+    <string name="privacy_policy_confirm_error">Accept Privacy Policy to continue using application</string>
+
 </resources>
