@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -45,16 +44,24 @@ class LoginFragment : Fragment() {
 
         viewModel.isLoginStarted.observe(viewLifecycleOwner, { isStarted ->
             if (isStarted) hideSoftKeyboard()
-            enableLoginButton(!isStarted)
+            enableControls(!isStarted)
             showProgress(isStarted)
         })
 
         viewModel.isLoginError.observe(viewLifecycleOwner, { errorMessage ->
             toast(errorMessage)
         })
+
+        viewModel.isLoginSuccess.observe(viewLifecycleOwner, { isSuccess ->
+            // TODO
+            toast("Login success")
+        })
     }
 
-    private fun enableLoginButton(isEnabled: Boolean) {
+    private fun enableControls(isEnabled: Boolean) {
+        login_input.isEnabled = isEnabled
+        password_input.isEnabled = isEnabled
+        privacy_policy_checkbox.isEnabled = isEnabled
         login_button.isEnabled = isEnabled
     }
 

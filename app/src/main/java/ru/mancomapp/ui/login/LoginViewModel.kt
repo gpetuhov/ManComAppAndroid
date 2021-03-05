@@ -1,9 +1,10 @@
 package ru.mancomapp.ui.login
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.*
 import ru.mancomapp.R
 import ru.mancomapp.application.App
 
@@ -17,6 +18,8 @@ class LoginViewModel : ViewModel() {
     private val isLoginSuccessLiveDataMutable = MutableLiveData<Boolean>()
     private val isLoginErrorLiveDataMutable = MutableLiveData<String>()
 
+    private var loginJob: Job? = null
+
     init {
         isLoginStarted = isLoginStartedLiveDataMutable
         isLoginSuccess = isLoginSuccessLiveDataMutable
@@ -27,8 +30,7 @@ class LoginViewModel : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-
-        // TODO: cancel login request here
+        loginJob?.cancel()
     }
 
     fun login(loginCredentials: LoginCredentials) {
@@ -45,6 +47,18 @@ class LoginViewModel : ViewModel() {
         }
 
         isLoginStartedLiveDataMutable.postValue(true)
+
+        loginJob = viewModelScope.launch(Dispatchers.IO) {
+            // TODO: implement
+            delay(5000)
+
+            val isSuccess = true
+
+            withContext(Dispatchers.Main) {
+                isLoginStartedLiveDataMutable.postValue(false)
+                isLoginSuccessLiveDataMutable.postValue(isSuccess)
+            }
+        }
     }
 
     class LoginCredentials {
