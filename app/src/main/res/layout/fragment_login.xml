@@ -94,11 +94,9 @@
         android:layout_marginTop="@dimen/layout_margin"
         android:text="@string/enter"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@id/copyright"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/privacy_policy_checkbox"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@id/privacy_policy_checkbox" />
 
     <TextView
         android:id="@+id/login_error"
@@ -115,6 +113,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_button" />
+
+    <ProgressBar
+        android:id="@+id/login_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginBottom="@dimen/layout_margin"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/copyright"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_error" />
 
     <TextView
         android:id="@+id/copyright"
