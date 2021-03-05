@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/welcome_text"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/layout_margin"
         android:layout_marginTop="@dimen/layout_margin"
@@ -19,13 +19,54 @@
         tools:text="Добро пожаловать в приложение" />
 
     <TextView
+        android:id="@+id/login_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layout_margin"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="@dimen/layout_margin"
+        android:text="@string/login"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/phone_number_email"-->
+    <!--        style="@style/RobotoLightBlack"-->
+    <!--        android:layout_width="@dimen/phone_email_edit_width"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="@dimen/layout_margin"-->
+    <!--        android:layout_marginTop="@dimen/phone_email_edit_margin_top"-->
+    <!--        android:layout_marginEnd="@dimen/layout_margin"-->
+    <!--        android:backgroundTint="@color/phone_sms_edit_underline"-->
+    <!--        android:gravity="center_horizontal"-->
+    <!--        android:hint="@string/phone_email_hint"-->
+    <!--        android:imeOptions="actionSearch"-->
+    <!--        android:inputType="textEmailAddress"-->
+    <!--        android:letterSpacing="-0.03"-->
+    <!--        android:lineSpacingExtra="2sp"-->
+    <!--        android:paddingBottom="@dimen/layout_margin"-->
+    <!--        android:singleLine="true"-->
+    <!--        android:textColorHighlight="@color/accept_rules_warning"-->
+    <!--        android:textCursorDrawable="@drawable/phone_edit_cursor"-->
+    <!--        android:textSize="@dimen/phone_sms_edit_text_size"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/phone_blocked"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/confirm_phone_email"-->
+    <!--        tools:ignore="TextFields" />-->
+
+
+    <TextView
         android:id="@+id/copyright"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/layout_margin"
         android:layout_marginEnd="@dimen/layout_margin"
         android:layout_marginBottom="@dimen/layout_margin"
         android:text="@string/copyright"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

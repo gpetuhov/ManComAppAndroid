@@ -14,4 +14,10 @@
     <string name="here">здесь</string>
     <string name="back">Назад</string>
 
+    <!-- LoginFragment -->
+    <string name="login">Логин</string>
+    <string name="login_hint">Введите логин</string>
+    <string name="password">Пароль</string>
+    <string name="password_hint">Введите пароль</string>
+
 </resources>

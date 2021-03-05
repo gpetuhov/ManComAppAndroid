@@ -15,5 +15,10 @@
     <string name="get_credentials_schedule_url" translatable="false">https://www.google.com/</string>
     <string name="back">Back</string>
 
+    <!-- LoginFragment -->
+    <string name="login">Login</string>
+    <string name="login_hint">Enter login</string>
+    <string name="password">Password</string>
+    <string name="password_hint">Enter password</string>
 
 </resources>
