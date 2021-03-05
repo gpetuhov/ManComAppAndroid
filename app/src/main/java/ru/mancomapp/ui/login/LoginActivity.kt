@@ -12,5 +12,5 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
     }
 
-    override fun onSupportNavigateUp() = findNavController(R.id.nav_host).navigateUp()
+    override fun onSupportNavigateUp() = findNavController(R.id.nav_host_login).navigateUp()
 }
