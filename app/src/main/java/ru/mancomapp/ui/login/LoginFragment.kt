@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_login.*
 import ru.mancomapp.R
+import ru.mancomapp.util.extensions.toast
 
 class LoginFragment : Fragment() {
 
@@ -18,5 +19,12 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         welcome_text.text = getString(R.string.welcome_message, getString(R.string.app_name))
+
+        login_button.setOnClickListener { onLoginButtonClick() }
+    }
+
+    private fun onLoginButtonClick() {
+        // TODO
+        toast("Login")
     }
 }
