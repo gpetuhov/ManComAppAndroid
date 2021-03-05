@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_login.*
 import ru.mancomapp.R
+import ru.mancomapp.util.extensions.setVisible
 import ru.mancomapp.util.extensions.toast
 
 class LoginFragment : Fragment() {
@@ -45,15 +45,27 @@ class LoginFragment : Fragment() {
     }
 
     private fun onLoginButtonClick() {
-        // TODO
-        toast("Login")
+        viewModel.login()
     }
 
     private fun subscribeViewModel() {
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-        viewModel.isLoginEnabledLiveData.observe(viewLifecycleOwner, Observer { isEnabled ->
+        viewModel.isLoginEnabledLiveData.observe(viewLifecycleOwner, { isEnabled ->
             login_button.isEnabled = isEnabled
         })
+
+        viewModel.isLoginStarted.observe(viewLifecycleOwner, { isStarted ->
+            enableLoginButton(!isStarted)
+            showProgress(isStarted)
+        })
+    }
+
+    private fun enableLoginButton(isEnabled: Boolean) {
+        login_button.isEnabled = isEnabled
+    }
+
+    private fun showProgress(isVisible: Boolean) {
+        login_progress.setVisible(isVisible)
     }
 }

@@ -7,8 +7,14 @@ import androidx.lifecycle.ViewModel
 class LoginViewModel : ViewModel() {
 
     var isLoginEnabledLiveData: LiveData<Boolean>
+    var isLoginStarted: LiveData<Boolean>
+    var isLoginSuccess: LiveData<Boolean>
+    var isLoginError: LiveData<String>
 
     private val isLoginEnabledLiveDataMutable = MutableLiveData<Boolean>()
+    private val isLoginStartedLiveDataMutable = MutableLiveData<Boolean>()
+    private val isLoginSuccessLiveDataMutable = MutableLiveData<Boolean>()
+    private val isLoginErrorLiveDataMutable = MutableLiveData<String>()
 
     private var login = ""
     private var password = ""
@@ -16,7 +22,16 @@ class LoginViewModel : ViewModel() {
 
     init {
         isLoginEnabledLiveData = isLoginEnabledLiveDataMutable
+        isLoginStarted = isLoginStartedLiveDataMutable
+        isLoginSuccess = isLoginSuccessLiveDataMutable
+        isLoginError = isLoginErrorLiveDataMutable
+
+        isLoginStartedLiveDataMutable.postValue(false)
         updateLoginButton()
+    }
+
+    fun login() {
+        isLoginStartedLiveDataMutable.postValue(true)
     }
 
     override fun onCleared() {
