@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_login.*
 import ru.mancomapp.R
+import ru.mancomapp.util.extensions.hideSoftKeyboard
 import ru.mancomapp.util.extensions.setVisible
 import ru.mancomapp.util.extensions.toast
 
@@ -43,6 +44,7 @@ class LoginFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         viewModel.isLoginStarted.observe(viewLifecycleOwner, { isStarted ->
+            if (isStarted) hideSoftKeyboard()
             enableLoginButton(!isStarted)
             showProgress(isStarted)
         })
