@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -22,11 +23,25 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        welcome_text.text = getString(R.string.welcome_message, getString(R.string.app_name))
-
-        login_button.setOnClickListener { onLoginButtonClick() }
-
         subscribeViewModel()
+        initInputs()
+
+        welcome_text.text = getString(R.string.welcome_message, getString(R.string.app_name))
+        login_button.setOnClickListener { onLoginButtonClick() }
+    }
+
+    private fun initInputs() {
+        login_input.doOnTextChanged { text, start, before, count ->
+            viewModel.onLoginChanged(text.toString())
+        }
+
+        password_input.doOnTextChanged { text, start, before, count ->
+            viewModel.onPasswordChanged(text.toString())
+        }
+
+        privacy_policy_checkbox.setOnCheckedChangeListener { buttonView, isChecked ->
+            viewModel.onPrivacyPolicyConfirmChanged(isChecked)
+        }
     }
 
     private fun onLoginButtonClick() {

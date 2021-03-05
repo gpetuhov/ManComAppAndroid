@@ -30,6 +30,16 @@ class LoginViewModel : ViewModel() {
         updateLoginButton()
     }
 
+    fun onPasswordChanged(password: String) {
+        this.password = password
+        updateLoginButton()
+    }
+
+    fun onPrivacyPolicyConfirmChanged(isConfirmed: Boolean) {
+        isPrivacyPolicyConfirmed = isConfirmed
+        updateLoginButton()
+    }
+
     private fun updateLoginButton() {
         val isEnabled = login.isNotEmpty() && password.isNotEmpty() && isPrivacyPolicyConfirmed
         isLoginEnabledLiveDataMutable.postValue(isEnabled)
