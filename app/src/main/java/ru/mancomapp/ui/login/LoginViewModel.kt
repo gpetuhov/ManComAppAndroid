@@ -38,6 +38,12 @@ class LoginViewModel : ViewModel() {
             return
         }
 
+        if (!loginCredentials.isPrivacyPolicyConfirmed) {
+            val errorMessage = App.application.getString(R.string.privacy_policy_confirm_error)
+            isLoginErrorLiveDataMutable.postValue(errorMessage)
+            return
+        }
+
         isLoginStartedLiveDataMutable.postValue(true)
     }
 
