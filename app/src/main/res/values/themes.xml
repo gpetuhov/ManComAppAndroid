@@ -19,4 +19,9 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <style name="AppTheme.MainActivity" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/md_white_1000</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
 </resources>
