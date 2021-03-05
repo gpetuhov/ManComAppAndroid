@@ -1,10 +1,9 @@
 <resources>
-    <string name="app_name" translatable="false">ManComApp</string>
+    <string name="app_name" translatable="false">Management Company</string>
     <string name="app_version">Version: %s</string>
 
     <!-- WelcomeFragment -->
     <string name="welcome_message">Welcome to\n%s</string>
-    <string name="visible_app_name" translatable="false">Management Company Application</string>
     <string name="enter">Enter</string>
     <string name="get_credentials">Get credentials</string>
     <string name="demo_version">Demo version</string>

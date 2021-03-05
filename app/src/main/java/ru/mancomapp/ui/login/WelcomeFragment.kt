@@ -22,7 +22,7 @@ class WelcomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        welcome_text.text = getString(R.string.welcome_message, getString(R.string.visible_app_name))
+        welcome_text.text = getString(R.string.welcome_message, getString(R.string.app_name))
         app_version.text = getString(R.string.app_version, BuildConfig.VERSION_NAME)
 
         enter_button.setOnClickListener { navigateToLoginFragment() }

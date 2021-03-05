@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">AlconManagementApp</string>
-
-    <!-- WelcomeFragment -->
-    <string name="visible_app_name" translatable="false">Alcon Management</string>
+    <string name="app_name" translatable="false">Alcon Management</string>
 
     <!-- GetCredentialsFragment -->
     <!-- TODO: change this -->
