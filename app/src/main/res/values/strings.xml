@@ -13,6 +13,7 @@
     <string name="get_credentials_info">Contact Management Company to get credentials. You can see working hours %s</string>
     <string name="here">here</string>
     <string name="get_credentials_schedule_url" translatable="false">https://www.google.com/</string>
+    <string name="back">Back</string>
 
 
 </resources>

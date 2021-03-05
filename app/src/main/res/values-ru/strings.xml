@@ -12,5 +12,6 @@
     <!-- GetCredentialsFragment -->
     <string name="get_credentials_info">Для получения логина и пароля обратитесь в управляющую компанию. С графиком работы можете ознакомиться %s</string>
     <string name="here">здесь</string>
+    <string name="back">Назад</string>
 
 </resources>
