@@ -5,4 +5,8 @@
     <!-- WelcomeFragment -->
     <string name="visible_app_name" translatable="false">Alcon Management</string>
 
+    <!-- GetCredentialsFragment -->
+    <!-- TODO: change this -->
+    <string name="get_credentials_schedule_url" translatable="false">https://www.google.com/</string>
+
 </resources>
