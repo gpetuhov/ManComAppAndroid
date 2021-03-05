@@ -21,5 +21,6 @@
     <string name="password_hint">Введите пароль</string>
     <string name="privacy_policy_confirm">Ознакомлен с Политикой обработки персональных данных и даю согласие…</string>
     <string name="login_error">Login error</string>
+    <string name="login_input_empty">Пожалуйста, заполните оба поля \"Логин\" и \"Пароль\"</string>
 
 </resources>

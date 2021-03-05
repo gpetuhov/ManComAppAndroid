@@ -1,8 +1,11 @@
 package ru.mancomapp.ui.login
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import ru.mancomapp.R
+import ru.mancomapp.application.App
 
 class LoginViewModel : ViewModel() {
 
@@ -30,8 +33,8 @@ class LoginViewModel : ViewModel() {
 
     fun login(loginCredentials: LoginCredentials) {
         if (loginCredentials.isEmpty()) {
-            // TODO: change this
-            isLoginErrorLiveDataMutable.postValue("Empty")
+            val errorMessage = App.application.getString(R.string.login_input_empty)
+            isLoginErrorLiveDataMutable.postValue(errorMessage)
             return
         }
 

@@ -22,5 +22,6 @@
     <string name="password_hint">Enter password</string>
     <string name="privacy_policy_confirm">I agree to Privacy Policy…</string>
     <string name="login_error">Login error</string>
+    <string name="login_input_empty">Please enter login and password</string>
 
 </resources>
