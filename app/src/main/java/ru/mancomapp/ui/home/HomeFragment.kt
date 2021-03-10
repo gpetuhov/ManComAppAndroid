@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_home.*
 import ru.mancomapp.R
-import ru.mancomapp.util.extensions.toast
 
 class HomeFragment : Fragment() {
 
@@ -17,20 +18,27 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        request_button.setOnClickListener { navigateToRequestsFragment() }
+        security_button.setOnClickListener { navigateToSecurityFragment() }
+        payments_button.setOnClickListener { navigateToPaymentsFragment() }
+    }
 
-        request_button.setOnClickListener {
-            // TODO
-            toast(R.string.management_company_requests)
-        }
+    private fun navigateToRequestsFragment() {
+        val action = HomeFragmentDirections.actionHomeFragmentToRequestsFragment()
+        navigate(action)
+    }
 
-        security_button.setOnClickListener {
-            // TODO
-            toast(R.string.pass_and_security)
-        }
+    private fun navigateToSecurityFragment() {
+        val action = HomeFragmentDirections.actionHomeFragmentToSecurityFragment()
+        navigate(action)
+    }
 
-        payments_button.setOnClickListener {
-            // TODO
-            toast(R.string.payments)
-        }
+    private fun navigateToPaymentsFragment() {
+        val action = HomeFragmentDirections.actionHomeFragmentToPaymentsFragment()
+        navigate(action)
+    }
+
+    private fun navigate(action: NavDirections) {
+        findNavController().navigate(action)
     }
 }
