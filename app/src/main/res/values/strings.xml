@@ -33,5 +33,6 @@
     <!-- Requests fragment -->
     <string name="write_feedback">Feedback</string>
     <string name="order_service">Order service</string>
+    <string name="requests_history">Requests history</string>
 
 </resources>
