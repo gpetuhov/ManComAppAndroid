@@ -17,6 +17,9 @@ class RequestsViewModel : ViewModel() {
     private var isRequestHistoryErrorMutable = MutableLiveData<String>()
     private var requestHistoryMutable = MutableLiveData<List<Request>>()
 
+    private var isRequestHistoryLoaded = false
+    private var isRequestHistoryLoadingStarted = false
+
     private var loadRequestHistoryJob: Job? = null
 
     init {
@@ -31,18 +34,24 @@ class RequestsViewModel : ViewModel() {
     }
 
     fun loadRequestHistory() {
-        isRequestHistoryLoadingMutable.postValue(true)
+        if (!isRequestHistoryLoaded && !isRequestHistoryLoadingStarted) {
+            isRequestHistoryLoadingStarted = true
+            isRequestHistoryLoadingMutable.postValue(true)
 
-        loadRequestHistoryJob = viewModelScope.launch(Dispatchers.IO) {
-            // TODO: implement
-            delay(5000)
-            val requests = getDummyRequests()
+            loadRequestHistoryJob = viewModelScope.launch(Dispatchers.IO) {
+                // TODO: implement
+                delay(5000)
+                val requests = getDummyRequests()
 
-            // TODO: handle load error and no network (server unavailable)
+                // TODO: handle load error and no network (server unavailable)
 
-            withContext(Dispatchers.Main) {
-                isRequestHistoryLoadingMutable.postValue(false)
-                requestHistoryMutable.postValue(requests)
+                isRequestHistoryLoaded = true
+                isRequestHistoryLoadingStarted = false
+
+                withContext(Dispatchers.Main) {
+                    isRequestHistoryLoadingMutable.postValue(false)
+                    requestHistoryMutable.postValue(requests)
+                }
             }
         }
     }
