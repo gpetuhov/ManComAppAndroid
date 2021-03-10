@@ -29,4 +29,10 @@
     <string name="pass_and_security">Заказ пропусков и служба безопасности</string>
     <string name="payments">Начисления и платежи</string>
 
+    <!-- Requests fragment -->
+    <string name="write_feedback">Написать обращение</string>
+    <string name="order_service">Заказать услугу</string>
+    <string name="requests_history">История обращений</string>
+    <string name="requests_empty">Заявки отсутствуют</string>
+
 </resources>
