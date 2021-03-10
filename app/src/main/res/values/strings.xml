@@ -30,4 +30,8 @@
     <string name="pass_and_security">Passes and security</string>
     <string name="payments">Payments</string>
 
+    <!-- Requests fragment -->
+    <string name="write_feedback">Feedback</string>
+    <string name="order_service">Order service</string>
+
 </resources>
