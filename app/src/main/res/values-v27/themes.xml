@@ -15,6 +15,8 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">@color/md_white_1000</item>
         <item name="android:windowLightNavigationBar">true</item>
+        <item name="colorSecondary">@color/md_blue_600</item>
+        <item name="colorSecondaryVariant">@color/md_blue_900</item>
     </style>
 
 </resources>

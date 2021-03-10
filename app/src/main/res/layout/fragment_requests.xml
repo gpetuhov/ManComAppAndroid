@@ -74,4 +74,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/requests_history" />
 
+    <ProgressBar
+        android:id="@+id/load_requests_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginBottom="@dimen/layout_margin"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/requests_history" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_requests.*
 import ru.mancomapp.R
 import ru.mancomapp.models.Request
+import ru.mancomapp.util.extensions.setVisible
 import ru.mancomapp.util.extensions.toast
 
 class RequestsFragment : Fragment() {
@@ -49,10 +50,7 @@ class RequestsFragment : Fragment() {
     private fun subscribeViewModel() {
         viewModel = ViewModelProvider(this).get(RequestsViewModel::class.java)
 
-        viewModel.isRequestHistoryLoading.observe(viewLifecycleOwner, { isLoading ->
-            // TODO
-            if (isLoading) toast("Loading")
-        })
+        viewModel.isRequestHistoryLoading.observe(viewLifecycleOwner, { isLoading -> showProgress(isLoading) })
 
         viewModel.isRequestHistoryError.observe(viewLifecycleOwner, { errorMessage -> toast(errorMessage) })
 
@@ -71,5 +69,9 @@ class RequestsFragment : Fragment() {
             // TODO: show recycler, hide stub
             requestsAdapter.submitList(requests)
         }
+    }
+
+    private fun showProgress(isVisible: Boolean) {
+        load_requests_progress.setVisible(isVisible)
     }
 }
