@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_requests.*
 import ru.mancomapp.R
+import ru.mancomapp.util.extensions.toast
 
 class RequestsFragment : Fragment() {
 
@@ -18,6 +19,16 @@ class RequestsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         back_button.setOnClickListener { navigateUp() }
+
+        feedback_button.setOnClickListener {
+            // TODO
+            toast(R.string.write_feedback)
+        }
+
+        service_button.setOnClickListener {
+            // TODO
+            toast(R.string.order_service)
+        }
     }
 
     private fun navigateUp() {
