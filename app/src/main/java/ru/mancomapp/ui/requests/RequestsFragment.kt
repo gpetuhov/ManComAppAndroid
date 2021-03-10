@@ -49,29 +49,30 @@ class RequestsFragment : Fragment() {
 
     private fun subscribeViewModel() {
         viewModel = ViewModelProvider(this).get(RequestsViewModel::class.java)
-
         viewModel.isRequestHistoryLoading.observe(viewLifecycleOwner, { isLoading -> showProgress(isLoading) })
-
         viewModel.isRequestHistoryError.observe(viewLifecycleOwner, { errorMessage -> toast(errorMessage) })
-
-        viewModel.requestHistory.observe(viewLifecycleOwner, { requests -> updateRequests(requests) })
+        viewModel.requestHistory.observe(viewLifecycleOwner, { requests -> updateRequestsUI(requests) })
     }
 
     private fun navigateUp() {
         findNavController().navigateUp()
     }
 
-    private fun updateRequests(requests: List<Request>) {
-        if (requests.isEmpty()) {
-            // TODO: hide recycler, show stub
-            toast("Empty")
-        } else {
-            // TODO: show recycler, hide stub
-            requestsAdapter.submitList(requests)
-        }
+    private fun updateRequestsUI(requests: List<Request>) {
+        requestsAdapter.submitList(requests)
+        showRequests(requests.isNotEmpty())
+        showRequestsEmpty(requests.isEmpty())
     }
 
     private fun showProgress(isVisible: Boolean) {
         load_requests_progress.setVisible(isVisible)
+    }
+
+    private fun showRequests(isVisible: Boolean) {
+        requests_list.setVisible(isVisible)
+    }
+
+    private fun showRequestsEmpty(isVisible: Boolean) {
+        requests_empty.setVisible(isVisible)
     }
 }
