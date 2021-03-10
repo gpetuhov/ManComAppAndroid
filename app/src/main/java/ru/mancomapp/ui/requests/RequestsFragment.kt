@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,19 +27,12 @@ class RequestsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        back_button.setOnClickListener { navigateUp() }
 
         subscribeViewModel()
 
-        feedback_button.setOnClickListener {
-            // TODO
-            toast(R.string.write_feedback)
-        }
-
-        service_button.setOnClickListener {
-            // TODO
-            toast(R.string.order_service)
-        }
+        back_button.setOnClickListener { navigateUp() }
+        feedback_button.setOnClickListener { navigateToFeedbackFragment() }
+        service_button.setOnClickListener { navigateToServiceFragment() }
 
         requests_list.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         requestsAdapter = RequestsAdapter()
@@ -74,5 +68,19 @@ class RequestsFragment : Fragment() {
 
     private fun showRequestsEmpty(isVisible: Boolean) {
         requests_empty.setVisible(isVisible)
+    }
+
+    private fun navigateToFeedbackFragment() {
+        val action = RequestsFragmentDirections.actionRequestsFragmentToFeedbackFragment()
+        navigate(action)
+    }
+
+    private fun navigateToServiceFragment() {
+        val action = RequestsFragmentDirections.actionRequestsFragmentToServiceFragment()
+        navigate(action)
+    }
+
+    private fun navigate(action: NavDirections) {
+        findNavController().navigate(action)
     }
 }
