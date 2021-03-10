@@ -1,3 +1,6 @@
 package ru.mancomapp.models
 
-data class Request(val name: String)
+data class Request(
+    val id: Int,
+    val name: String
+)

@@ -51,9 +51,9 @@ class RequestsFragment : Fragment() {
         val requests = mutableListOf<Request>()
 
         (1..100).forEach {
-            requests.add(Request("Заявка $it"))
+            requests.add(Request(it, "Заявка $it"))
         }
 
-        requestsAdapter.setRequestList(requests)
+        requestsAdapter.submitList(requests)
     }
 }
