@@ -41,5 +41,6 @@
     <string name="feedback_hint">Введите Ваше обращение</string>
     <string name="add_files">Добавьте до 5 файлов (jpeg, pdf)</string>
     <string name="send">Отправить</string>
+    <string name="feedback_empty_error">Тема или обращение не заполнено</string>
 
 </resources>

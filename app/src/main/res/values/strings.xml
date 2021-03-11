@@ -42,5 +42,6 @@
     <string name="feedback_hint">Enter your feedback</string>
     <string name="add_files">Attach up to 5 files (jpeg, pdf)</string>
     <string name="send">Send</string>
+    <string name="feedback_empty_error">Title or content is empty</string>
 
 </resources>
