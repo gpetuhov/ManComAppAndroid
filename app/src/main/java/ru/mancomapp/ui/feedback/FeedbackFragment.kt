@@ -1,5 +1,7 @@
 package ru.mancomapp.ui.feedback
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,6 +36,17 @@ class FeedbackFragment : Fragment() {
         back_button.setOnClickListener { navigateUp() }
         add_files_button.setOnClickListener { onAddFilesButtonClick() }
         feedback_send_button.setOnClickListener { onSendButtonClick() }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == RC_PICKER && resultCode == Activity.RESULT_OK) {
+            val fileUri  = data?.data
+
+            // TODO
+            toast(fileUri.toString())
+        }
     }
 
     private fun subscribeViewModel() {
