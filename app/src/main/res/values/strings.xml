@@ -41,5 +41,6 @@
     <string name="feedback_title">Feedback title</string>
     <string name="feedback_hint">Enter your feedback</string>
     <string name="add_files">Attach up to 5 files (jpeg, pdf)</string>
+    <string name="send">Send</string>
 
 </resources>

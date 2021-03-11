@@ -40,5 +40,6 @@
     <string name="feedback_title">Тема обращения</string>
     <string name="feedback_hint">Введите Ваше обращение</string>
     <string name="add_files">Добавьте до 5 файлов (jpeg, pdf)</string>
+    <string name="send">Отправить</string>
 
 </resources>

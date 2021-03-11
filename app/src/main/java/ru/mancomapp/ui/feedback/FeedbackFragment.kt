@@ -24,6 +24,11 @@ class FeedbackFragment : Fragment() {
             // TODO
             toast("Add files")
         }
+
+        feedback_send_button.setOnClickListener {
+            // TODO
+            toast("Send feedback")
+        }
     }
 
     private fun navigateUp() {
