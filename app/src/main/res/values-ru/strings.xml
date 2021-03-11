@@ -43,5 +43,7 @@
     <string name="send">Отправить</string>
     <string name="feedback_empty_error">Тема или обращение не заполнено</string>
     <string name="feedback_send_success">Заявка отправлена в УК, Вы сможете отслеживать статус заявки в разделе \"История обращений\"</string>
+    <string name="complete_action_using">Завершить действие с использованием</string>
+    <string name="add_file_error">Ошибка выбора файла</string>
 
 </resources>

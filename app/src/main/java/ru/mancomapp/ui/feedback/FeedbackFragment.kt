@@ -1,6 +1,5 @@
 package ru.mancomapp.ui.feedback
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,12 +9,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_feedback.*
 import ru.mancomapp.R
-import ru.mancomapp.ui.MainActivity
 import ru.mancomapp.util.extensions.hideSoftKeyboard
 import ru.mancomapp.util.extensions.setVisible
+import ru.mancomapp.util.extensions.startPicker
 import ru.mancomapp.util.extensions.toast
 
 class FeedbackFragment : Fragment() {
+
+    companion object {
+        private const val RC_PICKER = 1001
+    }
 
     private lateinit var viewModel: FeedbackViewModel
 
@@ -29,12 +32,7 @@ class FeedbackFragment : Fragment() {
         subscribeViewModel()
 
         back_button.setOnClickListener { navigateUp() }
-
-        add_files_button.setOnClickListener {
-            // TODO
-            toast("Add files")
-        }
-
+        add_files_button.setOnClickListener { onAddFilesButtonClick() }
         feedback_send_button.setOnClickListener { onSendButtonClick() }
     }
 
@@ -72,6 +70,8 @@ class FeedbackFragment : Fragment() {
     private fun navigateUp() {
         findNavController().navigateUp()
     }
+
+    private fun onAddFilesButtonClick() = startPicker(RC_PICKER)
 
     private fun onSendButtonClick() {
         val feedback = FeedbackViewModel.Feedback().apply {
