@@ -11,11 +11,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_feedback.*
 import ru.mancomapp.R
+import ru.mancomapp.models.Attachment
 import ru.mancomapp.util.extensions.hideSoftKeyboard
 import ru.mancomapp.util.extensions.setVisible
 import ru.mancomapp.util.extensions.startPicker
 import ru.mancomapp.util.extensions.toast
-import ru.mancomapp.util.getFileName
 
 class FeedbackFragment : Fragment() {
 
@@ -44,9 +44,7 @@ class FeedbackFragment : Fragment() {
 
         if (requestCode == RC_PICKER && resultCode == Activity.RESULT_OK) {
             val fileUri  = data?.data
-
-            // TODO
-            fileUri?.let { toast(getFileName(requireContext(), fileUri) ?: "") }
+            viewModel.addAttachment(fileUri)
         }
     }
 
@@ -55,6 +53,7 @@ class FeedbackFragment : Fragment() {
         viewModel.isSendStarted.observe(viewLifecycleOwner, { isStarted -> onSendStarted(isStarted) })
         viewModel.isSendError.observe(viewLifecycleOwner, { errorMessage -> toast(errorMessage) })
         viewModel.isSendSuccess.observe(viewLifecycleOwner, { isSuccess -> onSendSuccess(isSuccess) })
+        viewModel.attachments.observe(viewLifecycleOwner, { attachments -> updateAttachmentsUI(attachments) })
     }
 
     private fun onSendStarted(isStarted: Boolean) {
@@ -83,6 +82,11 @@ class FeedbackFragment : Fragment() {
 
     private fun navigateUp() {
         findNavController().navigateUp()
+    }
+
+    private fun updateAttachmentsUI(attachments: List<Attachment>) {
+        // TODO
+        toast("Attachments count = ${attachments.size}")
     }
 
     private fun onAddFilesButtonClick() = startPicker(RC_PICKER)

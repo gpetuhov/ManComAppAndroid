@@ -1,5 +1,6 @@
 package ru.mancomapp.ui.feedback
 
+import android.net.Uri
 import androidx.annotation.StringRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,28 +9,43 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import ru.mancomapp.R
 import ru.mancomapp.application.App
+import ru.mancomapp.models.Attachment
+import ru.mancomapp.util.getFileName
 
 class FeedbackViewModel : ViewModel() {
 
     var isSendStarted: LiveData<Boolean>
     var isSendSuccess: LiveData<Boolean>
     var isSendError: LiveData<String>
+    var attachments: LiveData<List<Attachment>>
 
     private val isSendStartedLiveDataMutable = MutableLiveData<Boolean>()
     private val isSendSuccessLiveDataMutable = MutableLiveData<Boolean>()
     private val isSendErrorLiveDataMutable = MutableLiveData<String>()
+    private val attachmentsLiveDataMutable = MutableLiveData<List<Attachment>>()
 
     private var sendJob: Job? = null
+    private val attachmentsList = mutableListOf<Attachment>()
 
     init {
         isSendStarted = isSendStartedLiveDataMutable
         isSendSuccess = isSendSuccessLiveDataMutable
         isSendError = isSendErrorLiveDataMutable
+        attachments = attachmentsLiveDataMutable
     }
 
     override fun onCleared() {
         super.onCleared()
         sendJob?.cancel()
+    }
+
+    fun addAttachment(uri: Uri?) {
+        uri?.let {
+            val fileName = getFileName(App.application.applicationContext, uri) ?: ""
+            val attachment = Attachment(uri, fileName)
+            attachmentsList.add(attachment)
+            attachmentsLiveDataMutable.postValue(attachmentsList)
+        }
     }
 
     fun send(feedback: Feedback) {
@@ -65,8 +81,6 @@ class FeedbackViewModel : ViewModel() {
     class Feedback {
         var title: String = ""
         var content: String = ""
-
-        // TODO: add files list
 
         fun isEmpty() = title.isEmpty() || content.isEmpty()
     }
