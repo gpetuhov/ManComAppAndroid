@@ -44,7 +44,10 @@ class FeedbackViewModel : ViewModel() {
             val fileName = getFileName(App.application.applicationContext, uri) ?: ""
             val attachment = Attachment(uri, fileName)
             attachmentsList.add(attachment)
-            attachmentsLiveDataMutable.postValue(attachmentsList)
+
+            val newAttachments = mutableListOf<Attachment>()
+            newAttachments.addAll(attachmentsList)
+            attachmentsLiveDataMutable.postValue(newAttachments)
         }
     }
 

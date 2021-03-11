@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_feedback.*
 import ru.mancomapp.R
 import ru.mancomapp.models.Attachment
@@ -24,6 +26,7 @@ class FeedbackFragment : Fragment() {
     }
 
     private lateinit var viewModel: FeedbackViewModel
+    private lateinit var attachmentsAdapter: AttachmentsAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_feedback, container, false)
@@ -37,6 +40,11 @@ class FeedbackFragment : Fragment() {
         back_button.setOnClickListener { navigateUp() }
         add_files_button.setOnClickListener { onAddFilesButtonClick() }
         feedback_send_button.setOnClickListener { onSendButtonClick() }
+
+        files_list.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        files_list.isNestedScrollingEnabled = false
+        attachmentsAdapter = AttachmentsAdapter()
+        files_list.adapter = attachmentsAdapter
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -85,8 +93,9 @@ class FeedbackFragment : Fragment() {
     }
 
     private fun updateAttachmentsUI(attachments: List<Attachment>) {
-        // TODO
-        toast("Attachments count = ${attachments.size}")
+        attachmentsAdapter.submitList(attachments)
+
+        // TODO: disable add file button
     }
 
     private fun onAddFilesButtonClick() = startPicker(RC_PICKER)
@@ -95,8 +104,6 @@ class FeedbackFragment : Fragment() {
         val feedback = FeedbackViewModel.Feedback().apply {
             title = feedback_title_input.text.toString()
             content = feedback_content_input.text.toString()
-
-            // TODO: add files list
         }
 
         viewModel.send(feedback)
