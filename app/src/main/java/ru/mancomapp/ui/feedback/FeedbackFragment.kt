@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_feedback.*
-import kotlinx.android.synthetic.main.fragment_login.*
 import ru.mancomapp.R
 import ru.mancomapp.util.extensions.hideSoftKeyboard
 import ru.mancomapp.util.extensions.setVisible
@@ -50,11 +49,19 @@ class FeedbackFragment : Fragment() {
 
     private fun onSendStarted(isStarted: Boolean) {
         if (isStarted) hideSoftKeyboard()
-
-        // TODO
-//        enableControls(!isStarted)
-
+        enableControls(!isStarted)
         showProgress(isStarted)
+    }
+
+    private fun enableControls(isEnabled: Boolean) {
+        feedback_title_input.isEnabled = isEnabled
+        feedback_content_input.isEnabled = isEnabled
+        add_files_button.isEnabled = isEnabled
+        feedback_send_button.isEnabled = isEnabled
+    }
+
+    private fun showProgress(isVisible: Boolean) {
+        feedback_send_progress.setVisible(isVisible)
     }
 
     private fun onSendSuccess(isStarted: Boolean) {
@@ -71,9 +78,5 @@ class FeedbackFragment : Fragment() {
         }
 
         viewModel.send(feedback)
-    }
-
-    private fun showProgress(isVisible: Boolean) {
-        feedback_send_progress.setVisible(isVisible)
     }
 }
