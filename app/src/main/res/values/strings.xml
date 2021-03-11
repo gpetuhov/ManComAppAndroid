@@ -43,5 +43,6 @@
     <string name="add_files">Attach up to 5 files (jpeg, pdf)</string>
     <string name="send">Send</string>
     <string name="feedback_empty_error">Title or content is empty</string>
+    <string name="feedback_send_success">Feedback sent successfully</string>
 
 </resources>

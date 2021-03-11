@@ -63,7 +63,10 @@ class FeedbackFragment : Fragment() {
     }
 
     private fun onSendSuccess(isSuccess: Boolean) {
-        if (isSuccess) navigateUp()
+        if (isSuccess) {
+            toast(R.string.feedback_send_success)
+            navigateUp()
+        }
     }
 
     private fun navigateUp() {
