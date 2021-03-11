@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_feedback.*
 import ru.mancomapp.R
+import ru.mancomapp.util.extensions.toast
 
 class FeedbackFragment : Fragment() {
 
@@ -18,6 +19,11 @@ class FeedbackFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         back_button.setOnClickListener { navigateUp() }
+
+        add_files_button.setOnClickListener {
+            // TODO
+            toast("Add files")
+        }
     }
 
     private fun navigateUp() {
