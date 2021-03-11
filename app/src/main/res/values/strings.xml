@@ -36,4 +36,16 @@
     <string name="requests_history">Requests history</string>
     <string name="requests_empty">No requests</string>
 
+    <!-- Feedback fragment -->
+    <string name="new_feedback">New feedback</string>
+    <string name="feedback_title">Feedback title</string>
+    <string name="feedback_hint">Enter your feedback</string>
+    <string name="add_files">Attach up to 5 files (jpeg, pdf)</string>
+    <string name="send">Send</string>
+    <string name="feedback_empty_error">Title or content is empty</string>
+    <string name="feedback_send_success">Feedback sent successfully</string>
+    <string name="complete_action_using">Complete action using</string>
+    <string name="add_file_error">Add file error</string>
+    <string name="max_files_error">Already added maximum number of files</string>
+
 </resources>
