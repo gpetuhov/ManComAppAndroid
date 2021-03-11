@@ -8,7 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_feedback.*
+import kotlinx.android.synthetic.main.fragment_login.*
 import ru.mancomapp.R
+import ru.mancomapp.util.extensions.hideSoftKeyboard
+import ru.mancomapp.util.extensions.setVisible
 import ru.mancomapp.util.extensions.toast
 
 class FeedbackFragment : Fragment() {
@@ -34,6 +37,10 @@ class FeedbackFragment : Fragment() {
         feedback_send_button.setOnClickListener { onSendButtonClick() }
     }
 
+    private fun navigateUp() {
+        findNavController().navigateUp()
+    }
+
     private fun subscribeViewModel() {
         viewModel = ViewModelProvider(this).get(FeedbackViewModel::class.java)
         viewModel.isSendStarted.observe(viewLifecycleOwner, { isStarted -> onSendStarted(isStarted) })
@@ -42,8 +49,12 @@ class FeedbackFragment : Fragment() {
     }
 
     private fun onSendStarted(isStarted: Boolean) {
+        if (isStarted) hideSoftKeyboard()
+
         // TODO
-        toast("Send started")
+//        enableControls(!isStarted)
+
+        showProgress(isStarted)
     }
 
     private fun onSendSuccess(isStarted: Boolean) {
@@ -62,7 +73,7 @@ class FeedbackFragment : Fragment() {
         viewModel.send(feedback)
     }
 
-    private fun navigateUp() {
-        findNavController().navigateUp()
+    private fun showProgress(isVisible: Boolean) {
+        feedback_send_progress.setVisible(isVisible)
     }
 }
