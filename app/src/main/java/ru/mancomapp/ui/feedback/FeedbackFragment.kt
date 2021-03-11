@@ -92,13 +92,16 @@ class FeedbackFragment : Fragment() {
         findNavController().navigateUp()
     }
 
-    private fun updateAttachmentsUI(attachments: List<Attachment>) {
+    private fun updateAttachmentsUI(attachments: List<Attachment>) =
         attachmentsAdapter.submitList(attachments)
 
-        // TODO: disable add file button
+    private fun onAddFilesButtonClick() {
+        if (viewModel.isAddAttachmentsAllowed()) {
+            startPicker(RC_PICKER)
+        } else {
+            toast(R.string.max_files_error)
+        }
     }
-
-    private fun onAddFilesButtonClick() = startPicker(RC_PICKER)
 
     private fun onSendButtonClick() {
         val feedback = FeedbackViewModel.Feedback().apply {

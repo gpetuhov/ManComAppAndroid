@@ -46,5 +46,6 @@
     <string name="feedback_send_success">Feedback sent successfully</string>
     <string name="complete_action_using">Complete action using</string>
     <string name="add_file_error">Add file error</string>
+    <string name="max_files_error">Already added maximum number of files</string>
 
 </resources>
