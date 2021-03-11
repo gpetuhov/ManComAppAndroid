@@ -2,9 +2,7 @@ package ru.mancomapp.ui.feedback
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.provider.OpenableColumns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +15,7 @@ import ru.mancomapp.util.extensions.hideSoftKeyboard
 import ru.mancomapp.util.extensions.setVisible
 import ru.mancomapp.util.extensions.startPicker
 import ru.mancomapp.util.extensions.toast
+import ru.mancomapp.util.getFileName
 
 class FeedbackFragment : Fragment() {
 
@@ -47,7 +46,7 @@ class FeedbackFragment : Fragment() {
             val fileUri  = data?.data
 
             // TODO
-            fileUri?.let { toast(getFileName(fileUri) ?: "") }
+            fileUri?.let { toast(getFileName(requireContext(), fileUri) ?: "") }
         }
     }
 
@@ -97,26 +96,5 @@ class FeedbackFragment : Fragment() {
         }
 
         viewModel.send(feedback)
-    }
-
-    // TODO: refactor this into separate class
-    private fun getFileName(uri: Uri): String? {
-        var result: String? = null
-        if (uri.scheme == "content") {
-            val cursor = context?.contentResolver?.query(uri, null, null, null, null)
-            cursor.use { cursor1 ->
-                if (cursor1 != null && cursor1.moveToFirst()) {
-                    result = cursor1.getString(cursor1.getColumnIndex(OpenableColumns.DISPLAY_NAME))
-                }
-            }
-        }
-        if (result == null) {
-            result = uri.path
-            val cut = result?.lastIndexOf('/') ?: -1
-            if (cut != -1) {
-                result = result?.substring(cut + 1)
-            }
-        }
-        return result
     }
 }
