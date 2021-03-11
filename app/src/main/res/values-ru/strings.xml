@@ -35,4 +35,7 @@
     <string name="requests_history">История обращений</string>
     <string name="requests_empty">Заявки отсутствуют</string>
 
+    <!-- Feedback fragment -->
+    <string name="new_feedback">Новое обращение</string>
+
 </resources>

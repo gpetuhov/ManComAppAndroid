@@ -36,4 +36,7 @@
     <string name="requests_history">Requests history</string>
     <string name="requests_empty">No requests</string>
 
+    <!-- Feedback fragment -->
+    <string name="new_feedback">New feedback</string>
+
 </resources>
