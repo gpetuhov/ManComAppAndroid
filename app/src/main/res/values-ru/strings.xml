@@ -34,6 +34,7 @@
     <string name="order_service">Заказать услугу</string>
     <string name="requests_history">История обращений</string>
     <string name="requests_empty">Заявки отсутствуют</string>
+    <string name="request_number">Обращение # %s</string>
 
     <!-- Feedback fragment -->
     <string name="new_feedback">Новое обращение</string>

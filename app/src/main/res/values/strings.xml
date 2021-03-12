@@ -35,6 +35,7 @@
     <string name="order_service">Order service</string>
     <string name="requests_history">Requests history</string>
     <string name="requests_empty">No requests</string>
+    <string name="request_number">Feedback # %s</string>
 
     <!-- Feedback fragment -->
     <string name="new_feedback">New feedback</string>

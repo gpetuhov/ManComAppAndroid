@@ -25,7 +25,9 @@ class RequestsAdapter : ListAdapter<Request, RequestsAdapter.RequestItemViewHold
     class RequestItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(request: Request) {
-            itemView.request_name.text = request.title
+            val requestNumber = itemView.context.getString(R.string.request_number, request.id.toString())
+            itemView.request_number.text = requestNumber
+            itemView.request_title.text = request.title
         }
     }
 }
