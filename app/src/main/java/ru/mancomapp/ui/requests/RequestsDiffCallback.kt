@@ -8,8 +8,9 @@ class RequestsDiffCallback : DiffUtil.ItemCallback<Request>() {
         return oldItem.id == newItem.id
     }
 
-    // TODO: change this, when Request fields added
     override fun areContentsTheSame(oldItem: Request, newItem: Request): Boolean {
         return oldItem.title == newItem.title
+                && oldItem.content == newItem.content
+                && oldItem.status == newItem.status
     }
 }
