@@ -18,6 +18,7 @@ import ru.mancomapp.util.extensions.hideSoftKeyboard
 import ru.mancomapp.util.extensions.setVisible
 import ru.mancomapp.util.extensions.startPicker
 import ru.mancomapp.util.extensions.toast
+import kotlin.concurrent.fixedRateTimer
 
 class FeedbackFragment : Fragment() {
 
@@ -83,7 +84,7 @@ class FeedbackFragment : Fragment() {
 
     private fun onSendSuccess(isSuccess: Boolean) {
         if (isSuccess) {
-            toast(R.string.feedback_send_success)
+            FeedbackSendSuccessDialogFragment().show(parentFragmentManager, "FeedbackSendSuccessDialogFragment")
             navigateUp()
         }
     }
