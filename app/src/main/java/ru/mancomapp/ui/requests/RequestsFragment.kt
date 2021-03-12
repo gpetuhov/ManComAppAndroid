@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_requests.*
 import ru.mancomapp.R
-import ru.mancomapp.models.Request
+import ru.mancomapp.models.request.Request
 import ru.mancomapp.util.extensions.setVisible
 import ru.mancomapp.util.extensions.toast
 

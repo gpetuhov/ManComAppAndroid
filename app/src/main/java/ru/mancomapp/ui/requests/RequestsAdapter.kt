@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_request.view.*
 import ru.mancomapp.R
-import ru.mancomapp.models.Request
+import ru.mancomapp.models.request.Request
 
 class RequestsAdapter : ListAdapter<Request, RequestsAdapter.RequestItemViewHolder>(RequestsDiffCallback()) {
 
@@ -25,7 +25,7 @@ class RequestsAdapter : ListAdapter<Request, RequestsAdapter.RequestItemViewHold
     class RequestItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(request: Request) {
-            itemView.request_name.text = request.name
+            itemView.request_name.text = request.title
         }
     }
 }
