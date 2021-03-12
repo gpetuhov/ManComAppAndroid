@@ -112,16 +112,16 @@
             android:id="@+id/feedback_send_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/loading_wave"
             android:layout_marginTop="@dimen/layout_margin"
             android:layout_marginBottom="@dimen/layout_margin"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/feedback_send_button" />
+            app:layout_constraintTop_toBottomOf="@id/feedback_send_button"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading_wave" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
