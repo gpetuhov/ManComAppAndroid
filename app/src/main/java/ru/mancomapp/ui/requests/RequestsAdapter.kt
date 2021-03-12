@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_request.view.*
 import ru.mancomapp.R
 import ru.mancomapp.models.request.Request
+import ru.mancomapp.models.request.RequestStatus
 
 class RequestsAdapter : ListAdapter<Request, RequestsAdapter.RequestItemViewHolder>(RequestsDiffCallback()) {
 
@@ -29,6 +30,16 @@ class RequestsAdapter : ListAdapter<Request, RequestsAdapter.RequestItemViewHold
             itemView.request_number.text = requestNumber
             itemView.request_title.text = request.title
             itemView.request_content.text = request.content
+
+            val requestStatus = itemView.context.getString(
+                when(request.status) {
+                    RequestStatus.NEW -> R.string.request_status_new
+                    RequestStatus.ON_REVIEW -> R.string.request_status_on_review
+                    RequestStatus.COMPLETE -> R.string.request_status_complete
+                }
+            )
+            val requestStatusText = itemView.context.getString(R.string.request_status, requestStatus)
+            itemView.request_status.text = requestStatusText
         }
     }
 }

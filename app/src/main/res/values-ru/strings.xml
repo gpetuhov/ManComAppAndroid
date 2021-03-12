@@ -35,6 +35,10 @@
     <string name="requests_history">История обращений</string>
     <string name="requests_empty">Заявки отсутствуют</string>
     <string name="request_number">Обращение # %s</string>
+    <string name="request_status">Статус заявки: %s</string>
+    <string name="request_status_new">Новая</string>
+    <string name="request_status_on_review">На рассмотрении</string>
+    <string name="request_status_complete">Выполнено</string>
 
     <!-- Feedback fragment -->
     <string name="new_feedback">Новое обращение</string>
