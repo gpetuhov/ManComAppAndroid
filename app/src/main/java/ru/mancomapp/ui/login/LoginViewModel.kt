@@ -7,17 +7,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import ru.mancomapp.R
-import ru.mancomapp.application.App
 
 class LoginViewModel : ViewModel() {
 
     var isLoginStarted: LiveData<Boolean>
     var isLoginSuccess: LiveData<Boolean>
-    var isLoginError: LiveData<String>
+    var isLoginError: LiveData<Int>
 
     private val isLoginStartedLiveDataMutable = MutableLiveData<Boolean>()
     private val isLoginSuccessLiveDataMutable = MutableLiveData<Boolean>()
-    private val isLoginErrorLiveDataMutable = MutableLiveData<String>()
+    private val isLoginErrorLiveDataMutable = MutableLiveData<Int>()
 
     private var loginJob: Job? = null
 
@@ -46,10 +45,8 @@ class LoginViewModel : ViewModel() {
         startLogin(loginCredentials)
     }
 
-    private fun postLoginError(@StringRes errorMessageId: Int) {
-        val errorMessage = App.application.getString(errorMessageId)
-        isLoginErrorLiveDataMutable.postValue(errorMessage)
-    }
+    private fun postLoginError(@StringRes errorMessageId: Int) =
+        isLoginErrorLiveDataMutable.postValue(errorMessageId)
 
     private fun startLogin(loginCredentials: LoginCredentials) {
         isLoginStartedLiveDataMutable.postValue(true)

@@ -44,7 +44,7 @@ class LoginFragment : Fragment() {
     private fun subscribeViewModel() {
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         viewModel.isLoginStarted.observe(viewLifecycleOwner, { isStarted -> onLoginStarted(isStarted) })
-        viewModel.isLoginError.observe(viewLifecycleOwner, { errorMessage -> toast(errorMessage) })
+        viewModel.isLoginError.observe(viewLifecycleOwner, { errorMessageId -> toast(errorMessageId) })
         viewModel.isLoginSuccess.observe(viewLifecycleOwner, { isSuccess -> onLoginSuccess(isSuccess) })
     }
 
