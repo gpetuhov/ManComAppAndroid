@@ -5,14 +5,8 @@ import ru.mancomapp.domain.models.LoginCredentials
 
 open class LoginUseCase {
 
-    @Throws(
-        LoginCredentialsEmptyException::class,
-        PrivacyPolicyNotConfirmedException::class
-    )
+    @Throws(Exception::class)
     open suspend fun login(loginCredentials: LoginCredentials) {
-        if (loginCredentials.isEmpty()) throw LoginCredentialsEmptyException()
-        if (!loginCredentials.isPrivacyPolicyConfirmed) throw PrivacyPolicyNotConfirmedException()
-
         // TODO
         delay(5000)
 

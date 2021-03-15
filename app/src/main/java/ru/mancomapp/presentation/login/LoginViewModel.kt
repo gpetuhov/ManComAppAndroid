@@ -9,9 +9,7 @@ import kotlinx.coroutines.*
 import ru.mancomapp.App
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.LoginCredentials
-import ru.mancomapp.domain.usecase.login.LoginCredentialsEmptyException
 import ru.mancomapp.domain.usecase.login.LoginUseCase
-import ru.mancomapp.domain.usecase.login.PrivacyPolicyNotConfirmedException
 import javax.inject.Inject
 
 class LoginViewModel : ViewModel() {
@@ -42,16 +40,28 @@ class LoginViewModel : ViewModel() {
     }
 
     fun login(loginCredentials: LoginCredentials) {
+        if (loginCredentials.isEmpty()) {
+            postLoginError(R.string.login_input_empty)
+            return
+        }
+
+        if (!loginCredentials.isPrivacyPolicyConfirmed) {
+            postLoginError(R.string.privacy_policy_confirm_error)
+            return
+        }
+
+        startLogin(loginCredentials)
+    }
+
+    private fun startLogin(loginCredentials: LoginCredentials) {
         isLoginStartedLiveDataMutable.postValue(true)
 
         loginJob = viewModelScope.launch(Dispatchers.IO) {
             try {
                 loginUseCase.login(loginCredentials)
                 postLoginSuccess()
-            } catch (e: LoginCredentialsEmptyException) {
-                postLoginError(R.string.login_input_empty)
-            } catch (e: PrivacyPolicyNotConfirmedException) {
-                postLoginError(R.string.privacy_policy_confirm_error)
+            } catch (e: Exception) {
+                // TODO: handle error
             }
         }
     }
@@ -62,11 +72,9 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    private suspend fun postLoginError(@StringRes errorMessageId: Int) {
-        withContext(Dispatchers.Main) {
-            isLoginStartedLiveDataMutable.postValue(false)
-            isLoginSuccessLiveDataMutable.postValue(false)
-            isLoginErrorLiveDataMutable.postValue(errorMessageId)
-        }
+    private fun postLoginError(@StringRes errorMessageId: Int) {
+        isLoginStartedLiveDataMutable.postValue(false)
+        isLoginSuccessLiveDataMutable.postValue(false)
+        isLoginErrorLiveDataMutable.postValue(errorMessageId)
     }
 }
