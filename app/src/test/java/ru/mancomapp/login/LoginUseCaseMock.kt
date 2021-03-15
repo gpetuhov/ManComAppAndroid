@@ -1,9 +1,7 @@
 package ru.mancomapp.login
 
 import ru.mancomapp.domain.models.LoginCredentials
-import ru.mancomapp.domain.usecase.login.LoginCredentialsEmptyException
-import ru.mancomapp.domain.usecase.login.LoginUseCase
-import ru.mancomapp.domain.usecase.login.PrivacyPolicyNotConfirmedException
+import ru.mancomapp.domain.usecase.LoginUseCase
 
 class LoginUseCaseMock : LoginUseCase() {
 
@@ -11,7 +9,5 @@ class LoginUseCaseMock : LoginUseCase() {
     var isPrivacyPolicyNotConfirmed = false
 
     override suspend fun login(loginCredentials: LoginCredentials) {
-        if (isCredentialsEmpty) throw LoginCredentialsEmptyException()
-        if (isPrivacyPolicyNotConfirmed) throw PrivacyPolicyNotConfirmedException()
     }
 }

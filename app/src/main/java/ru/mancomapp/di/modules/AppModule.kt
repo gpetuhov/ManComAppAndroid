@@ -6,7 +6,7 @@ import dagger.Provides
 import ru.mancomapp.App
 import ru.mancomapp.data.repository.LoginRepository
 import ru.mancomapp.data.source.local.AppPrefs
-import ru.mancomapp.domain.usecase.login.LoginUseCase
+import ru.mancomapp.domain.usecase.LoginUseCase
 import javax.inject.Singleton
 
 @Module

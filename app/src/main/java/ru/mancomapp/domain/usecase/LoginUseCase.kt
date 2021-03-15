@@ -1,4 +1,4 @@
-package ru.mancomapp.domain.usecase.login
+package ru.mancomapp.domain.usecase
 
 import kotlinx.coroutines.delay
 import ru.mancomapp.domain.models.LoginCredentials

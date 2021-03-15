@@ -9,7 +9,7 @@ import kotlinx.coroutines.*
 import ru.mancomapp.App
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.LoginCredentials
-import ru.mancomapp.domain.usecase.login.LoginUseCase
+import ru.mancomapp.domain.usecase.LoginUseCase
 import javax.inject.Inject
 
 class LoginViewModel : ViewModel() {
