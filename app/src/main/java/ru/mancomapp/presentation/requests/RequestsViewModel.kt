@@ -5,10 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
+import ru.mancomapp.App
 import ru.mancomapp.domain.models.request.Request
-import ru.mancomapp.domain.models.request.RequestStatus
+import ru.mancomapp.domain.usecase.RequestUseCase
+import javax.inject.Inject
 
 class RequestsViewModel : ViewModel() {
+
+    @Inject lateinit var requestUseCase: RequestUseCase
 
     var isRequestHistoryLoading: LiveData<Boolean>
     var isRequestHistoryError: LiveData<String>
@@ -24,6 +28,8 @@ class RequestsViewModel : ViewModel() {
     private var loadRequestHistoryJob: Job? = null
 
     init {
+        App.appComponent.inject(this)
+
         isRequestHistoryLoading = isRequestHistoryLoadingMutable
         isRequestHistoryError = isRequestHistoryErrorMutable
         requestHistory = requestHistoryMutable
@@ -40,9 +46,7 @@ class RequestsViewModel : ViewModel() {
             isRequestHistoryLoadingMutable.postValue(true)
 
             loadRequestHistoryJob = viewModelScope.launch(Dispatchers.IO) {
-                // TODO: implement
-                delay(5000)
-                val requests = getDummyRequests()
+                val requests = requestUseCase.getRequests()
 
                 // TODO: handle load error and no network (server unavailable)
 
@@ -55,29 +59,5 @@ class RequestsViewModel : ViewModel() {
                 }
             }
         }
-    }
-
-    // TODO: remove this
-    private fun getDummyRequests(): List<Request> {
-        val requests = mutableListOf<Request>()
-
-        (1..100).forEach {
-            val request = Request().apply {
-                id = it
-                title = "Тема обращения ывдоад ываоы вадл выалв ыалвы оалдвыо адывл оадлыв оавы оа ывдла овы"
-                content = "Lsjdkf lfkjs fljsf lsdkjf adslkfj lksdjfj dfklsdjfl " +
-                        "ksdfj l4jfl43j fl4k3qj f43 jqfkl4jgflk43jglfk jerlgkjl4k " +
-                        "2jgl2k45 jglk43j5 glk34j glk4j 3g42lk gjklgj fgkfjdlgjfd g" +
-                        "klfjdlskfj dslkfj asdlkfjsldak fjdslkj fldskf jl dsjflkdas fj" +
-                        "lsdfk dsl;fkdl;skf ;adsk f;lsdak fdsjkfh q34f hqkjewhfkejwhf" +
-                        "dlkgjds flkjsd fkljdsflkjsdflkj dsflk jdsfjasdlkfjadslkjfdlksfj" +
-                        "sdflkja dsfljdsflkj sdflkjdsf."
-                status = RequestStatus.NEW
-            }
-
-            requests.add(request)
-        }
-
-        return requests
     }
 }

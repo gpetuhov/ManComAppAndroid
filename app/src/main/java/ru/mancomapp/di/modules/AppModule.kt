@@ -5,8 +5,10 @@ import dagger.Module
 import dagger.Provides
 import ru.mancomapp.App
 import ru.mancomapp.data.repository.LoginRepository
+import ru.mancomapp.data.repository.RequestRepository
 import ru.mancomapp.data.source.local.AppPrefs
 import ru.mancomapp.domain.usecase.LoginUseCase
+import ru.mancomapp.domain.usecase.RequestUseCase
 import javax.inject.Singleton
 
 @Module
@@ -22,9 +24,19 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providesLoginUseRepository() = LoginRepository()
+    fun providesLoginRepository() = LoginRepository()
 
     @Provides
     @Singleton
-    fun providesLoginUseCase(loginRepository: LoginRepository) = LoginUseCase(loginRepository)
+    fun providesLoginUseCase(loginRepository: LoginRepository) =
+        LoginUseCase(loginRepository)
+
+    @Provides
+    @Singleton
+    fun providesRequestRepository() = RequestRepository()
+
+    @Provides
+    @Singleton
+    fun providesRequestUseCase(requestRepository: RequestRepository) =
+        RequestUseCase(requestRepository)
 }

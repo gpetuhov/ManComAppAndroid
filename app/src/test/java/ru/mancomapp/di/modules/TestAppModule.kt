@@ -12,9 +12,10 @@ class TestAppModule {
 
     @Provides
     @Singleton
-    fun providesLoginUseRepository() = LoginRepository()
+    fun providesLoginRepository() = LoginRepository()
 
     @Provides
     @Singleton
-    fun providesLoginUseCase(loginRepository: LoginRepository) = Mockito.mock(LoginUseCase::class.java)
+    fun providesLoginUseCase(loginRepository: LoginRepository) =
+        Mockito.mock(LoginUseCase::class.java)
 }
