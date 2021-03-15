@@ -1,6 +1,6 @@
-package ru.mancomapp.util
+package ru.mancomapp.source.local
 
-class Constants {
+class AppConstants {
 
     class Files {
         companion object {

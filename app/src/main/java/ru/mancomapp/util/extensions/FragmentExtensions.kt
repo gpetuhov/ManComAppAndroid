@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import ru.mancomapp.R
-import ru.mancomapp.util.Constants
+import ru.mancomapp.source.local.AppConstants
 
 fun Fragment.toast(@StringRes messageId: Int) = context?.let { Toast.makeText(context, messageId, Toast.LENGTH_SHORT).show() }
 
@@ -19,7 +19,7 @@ fun Fragment.toast(message: String) = context?.let { Toast.makeText(context, mes
 fun Fragment.hideSoftKeyboard() = hideSoftKeyboard(activity, view)
 
 fun Fragment.startPicker(requestCode: Int) {
-    val intent = getPickerIntent(Constants.Files.IMAGE, arrayOf(Constants.Files.PDF))
+    val intent = getPickerIntent(AppConstants.Files.IMAGE, arrayOf(AppConstants.Files.PDF))
 
     try {
         startActivityForResult(Intent.createChooser(intent, getString(R.string.complete_action_using)), requestCode)

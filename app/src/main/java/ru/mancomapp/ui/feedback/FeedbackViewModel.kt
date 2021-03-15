@@ -10,7 +10,7 @@ import kotlinx.coroutines.*
 import ru.mancomapp.R
 import ru.mancomapp.application.App
 import ru.mancomapp.models.Attachment
-import ru.mancomapp.util.Constants
+import ru.mancomapp.source.local.AppConstants
 import ru.mancomapp.util.getFileName
 
 class FeedbackViewModel : ViewModel() {
@@ -40,7 +40,7 @@ class FeedbackViewModel : ViewModel() {
         sendJob?.cancel()
     }
 
-    fun isAddAttachmentsAllowed() = attachmentsList.size < Constants.Files.FEEDBACK_MAX_FILES
+    fun isAddAttachmentsAllowed() = attachmentsList.size < AppConstants.Files.FEEDBACK_MAX_FILES
 
     fun addAttachment(uri: Uri?) {
         uri?.let {
