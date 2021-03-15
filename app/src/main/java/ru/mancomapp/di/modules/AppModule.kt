@@ -1,9 +1,9 @@
-package ru.mancomapp.application.dagger.modules
+package ru.mancomapp.di.modules
 
 import android.content.Context
 import dagger.Module
 import dagger.Provides
-import ru.mancomapp.application.App
+import ru.mancomapp.App
 import ru.mancomapp.source.local.AppPrefs
 import javax.inject.Singleton
 

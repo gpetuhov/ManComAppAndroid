@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import ru.mancomapp.R
-import ru.mancomapp.application.App
+import ru.mancomapp.App
 import ru.mancomapp.models.Attachment
 import ru.mancomapp.source.local.AppConstants
 import ru.mancomapp.util.getFileName

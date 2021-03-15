@@ -1,8 +1,8 @@
-package ru.mancomapp.application
+package ru.mancomapp
 
 import android.app.Application
-import ru.mancomapp.application.dagger.components.AppComponent
-import ru.mancomapp.application.dagger.components.DaggerAppComponent
+import ru.mancomapp.di.components.AppComponent
+import ru.mancomapp.di.components.DaggerAppComponent
 import ru.mancomapp.util.Logger
 
 class App: Application() {
