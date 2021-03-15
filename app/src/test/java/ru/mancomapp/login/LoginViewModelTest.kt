@@ -1,6 +1,11 @@
 package ru.mancomapp.login
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.newSingleThreadContext
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.setMain
+import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
@@ -21,20 +26,30 @@ class LoginViewModelTest {
     private lateinit var viewModel: LoginViewModel
     private lateinit var loginCredentials: LoginCredentials
 
+    private val mainThreadSurrogate = newSingleThreadContext("UI thread")
+
     @get:Rule
     val rule = InstantTaskExecutorRule()
 
     @Before
     fun initViewModel() {
         App.appComponent = DaggerTestAppComponent.builder().build()
+        Dispatchers.setMain(mainThreadSurrogate)
 
         viewModel = LoginViewModel()
         loginCredentials = LoginCredentials()
     }
 
+    @After
+    fun tearDown() {
+        Dispatchers.resetMain()
+        mainThreadSurrogate.close()
+    }
+
     @Test
     fun login_emptyLoginEmptyPassword_errorLoginEmpty() {
         viewModel.login(loginCredentials)
+        Thread.sleep(300)
         assertTrue(viewModel.isLoginStarted.value ?: false)
         assertFalse(viewModel.isLoginSuccess.value ?: false)
         assertEquals(R.string.login_input_empty, viewModel.isLoginError.value)
