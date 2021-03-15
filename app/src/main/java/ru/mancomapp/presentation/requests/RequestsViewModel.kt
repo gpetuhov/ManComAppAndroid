@@ -46,16 +46,19 @@ class RequestsViewModel : ViewModel() {
             isRequestHistoryLoadingMutable.postValue(true)
 
             loadRequestHistoryJob = viewModelScope.launch(Dispatchers.IO) {
-                val requests = requestUseCase.getRequests()
+                try {
+                    val requests = requestUseCase.getRequests()
 
-                // TODO: handle load error and no network (server unavailable)
+                    isRequestHistoryLoaded = true
+                    isRequestHistoryLoadingStarted = false
 
-                isRequestHistoryLoaded = true
-                isRequestHistoryLoadingStarted = false
-
-                withContext(Dispatchers.Main) {
-                    isRequestHistoryLoadingMutable.postValue(false)
-                    requestHistoryMutable.postValue(requests)
+                    withContext(Dispatchers.Main) {
+                        isRequestHistoryLoadingMutable.postValue(false)
+                        requestHistoryMutable.postValue(requests)
+                    }
+                } catch (e: Exception) {
+                    isRequestHistoryLoadingStarted = false
+                    // TODO: handle load error and no network (server unavailable)
                 }
             }
         }

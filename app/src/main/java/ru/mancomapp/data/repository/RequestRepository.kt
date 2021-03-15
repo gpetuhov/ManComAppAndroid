@@ -6,6 +6,7 @@ import ru.mancomapp.domain.models.request.RequestStatus
 
 class RequestRepository {
 
+    @Throws(Exception::class)
     suspend fun getRequests(): List<Request> {
         // TODO: implement
         // TODO: handle errors
