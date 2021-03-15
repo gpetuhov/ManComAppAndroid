@@ -1,4 +1,4 @@
-package ru.mancomapp.ui.requests
+package ru.mancomapp.presentation.requests
 
 import android.os.Bundle
 import android.view.LayoutInflater

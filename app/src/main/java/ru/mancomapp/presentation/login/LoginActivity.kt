@@ -1,16 +1,16 @@
-package ru.mancomapp.ui
+package ru.mancomapp.presentation.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
 import ru.mancomapp.R
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
     }
 
-//    override fun onSupportNavigateUp() = findNavController(R.id.nav_host).navigateUp()
+    override fun onSupportNavigateUp() = findNavController(R.id.nav_host_login).navigateUp()
 }

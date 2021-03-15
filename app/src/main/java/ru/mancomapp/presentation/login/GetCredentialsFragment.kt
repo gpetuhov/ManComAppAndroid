@@ -1,4 +1,4 @@
-package ru.mancomapp.ui.login
+package ru.mancomapp.presentation.login
 
 import android.os.Bundle
 import android.text.Html

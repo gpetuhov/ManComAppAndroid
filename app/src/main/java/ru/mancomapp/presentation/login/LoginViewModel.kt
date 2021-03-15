@@ -1,4 +1,4 @@
-package ru.mancomapp.ui.login
+package ru.mancomapp.presentation.login
 
 import androidx.annotation.StringRes
 import androidx.lifecycle.LiveData

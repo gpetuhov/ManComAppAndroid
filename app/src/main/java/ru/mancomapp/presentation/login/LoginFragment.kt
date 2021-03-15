@@ -1,4 +1,4 @@
-package ru.mancomapp.ui.login
+package ru.mancomapp.presentation.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_login.*
 import ru.mancomapp.R
-import ru.mancomapp.ui.MainActivity
+import ru.mancomapp.presentation.MainActivity
 import ru.mancomapp.util.extensions.hideSoftKeyboard
 import ru.mancomapp.util.extensions.setVisible
 import ru.mancomapp.util.extensions.toast

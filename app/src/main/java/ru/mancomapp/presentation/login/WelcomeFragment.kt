@@ -1,4 +1,4 @@
-package ru.mancomapp.ui.login
+package ru.mancomapp.presentation.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_welcome.*
 import ru.mancomapp.BuildConfig
 import ru.mancomapp.R
-import ru.mancomapp.ui.MainActivity
+import ru.mancomapp.presentation.MainActivity
 
 class WelcomeFragment : Fragment() {
 

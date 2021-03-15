@@ -1,4 +1,4 @@
-package ru.mancomapp.ui.requests
+package ru.mancomapp.presentation.requests
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

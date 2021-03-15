@@ -1,4 +1,4 @@
-package ru.mancomapp.ui.feedback
+package ru.mancomapp.presentation.feedback
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,4 +1,4 @@
-package ru.mancomapp.ui.feedback
+package ru.mancomapp.presentation.feedback
 
 import android.net.Uri
 import androidx.annotation.StringRes

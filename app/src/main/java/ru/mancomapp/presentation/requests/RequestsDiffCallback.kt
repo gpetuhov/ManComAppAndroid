@@ -1,4 +1,4 @@
-package ru.mancomapp.ui.requests
+package ru.mancomapp.presentation.requests
 
 import androidx.recyclerview.widget.DiffUtil
 import ru.mancomapp.models.request.Request

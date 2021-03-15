@@ -19,7 +19,7 @@
             android:value="${enableCrashReporting}" />
 
         <activity
-            android:name="ru.mancomapp.ui.login.LoginActivity"
+            android:name="ru.mancomapp.presentation.login.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.LoginActivity">
             <intent-filter>
@@ -30,7 +30,7 @@
         </activity>
 
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".presentation.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.MainActivity">
         </activity>

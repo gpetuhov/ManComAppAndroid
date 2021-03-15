@@ -1,4 +1,4 @@
-package ru.mancomapp.ui.feedback
+package ru.mancomapp.presentation.feedback
 
 import androidx.recyclerview.widget.DiffUtil
 import ru.mancomapp.models.Attachment

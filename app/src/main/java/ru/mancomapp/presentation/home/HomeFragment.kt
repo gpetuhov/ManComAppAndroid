@@ -1,4 +1,4 @@
-package ru.mancomapp.ui.home
+package ru.mancomapp.presentation.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

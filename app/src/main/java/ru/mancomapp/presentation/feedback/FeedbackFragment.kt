@@ -1,4 +1,4 @@
-package ru.mancomapp.ui.feedback
+package ru.mancomapp.presentation.feedback
 
 import android.app.Activity
 import android.content.Intent
@@ -18,7 +18,6 @@ import ru.mancomapp.util.extensions.hideSoftKeyboard
 import ru.mancomapp.util.extensions.setVisible
 import ru.mancomapp.util.extensions.startPicker
 import ru.mancomapp.util.extensions.toast
-import kotlin.concurrent.fixedRateTimer
 
 class FeedbackFragment : Fragment() {
 

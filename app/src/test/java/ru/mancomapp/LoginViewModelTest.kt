@@ -5,7 +5,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import ru.mancomapp.ui.login.LoginViewModel
+import ru.mancomapp.presentation.login.LoginViewModel
 
 class LoginViewModelTest {
 
