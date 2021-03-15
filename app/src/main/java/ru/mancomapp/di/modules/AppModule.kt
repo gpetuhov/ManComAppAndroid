@@ -26,5 +26,5 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providesLoginUseCase(loginRepository: LoginRepository) = LoginUseCase()
+    fun providesLoginUseCase(loginRepository: LoginRepository) = LoginUseCase(loginRepository)
 }

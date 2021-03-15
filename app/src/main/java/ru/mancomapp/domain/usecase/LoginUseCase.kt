@@ -1,15 +1,11 @@
 package ru.mancomapp.domain.usecase
 
-import kotlinx.coroutines.delay
+import ru.mancomapp.data.repository.LoginRepository
 import ru.mancomapp.domain.models.LoginCredentials
 
-class LoginUseCase {
+class LoginUseCase(private val loginRepository: LoginRepository) {
 
     @Throws(Exception::class)
-    suspend fun login(loginCredentials: LoginCredentials) {
-        // TODO
-        delay(5000)
-
-        // TODO: handle login error and no network (server unavailable)
-    }
+    suspend fun login(loginCredentials: LoginCredentials) =
+        loginRepository.login(loginCredentials)
 }

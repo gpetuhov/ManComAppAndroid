@@ -61,7 +61,7 @@ class LoginViewModel : ViewModel() {
                 loginUseCase.login(loginCredentials)
                 postLoginSuccess()
             } catch (e: Exception) {
-                // TODO: handle error
+                // TODO: handle login error and no network (server unavailable)
             }
         }
     }
