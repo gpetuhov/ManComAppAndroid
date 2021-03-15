@@ -1,4 +1,4 @@
-package ru.mancomapp.util
+package ru.mancomapp.utils
 
 import android.content.Context
 import ru.mancomapp.BuildConfig

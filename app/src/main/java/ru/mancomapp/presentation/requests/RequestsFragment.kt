@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_requests.*
 import ru.mancomapp.R
-import ru.mancomapp.models.request.Request
-import ru.mancomapp.util.extensions.setVisible
-import ru.mancomapp.util.extensions.toast
+import ru.mancomapp.domain.models.request.Request
+import ru.mancomapp.utils.extensions.setVisible
+import ru.mancomapp.utils.extensions.toast
 
 class RequestsFragment : Fragment() {
 

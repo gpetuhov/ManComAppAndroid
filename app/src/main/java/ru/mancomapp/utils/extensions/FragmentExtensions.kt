@@ -1,4 +1,4 @@
-package ru.mancomapp.util.extensions
+package ru.mancomapp.utils.extensions
 
 import android.app.Activity
 import android.content.ActivityNotFoundException
@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import ru.mancomapp.R
-import ru.mancomapp.source.local.AppConstants
+import ru.mancomapp.data.source.local.AppConstants
 
 fun Fragment.toast(@StringRes messageId: Int) = context?.let { Toast.makeText(context, messageId, Toast.LENGTH_SHORT).show() }
 

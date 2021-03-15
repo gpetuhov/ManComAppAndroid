@@ -3,7 +3,7 @@ package ru.mancomapp
 import android.app.Application
 import ru.mancomapp.di.components.AppComponent
 import ru.mancomapp.di.components.DaggerAppComponent
-import ru.mancomapp.util.Logger
+import ru.mancomapp.utils.Logger
 
 class App: Application() {
 

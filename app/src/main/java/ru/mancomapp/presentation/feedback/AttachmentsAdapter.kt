@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_attachment.view.*
 import ru.mancomapp.R
-import ru.mancomapp.models.Attachment
+import ru.mancomapp.domain.models.Attachment
 
 class AttachmentsAdapter : ListAdapter<Attachment, AttachmentsAdapter.AttachmentViewHolder>(AttachmentsDiffCallback()) {
 

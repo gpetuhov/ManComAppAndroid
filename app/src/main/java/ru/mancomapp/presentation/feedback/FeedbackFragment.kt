@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_feedback.*
 import ru.mancomapp.R
-import ru.mancomapp.models.Attachment
-import ru.mancomapp.util.extensions.hideSoftKeyboard
-import ru.mancomapp.util.extensions.setVisible
-import ru.mancomapp.util.extensions.startPicker
-import ru.mancomapp.util.extensions.toast
+import ru.mancomapp.domain.models.Attachment
+import ru.mancomapp.utils.extensions.hideSoftKeyboard
+import ru.mancomapp.utils.extensions.setVisible
+import ru.mancomapp.utils.extensions.startPicker
+import ru.mancomapp.utils.extensions.toast
 
 class FeedbackFragment : Fragment() {
 

@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_request.view.*
 import ru.mancomapp.R
-import ru.mancomapp.models.request.Request
-import ru.mancomapp.models.request.RequestStatus
+import ru.mancomapp.domain.models.request.Request
+import ru.mancomapp.domain.models.request.RequestStatus
 
 class RequestsAdapter : ListAdapter<Request, RequestsAdapter.RequestItemViewHolder>(RequestsDiffCallback()) {
 

@@ -1,4 +1,4 @@
-package ru.mancomapp.models.request
+package ru.mancomapp.domain.models.request
 
 class Request {
     var id: Int = 0

@@ -1,4 +1,4 @@
-package ru.mancomapp.source.local
+package ru.mancomapp.data.source.local
 
 class AppConstants {
 

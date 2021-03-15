@@ -1,4 +1,4 @@
-package ru.mancomapp.models
+package ru.mancomapp.domain.models
 
 import android.net.Uri
 

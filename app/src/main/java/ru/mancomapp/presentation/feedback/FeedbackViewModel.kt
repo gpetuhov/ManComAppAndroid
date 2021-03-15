@@ -9,9 +9,9 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import ru.mancomapp.R
 import ru.mancomapp.App
-import ru.mancomapp.models.Attachment
-import ru.mancomapp.source.local.AppConstants
-import ru.mancomapp.util.getFileName
+import ru.mancomapp.domain.models.Attachment
+import ru.mancomapp.data.source.local.AppConstants
+import ru.mancomapp.utils.getFileName
 
 class FeedbackViewModel : ViewModel() {
 

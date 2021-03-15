@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
-import ru.mancomapp.models.request.Request
-import ru.mancomapp.models.request.RequestStatus
+import ru.mancomapp.domain.models.request.Request
+import ru.mancomapp.domain.models.request.RequestStatus
 
 class RequestsViewModel : ViewModel() {
 

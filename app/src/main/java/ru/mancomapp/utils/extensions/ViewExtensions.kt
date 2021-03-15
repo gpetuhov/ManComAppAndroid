@@ -1,4 +1,4 @@
-package ru.mancomapp.util.extensions
+package ru.mancomapp.utils.extensions
 
 import android.view.View
 

@@ -4,7 +4,7 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import ru.mancomapp.App
-import ru.mancomapp.source.local.AppPrefs
+import ru.mancomapp.data.source.local.AppPrefs
 import javax.inject.Singleton
 
 @Module

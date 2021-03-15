@@ -1,7 +1,7 @@
 package ru.mancomapp.presentation.feedback
 
 import androidx.recyclerview.widget.DiffUtil
-import ru.mancomapp.models.Attachment
+import ru.mancomapp.domain.models.Attachment
 
 class AttachmentsDiffCallback : DiffUtil.ItemCallback<Attachment>() {
     override fun areItemsTheSame(oldItem: Attachment, newItem: Attachment): Boolean {
