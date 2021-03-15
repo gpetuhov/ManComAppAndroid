@@ -7,7 +7,7 @@ import org.junit.Rule
 import org.junit.Test
 import ru.mancomapp.App
 import ru.mancomapp.R
-import ru.mancomapp.di.components.DaggerAppComponent
+import ru.mancomapp.di.components.DaggerTestAppComponent
 import ru.mancomapp.domain.models.LoginCredentials
 import ru.mancomapp.presentation.login.LoginViewModel
 
@@ -26,8 +26,7 @@ class LoginViewModelTest {
 
     @Before
     fun initViewModel() {
-        // TODO: change this with test app component
-        App.appComponent = DaggerAppComponent.builder().build()
+        App.appComponent = DaggerTestAppComponent.builder().build()
 
         viewModel = LoginViewModel()
         loginCredentials = LoginCredentials()
