@@ -9,6 +9,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!-- ALCON GROUP Colors -->
+    <color name="pantone_411c">#5E514D</color>
+    <color name="pantone_7499c">#F1E6B2</color>
+    <color name="pantone_407c">#B2A8A2</color>
+    <color name="pantone_white">#FFFFFF</color>
+    <!-- ALCON GROUP Colors -->
+    
     <!-- Material Colors -->
     <!-- Source: https://gist.github.com/daniellevass/b0b8cfa773488e138037 -->
 
