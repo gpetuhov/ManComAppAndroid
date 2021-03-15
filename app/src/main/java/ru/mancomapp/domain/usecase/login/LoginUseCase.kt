@@ -3,13 +3,13 @@ package ru.mancomapp.domain.usecase.login
 import kotlinx.coroutines.delay
 import ru.mancomapp.domain.models.LoginCredentials
 
-class LoginUseCase {
+open class LoginUseCase {
 
     @Throws(
         LoginCredentialsEmptyException::class,
         PrivacyPolicyNotConfirmedException::class
     )
-    suspend fun login(loginCredentials: LoginCredentials) {
+    open suspend fun login(loginCredentials: LoginCredentials) {
         if (loginCredentials.isEmpty()) throw LoginCredentialsEmptyException()
         if (!loginCredentials.isPrivacyPolicyConfirmed) throw PrivacyPolicyNotConfirmedException()
 
