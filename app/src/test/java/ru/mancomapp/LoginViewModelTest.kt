@@ -1,8 +1,7 @@
 package ru.mancomapp
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -61,5 +60,14 @@ class LoginViewModelTest {
         assertFalse(viewModel.isLoginStarted.value ?: false)
         assertFalse(viewModel.isLoginSuccess.value ?: false)
         assertEquals(viewModel.isLoginError.value, R.string.privacy_policy_confirm_error)
+    }
+
+    @Test
+    fun login_notEmptyLoginNotEmptyPasswordPrivacyPolicyConfirmed_loginStarted() {
+        loginCredentials.login = LOGIN
+        loginCredentials.password = PASSWORD
+        loginCredentials.isPrivacyPolicyConfirmed = true
+        viewModel.login(loginCredentials)
+        assertTrue(viewModel.isLoginStarted.value ?: false)
     }
 }
