@@ -7,6 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import ru.mancomapp.R
+import ru.mancomapp.domain.models.LoginCredentials
+import ru.mancomapp.domain.usecase.login.LoginUseCase
+import ru.mancomapp.utils.Logger
 
 class LoginViewModel : ViewModel() {
 
@@ -52,6 +55,12 @@ class LoginViewModel : ViewModel() {
         isLoginStartedLiveDataMutable.postValue(true)
 
         loginJob = viewModelScope.launch(Dispatchers.IO) {
+            try {
+                LoginUseCase().login("", "")
+            } catch (e: Exception) {
+                Logger.log("Login", e.message.toString())
+            }
+
             // TODO: implement
             delay(5000)
 
@@ -62,13 +71,5 @@ class LoginViewModel : ViewModel() {
                 isLoginSuccessLiveDataMutable.postValue(isSuccess)
             }
         }
-    }
-
-    class LoginCredentials {
-        var login: String = ""
-        var password: String = ""
-        var isPrivacyPolicyConfirmed: Boolean = false
-
-        fun isEmpty() = login.isEmpty() || password.isEmpty()
     }
 }

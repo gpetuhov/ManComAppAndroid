@@ -5,6 +5,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import ru.mancomapp.domain.models.LoginCredentials
 import ru.mancomapp.presentation.login.LoginViewModel
 
 class LoginViewModelTest {
@@ -15,7 +16,7 @@ class LoginViewModelTest {
     }
 
     private lateinit var viewModel: LoginViewModel
-    private lateinit var loginCredentials: LoginViewModel.LoginCredentials
+    private lateinit var loginCredentials: LoginCredentials
 
     @get:Rule
     val rule = InstantTaskExecutorRule()
@@ -23,7 +24,7 @@ class LoginViewModelTest {
     @Before
     fun initViewModel() {
         viewModel = LoginViewModel()
-        loginCredentials = LoginViewModel.LoginCredentials()
+        loginCredentials = LoginCredentials()
     }
 
     @Test

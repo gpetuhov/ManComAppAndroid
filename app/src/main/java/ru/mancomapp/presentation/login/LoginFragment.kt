@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_login.*
 import ru.mancomapp.R
+import ru.mancomapp.domain.models.LoginCredentials
 import ru.mancomapp.presentation.MainActivity
 import ru.mancomapp.utils.extensions.hideSoftKeyboard
 import ru.mancomapp.utils.extensions.setVisible
@@ -32,7 +33,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun onLoginButtonClick() {
-        val credentials = LoginViewModel.LoginCredentials().apply {
+        val credentials = LoginCredentials().apply {
             login = login_input.text.toString()
             password = password_input.text.toString()
             isPrivacyPolicyConfirmed = privacy_policy_checkbox.isChecked

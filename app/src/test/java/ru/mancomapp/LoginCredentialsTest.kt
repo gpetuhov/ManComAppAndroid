@@ -4,7 +4,7 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
-import ru.mancomapp.presentation.login.LoginViewModel
+import ru.mancomapp.domain.models.LoginCredentials
 
 class LoginCredentialsTest {
 
@@ -13,11 +13,11 @@ class LoginCredentialsTest {
         private const val PASSWORD = "password"
     }
 
-    private lateinit var loginCredentials: LoginViewModel.LoginCredentials
+    private lateinit var loginCredentials: LoginCredentials
 
     @Before
     fun initLoginCredentials() {
-        loginCredentials = LoginViewModel.LoginCredentials()
+        loginCredentials = LoginCredentials()
     }
 
     @Test
