@@ -1,5 +1,6 @@
 package ru.mancomapp.domain.usecase.login
 
+import kotlinx.coroutines.delay
 import ru.mancomapp.domain.models.LoginCredentials
 
 class LoginUseCase {
@@ -13,5 +14,8 @@ class LoginUseCase {
         if (!loginCredentials.isPrivacyPolicyConfirmed) throw PrivacyPolicyNotConfirmedException()
 
         // TODO
+        delay(5000)
+
+        // TODO: handle login error and no network (server unavailable)
     }
 }

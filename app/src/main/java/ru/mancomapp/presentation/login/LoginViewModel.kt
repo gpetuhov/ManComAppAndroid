@@ -12,7 +12,6 @@ import ru.mancomapp.domain.models.LoginCredentials
 import ru.mancomapp.domain.usecase.login.LoginCredentialsEmptyException
 import ru.mancomapp.domain.usecase.login.LoginUseCase
 import ru.mancomapp.domain.usecase.login.PrivacyPolicyNotConfirmedException
-import ru.mancomapp.utils.Logger
 import javax.inject.Inject
 
 class LoginViewModel : ViewModel() {
@@ -43,45 +42,31 @@ class LoginViewModel : ViewModel() {
     }
 
     fun login(loginCredentials: LoginCredentials) {
-        if (loginCredentials.isEmpty()) {
-            postLoginError(R.string.login_input_empty)
-            return
-        }
-
-        if (!loginCredentials.isPrivacyPolicyConfirmed) {
-            postLoginError(R.string.privacy_policy_confirm_error)
-            return
-        }
-
-        startLogin(loginCredentials)
-    }
-
-    private fun postLoginError(@StringRes errorMessageId: Int) =
-        isLoginErrorLiveDataMutable.postValue(errorMessageId)
-
-    private fun startLogin(loginCredentials: LoginCredentials) {
         isLoginStartedLiveDataMutable.postValue(true)
 
         loginJob = viewModelScope.launch(Dispatchers.IO) {
             try {
                 loginUseCase.login(loginCredentials)
+                postLoginSuccess()
             } catch (e: LoginCredentialsEmptyException) {
-                // TODO: handle error
-                Logger.log("Login", "Credentials empty")
+                postLoginError(R.string.login_input_empty)
             } catch (e: PrivacyPolicyNotConfirmedException) {
-                // TODO: handle error
-                Logger.log("Login", "Privacy policy not confirmed")
+                postLoginError(R.string.privacy_policy_confirm_error)
             }
+        }
+    }
 
-            // TODO: implement
-            delay(5000)
+    private suspend fun postLoginSuccess() {
+        withContext(Dispatchers.Main) {
+            isLoginSuccessLiveDataMutable.postValue(true)
+        }
+    }
 
-            // TODO: handle login error and no network (server unavailable)
-            val isSuccess = true
-
-            withContext(Dispatchers.Main) {
-                isLoginSuccessLiveDataMutable.postValue(isSuccess)
-            }
+    private suspend fun postLoginError(@StringRes errorMessageId: Int) {
+        withContext(Dispatchers.Main) {
+            isLoginStartedLiveDataMutable.postValue(false)
+            isLoginSuccessLiveDataMutable.postValue(false)
+            isLoginErrorLiveDataMutable.postValue(errorMessageId)
         }
     }
 }
