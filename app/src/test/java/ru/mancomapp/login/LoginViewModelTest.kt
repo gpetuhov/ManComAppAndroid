@@ -3,7 +3,6 @@ package ru.mancomapp.login
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.newSingleThreadContext
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.After
@@ -49,12 +48,7 @@ class LoginViewModelTest {
 
     @Test
     fun login_emptyLoginEmptyPassword_errorLoginEmpty() {
-        val loginUseCaseMock = LoginUseCaseMock()
-        loginUseCaseMock.isCredentialsEmpty = true
-        viewModel.loginUseCase = loginUseCaseMock
-
         viewModel.login(loginCredentials)
-        Thread.sleep(300)
         assertFalse(viewModel.isLoginStarted.value ?: false)
         assertFalse(viewModel.isLoginSuccess.value ?: false)
         assertEquals(R.string.login_input_empty, viewModel.isLoginError.value)
@@ -95,5 +89,15 @@ class LoginViewModelTest {
         loginCredentials.isPrivacyPolicyConfirmed = true
         viewModel.login(loginCredentials)
         assertTrue(viewModel.isLoginStarted.value ?: false)
+    }
+
+    @Test
+    fun login_notEmptyLoginNotEmptyPasswordPrivacyPolicyConfirmed_loginSuccessful() {
+        loginCredentials.login = LOGIN
+        loginCredentials.password = PASSWORD
+        loginCredentials.isPrivacyPolicyConfirmed = true
+        viewModel.login(loginCredentials)
+        Thread.sleep(300)
+        assertTrue(viewModel.isLoginSuccess.value ?: false)
     }
 }
