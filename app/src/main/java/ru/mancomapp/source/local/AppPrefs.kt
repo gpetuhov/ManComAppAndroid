@@ -1,10 +1,10 @@
-package ru.mancomapp.util
+package ru.mancomapp.source.local
 
 import android.content.Context
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 
-class Settings(context: Context) {
+class AppPrefs(context: Context) {
 
     companion object {
         private const val IS_LOGGED_IN = "isLoggedIn"

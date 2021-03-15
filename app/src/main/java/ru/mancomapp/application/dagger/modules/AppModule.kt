@@ -4,7 +4,7 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import ru.mancomapp.application.App
-import ru.mancomapp.util.Settings
+import ru.mancomapp.source.local.AppPrefs
 import javax.inject.Singleton
 
 @Module
@@ -16,5 +16,5 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providesSettings(context: Context) = Settings(context)
+    fun providesSettings(context: Context) = AppPrefs(context)
 }
