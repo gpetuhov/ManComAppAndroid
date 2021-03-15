@@ -8,7 +8,9 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.LoginCredentials
+import ru.mancomapp.domain.usecase.login.LoginCredentialsEmptyException
 import ru.mancomapp.domain.usecase.login.LoginUseCase
+import ru.mancomapp.domain.usecase.login.PrivacyPolicyNotConfirmedException
 import ru.mancomapp.utils.Logger
 
 class LoginViewModel : ViewModel() {
@@ -56,9 +58,13 @@ class LoginViewModel : ViewModel() {
 
         loginJob = viewModelScope.launch(Dispatchers.IO) {
             try {
-                LoginUseCase().login("", "")
-            } catch (e: Exception) {
-                Logger.log("Login", e.message.toString())
+                LoginUseCase().login(loginCredentials)
+            } catch (e: LoginCredentialsEmptyException) {
+                // TODO: handle error
+                Logger.log("Login", "Credentials empty")
+            } catch (e: PrivacyPolicyNotConfirmedException) {
+                // TODO: handle error
+                Logger.log("Login", "Privacy policy not confirmed")
             }
 
             // TODO: implement

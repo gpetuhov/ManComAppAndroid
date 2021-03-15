@@ -1,9 +1,17 @@
 package ru.mancomapp.domain.usecase.login
 
+import ru.mancomapp.domain.models.LoginCredentials
+
 class LoginUseCase {
 
-    @Throws(Exception::class)
-    suspend fun login(login: String, password: String) {
+    @Throws(
+        LoginCredentialsEmptyException::class,
+        PrivacyPolicyNotConfirmedException::class
+    )
+    suspend fun login(loginCredentials: LoginCredentials) {
+        if (loginCredentials.isEmpty()) throw LoginCredentialsEmptyException()
+        if (!loginCredentials.isPrivacyPolicyConfirmed) throw PrivacyPolicyNotConfirmedException()
+
         // TODO
     }
 }
