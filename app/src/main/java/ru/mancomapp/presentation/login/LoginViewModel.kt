@@ -6,14 +6,18 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
+import ru.mancomapp.App
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.LoginCredentials
 import ru.mancomapp.domain.usecase.login.LoginCredentialsEmptyException
 import ru.mancomapp.domain.usecase.login.LoginUseCase
 import ru.mancomapp.domain.usecase.login.PrivacyPolicyNotConfirmedException
 import ru.mancomapp.utils.Logger
+import javax.inject.Inject
 
 class LoginViewModel : ViewModel() {
+
+    @Inject lateinit var loginUseCase: LoginUseCase
 
     var isLoginStarted: LiveData<Boolean>
     var isLoginSuccess: LiveData<Boolean>
@@ -26,6 +30,8 @@ class LoginViewModel : ViewModel() {
     private var loginJob: Job? = null
 
     init {
+        App.appComponent.inject(this)
+
         isLoginStarted = isLoginStartedLiveDataMutable
         isLoginSuccess = isLoginSuccessLiveDataMutable
         isLoginError = isLoginErrorLiveDataMutable
@@ -58,7 +64,7 @@ class LoginViewModel : ViewModel() {
 
         loginJob = viewModelScope.launch(Dispatchers.IO) {
             try {
-                LoginUseCase().login(loginCredentials)
+                loginUseCase.login(loginCredentials)
             } catch (e: LoginCredentialsEmptyException) {
                 // TODO: handle error
                 Logger.log("Login", "Credentials empty")
