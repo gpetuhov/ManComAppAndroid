@@ -40,6 +40,7 @@ class ServiceFragment : Fragment() {
         subscribeViewModel()
 
         back_button.setOnClickListener { navigateUp() }
+        service_type.setOnClickListener { onServiceTypeClick() }
         add_files_button.setOnClickListener { onAddFilesButtonClick() }
         service_send_button.setOnClickListener { onSendButtonClick() }
 
@@ -96,6 +97,11 @@ class ServiceFragment : Fragment() {
 
     private fun updateAttachmentsUI(attachments: List<Attachment>) =
         attachmentsAdapter.submitList(attachments)
+
+    private fun onServiceTypeClick() {
+        // TODO: implement
+        toast("Service type")
+    }
 
     private fun onAddFilesButtonClick() {
         if (viewModel.isAddAttachmentsAllowed()) {
