@@ -60,5 +60,9 @@
     <string name="get_service">Get service</string>
     <string name="choose_service">Choose service</string>
     <string name="write_comment_hint">Leave your comment</string>
+    <string name="plumber">Plumber</string>
+    <string name="electrician">Electrician</string>
+    <string name="carpenter">Carpenter</string>
+    <string name="other">Other</string>
 
 </resources>
