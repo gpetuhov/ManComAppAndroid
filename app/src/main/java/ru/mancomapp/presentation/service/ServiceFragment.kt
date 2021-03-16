@@ -120,10 +120,6 @@ class ServiceFragment : Fragment() {
         }
     }
 
-    private fun onSendButtonClick() {
-        // TODO: implement
-        toast("Service request send")
-
-        viewModel.sendRequest()
-    }
+    private fun onSendButtonClick() =
+        viewModel.sendRequest(service_comment_input.text.toString())
 }

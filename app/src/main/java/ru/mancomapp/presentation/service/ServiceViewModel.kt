@@ -5,14 +5,23 @@ import androidx.annotation.StringRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import ru.mancomapp.App
+import ru.mancomapp.R
 import ru.mancomapp.domain.models.Attachment
 import ru.mancomapp.data.source.local.AppConstants
+import ru.mancomapp.domain.models.service.Service
 import ru.mancomapp.domain.models.service.ServiceType
+import ru.mancomapp.domain.usecase.service.ServiceCommentEmptyException
+import ru.mancomapp.domain.usecase.service.ServiceTypeNotSelectedException
+import ru.mancomapp.domain.usecase.service.ServiceUseCase
 import ru.mancomapp.utils.getFileName
+import javax.inject.Inject
 
 class ServiceViewModel : ViewModel() {
+
+    @Inject lateinit var serviceUseCase: ServiceUseCase
 
     var serviceType: LiveData<ServiceType>
     var isSendStarted: LiveData<Boolean>
@@ -31,6 +40,8 @@ class ServiceViewModel : ViewModel() {
     private val attachmentsList = mutableListOf<Attachment>()
 
     init {
+        App.appComponent.inject(this)
+
         serviceType = serviceTypeLiveDataMutable
         isSendStarted = isSendStartedLiveDataMutable
         isSendSuccess = isSendSuccessLiveDataMutable
@@ -64,8 +75,24 @@ class ServiceViewModel : ViewModel() {
         }
     }
 
-    fun sendRequest() {
-        // TODO: implement
+    fun sendRequest(serviceComment: String) {
+        val service = Service().apply {
+            type = selectedServiceType
+            comment = serviceComment
+        }
+
+        sendJob = viewModelScope.launch(Dispatchers.IO) {
+            try {
+                serviceUseCase.sendRequest(service) { postSendStarted() }
+                postSendSuccess()
+            } catch (e: ServiceTypeNotSelectedException) {
+                postSendError(R.string.choose_service_error)
+            } catch (e: ServiceCommentEmptyException) {
+                postSendError(R.string.write_comment_hint)
+            } catch (e: Exception) {
+                // TODO: handle send error and no network (server unavailable)
+            }
+        }
     }
 
     private suspend fun postSendStarted() {
