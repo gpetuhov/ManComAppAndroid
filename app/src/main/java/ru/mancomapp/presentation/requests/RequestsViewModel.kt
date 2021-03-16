@@ -17,11 +17,11 @@ class RequestsViewModel : ViewModel() {
     @Inject lateinit var requestUseCase: RequestUseCase
 
     var isRequestHistoryLoading: LiveData<Boolean>
-    var isRequestHistoryError: LiveData<Int>
+    var requestHistoryError: LiveData<Int>
     var requestHistory: LiveData<List<Request>>
 
     private var isRequestHistoryLoadingMutable = MutableLiveData<Boolean>()
-    private var isRequestHistoryErrorMutable = MutableLiveData<Int>()
+    private var requestHistoryErrorMutable = MutableLiveData<Int>()
     private var requestHistoryMutable = MutableLiveData<List<Request>>()
 
     private var isRequestHistoryLoaded = false
@@ -33,7 +33,7 @@ class RequestsViewModel : ViewModel() {
         App.appComponent.inject(this)
 
         isRequestHistoryLoading = isRequestHistoryLoadingMutable
-        isRequestHistoryError = isRequestHistoryErrorMutable
+        requestHistoryError = requestHistoryErrorMutable
         requestHistory = requestHistoryMutable
     }
 
@@ -77,7 +77,7 @@ class RequestsViewModel : ViewModel() {
     private suspend fun postLoadRequestHistoryError(@StringRes errorMessageId: Int) {
         withContext(Dispatchers.Main) {
             isRequestHistoryLoadingMutable.postValue(false)
-            isRequestHistoryErrorMutable.postValue(errorMessageId)
+            requestHistoryErrorMutable.postValue(errorMessageId)
         }
     }
 }

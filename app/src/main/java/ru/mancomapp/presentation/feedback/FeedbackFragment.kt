@@ -60,7 +60,7 @@ class FeedbackFragment : Fragment() {
     private fun subscribeViewModel() {
         viewModel = ViewModelProvider(this).get(FeedbackViewModel::class.java)
         viewModel.isSendStarted.observe(viewLifecycleOwner, { isStarted -> onSendStarted(isStarted) })
-        viewModel.isSendError.observe(viewLifecycleOwner, { errorMessage -> toast(errorMessage) })
+        viewModel.sendError.observe(viewLifecycleOwner, { errorMessage -> toast(errorMessage) })
         viewModel.isSendSuccess.observe(viewLifecycleOwner, { isSuccess -> onSendSuccess(isSuccess) })
         viewModel.attachments.observe(viewLifecycleOwner, { attachments -> updateAttachmentsUI(attachments) })
     }

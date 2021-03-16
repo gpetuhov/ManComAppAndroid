@@ -20,11 +20,11 @@ class LoginViewModel : ViewModel() {
 
     var isLoginStarted: LiveData<Boolean>
     var isLoginSuccess: LiveData<Boolean>
-    var isLoginError: LiveData<Int>
+    var loginError: LiveData<Int>
 
     private val isLoginStartedLiveDataMutable = MutableLiveData<Boolean>()
     private val isLoginSuccessLiveDataMutable = MutableLiveData<Boolean>()
-    private val isLoginErrorLiveDataMutable = MutableLiveData<Int>()
+    private val loginErrorLiveDataMutable = MutableLiveData<Int>()
 
     private var loginJob: Job? = null
 
@@ -33,7 +33,7 @@ class LoginViewModel : ViewModel() {
 
         isLoginStarted = isLoginStartedLiveDataMutable
         isLoginSuccess = isLoginSuccessLiveDataMutable
-        isLoginError = isLoginErrorLiveDataMutable
+        loginError = loginErrorLiveDataMutable
     }
 
     override fun onCleared() {
@@ -72,7 +72,7 @@ class LoginViewModel : ViewModel() {
         withContext(Dispatchers.Main) {
             isLoginStartedLiveDataMutable.postValue(false)
             isLoginSuccessLiveDataMutable.postValue(false)
-            isLoginErrorLiveDataMutable.postValue(errorMessageId)
+            loginErrorLiveDataMutable.postValue(errorMessageId)
         }
     }
 }

@@ -44,7 +44,7 @@ class RequestsFragment : Fragment() {
     private fun subscribeViewModel() {
         viewModel = ViewModelProvider(this).get(RequestsViewModel::class.java)
         viewModel.isRequestHistoryLoading.observe(viewLifecycleOwner, { isLoading -> showProgress(isLoading) })
-        viewModel.isRequestHistoryError.observe(viewLifecycleOwner, { errorMessageId -> toast(errorMessageId) })
+        viewModel.requestHistoryError.observe(viewLifecycleOwner, { errorMessageId -> toast(errorMessageId) })
         viewModel.requestHistory.observe(viewLifecycleOwner, { requests -> updateRequestsUI(requests) })
     }
 

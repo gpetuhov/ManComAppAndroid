@@ -23,12 +23,12 @@ class FeedbackViewModel : ViewModel() {
 
     var isSendStarted: LiveData<Boolean>
     var isSendSuccess: LiveData<Boolean>
-    var isSendError: LiveData<Int>
+    var sendError: LiveData<Int>
     var attachments: LiveData<List<Attachment>>
 
     private val isSendStartedLiveDataMutable = MutableLiveData<Boolean>()
     private val isSendSuccessLiveDataMutable = MutableLiveData<Boolean>()
-    private val isSendErrorLiveDataMutable = MutableLiveData<Int>()
+    private val sendErrorLiveDataMutable = MutableLiveData<Int>()
     private val attachmentsLiveDataMutable = MutableLiveData<List<Attachment>>()
 
     private var sendJob: Job? = null
@@ -39,7 +39,7 @@ class FeedbackViewModel : ViewModel() {
 
         isSendStarted = isSendStartedLiveDataMutable
         isSendSuccess = isSendSuccessLiveDataMutable
-        isSendError = isSendErrorLiveDataMutable
+        sendError = sendErrorLiveDataMutable
         attachments = attachmentsLiveDataMutable
     }
 
@@ -91,7 +91,7 @@ class FeedbackViewModel : ViewModel() {
         withContext(Dispatchers.Main) {
             isSendStartedLiveDataMutable.postValue(false)
             isSendSuccessLiveDataMutable.postValue(false)
-            isSendErrorLiveDataMutable.postValue(errorMessageId)
+            sendErrorLiveDataMutable.postValue(errorMessageId)
         }
     }
 }

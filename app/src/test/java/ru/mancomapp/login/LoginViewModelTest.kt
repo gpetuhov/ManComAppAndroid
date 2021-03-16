@@ -55,7 +55,7 @@ class LoginViewModelTest {
         delay()
         assertFalse(viewModel.isLoginStarted.value ?: false)
         assertFalse(viewModel.isLoginSuccess.value ?: false)
-        assertEquals(R.string.login_input_empty, viewModel.isLoginError.value)
+        assertEquals(R.string.login_input_empty, viewModel.loginError.value)
     }
 
     @Test
@@ -65,7 +65,7 @@ class LoginViewModelTest {
         delay()
         assertFalse(viewModel.isLoginStarted.value ?: false)
         assertFalse(viewModel.isLoginSuccess.value ?: false)
-        assertEquals(R.string.login_input_empty, viewModel.isLoginError.value)
+        assertEquals(R.string.login_input_empty, viewModel.loginError.value)
     }
 
     @Test
@@ -75,7 +75,7 @@ class LoginViewModelTest {
         delay()
         assertFalse(viewModel.isLoginStarted.value ?: false)
         assertFalse(viewModel.isLoginSuccess.value ?: false)
-        assertEquals(R.string.login_input_empty, viewModel.isLoginError.value)
+        assertEquals(R.string.login_input_empty, viewModel.loginError.value)
     }
 
     @Test
@@ -86,7 +86,7 @@ class LoginViewModelTest {
         delay()
         assertFalse(viewModel.isLoginStarted.value ?: false)
         assertFalse(viewModel.isLoginSuccess.value ?: false)
-        assertEquals(R.string.privacy_policy_confirm_error, viewModel.isLoginError.value)
+        assertEquals(R.string.privacy_policy_confirm_error, viewModel.loginError.value)
     }
 
     @Test

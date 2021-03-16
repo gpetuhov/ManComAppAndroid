@@ -52,7 +52,7 @@ class FeedbackViewModelTest {
         delay()
         assertFalse(viewModel.isSendStarted.value ?: false)
         assertFalse(viewModel.isSendSuccess.value ?: false)
-        assertEquals(R.string.feedback_empty_error, viewModel.isSendError.value)
+        assertEquals(R.string.feedback_empty_error, viewModel.sendError.value)
     }
 
     @Test
@@ -62,7 +62,7 @@ class FeedbackViewModelTest {
         delay()
         assertFalse(viewModel.isSendStarted.value ?: false)
         assertFalse(viewModel.isSendSuccess.value ?: false)
-        assertEquals(R.string.feedback_empty_error, viewModel.isSendError.value)
+        assertEquals(R.string.feedback_empty_error, viewModel.sendError.value)
     }
 
     @Test
@@ -72,7 +72,7 @@ class FeedbackViewModelTest {
         delay()
         assertFalse(viewModel.isSendStarted.value ?: false)
         assertFalse(viewModel.isSendSuccess.value ?: false)
-        assertEquals(R.string.feedback_empty_error, viewModel.isSendError.value)
+        assertEquals(R.string.feedback_empty_error, viewModel.sendError.value)
     }
 
     @Test
