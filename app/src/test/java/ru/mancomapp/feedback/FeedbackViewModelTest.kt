@@ -76,6 +76,15 @@ class FeedbackViewModelTest {
     }
 
     @Test
+    fun sendFeedback_notEmptyFeedback_sendStarted() {
+        feedback.title = TITLE
+        feedback.content = CONTENT
+        viewModel.send(feedback)
+        delay()
+        assertTrue(viewModel.isSendStarted.value ?: false)
+    }
+
+    @Test
     fun sendFeedback_notEmptyFeedback_sendSuccess() {
         feedback.title = TITLE
         feedback.content = CONTENT
