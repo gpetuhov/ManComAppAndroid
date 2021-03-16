@@ -32,10 +32,8 @@ class ServiceFragment : Fragment() {
     private lateinit var attachmentsAdapter: AttachmentsAdapter
 
     private val serviceTypeCallback = object : ChooseServiceDialogFragment.Callback {
-        override fun onSelectServiceType(serviceType: ServiceType) {
-            // TODO: implement
-            toast(serviceType.nameId)
-        }
+        override fun onSelectServiceType(serviceType: ServiceType) =
+            viewModel.saveServiceType(serviceType)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -69,10 +67,15 @@ class ServiceFragment : Fragment() {
 
     private fun subscribeViewModel() {
         viewModel = ViewModelProvider(this).get(ServiceViewModel::class.java)
+        viewModel.serviceType.observe(viewLifecycleOwner, { serviceType -> updateServiceTypeUI(serviceType) })
         viewModel.isSendStarted.observe(viewLifecycleOwner, { isStarted -> onSendStarted(isStarted) })
         viewModel.sendError.observe(viewLifecycleOwner, { errorMessageId -> toast(errorMessageId) })
         viewModel.isSendSuccess.observe(viewLifecycleOwner, { isSuccess -> onSendSuccess(isSuccess) })
         viewModel.attachments.observe(viewLifecycleOwner, { attachments -> updateAttachmentsUI(attachments) })
+    }
+
+    private fun updateServiceTypeUI(serviceType: ServiceType) {
+        service_type_name.text = getString(serviceType.nameId)
     }
 
     private fun onSendStarted(isStarted: Boolean) {
