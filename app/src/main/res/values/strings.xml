@@ -35,6 +35,12 @@
     <string name="order_service">Order service</string>
     <string name="requests_history">Requests history</string>
     <string name="requests_empty">No requests</string>
+    <string name="request_number">Feedback # %s</string>
+    <string name="request_status">Request status: %s</string>
+    <string name="request_status_new">New</string>
+    <string name="request_status_on_review">On review</string>
+    <string name="request_status_complete">Complete</string>
+    <string name="load_request_history_error">Error loading request history</string>
 
     <!-- Feedback fragment -->
     <string name="new_feedback">New feedback</string>
@@ -43,9 +49,24 @@
     <string name="add_files">Attach up to 5 files (jpeg, pdf)</string>
     <string name="send">Send</string>
     <string name="feedback_empty_error">Title or content is empty</string>
+    <string name="success">Success</string>
     <string name="feedback_send_success">Feedback sent successfully</string>
     <string name="complete_action_using">Complete action using</string>
     <string name="add_file_error">Add file error</string>
     <string name="max_files_error">Already added maximum number of files</string>
+    <string name="ok" translatable="false">OK</string>
+
+    <!-- Service fragment -->
+    <string name="get_service">Get service</string>
+    <string name="choose_service">Choose service</string>
+    <string name="choose_service_error">Choose service</string>
+    <string name="write_comment_hint">Leave your comment</string>
+    <string name="plumber">Plumber</string>
+    <string name="electrician">Electrician</string>
+    <string name="carpenter">Carpenter</string>
+    <string name="other">Other</string>
+    <string name="close">Close</string>
+    <string name="service">Service</string>
+    <string name="service_request_send_success">Service request sent successfully</string>
 
 </resources>

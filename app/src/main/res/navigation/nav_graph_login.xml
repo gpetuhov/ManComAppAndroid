@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="ru.mancomapp.ui.login.WelcomeFragment"
+        android:name="ru.mancomapp.presentation.login.WelcomeFragment"
         android:label="WelcomeFragment"
         tools:layout="@layout/fragment_welcome">
         <action
@@ -25,13 +25,13 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="ru.mancomapp.ui.login.LoginFragment"
+        android:name="ru.mancomapp.presentation.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login" />
 
     <fragment
         android:id="@+id/getCredentialsFragment"
-        android:name="ru.mancomapp.ui.login.GetCredentialsFragment"
+        android:name="ru.mancomapp.presentation.login.GetCredentialsFragment"
         android:label="GetCredentialsFragment"
         tools:layout="@layout/fragment_get_credentials" />
 
