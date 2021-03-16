@@ -6,7 +6,10 @@ import ru.mancomapp.domain.usecase.login.LoginUseCase
 
 class LoginUseCaseMock(loginRepository: LoginRepository) : LoginUseCase(loginRepository) {
 
-    override suspend fun login(loginCredentials: LoginCredentials) {
+    override suspend fun login(
+        loginCredentials: LoginCredentials,
+        onLoginRequestStarted: suspend () -> Unit
+    ) {
         // TODO
         println("Mock login")
     }
