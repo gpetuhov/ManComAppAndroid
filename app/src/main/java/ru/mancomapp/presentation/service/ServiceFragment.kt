@@ -73,7 +73,7 @@ class ServiceFragment : Fragment() {
     }
 
     private fun enableControls(isEnabled: Boolean) {
-        service_type_input.isEnabled = isEnabled
+        service_type.isEnabled = isEnabled
         service_comment_input.isEnabled = isEnabled
         add_files_button.isEnabled = isEnabled
         service_send_button.isEnabled = isEnabled
