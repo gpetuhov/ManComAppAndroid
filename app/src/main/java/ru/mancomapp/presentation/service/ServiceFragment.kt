@@ -17,6 +17,7 @@ import ru.mancomapp.domain.models.Attachment
 import ru.mancomapp.domain.models.service.ServiceType
 import ru.mancomapp.presentation.feedback.AttachmentsAdapter
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogFragment
+import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogType
 import ru.mancomapp.utils.extensions.hideSoftKeyboard
 import ru.mancomapp.utils.extensions.setVisible
 import ru.mancomapp.utils.extensions.startPicker
@@ -97,7 +98,10 @@ class ServiceFragment : Fragment() {
 
     private fun onSendSuccess(isSuccess: Boolean) {
         if (isSuccess) {
-            FeedbackSendSuccessDialogFragment.show(parentFragmentManager)
+            FeedbackSendSuccessDialogFragment.show(
+                parentFragmentManager,
+                FeedbackSendSuccessDialogType.SERVICE_REQUEST
+            )
             navigateUp()
         }
     }

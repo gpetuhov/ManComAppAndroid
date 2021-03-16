@@ -84,7 +84,10 @@ class FeedbackFragment : Fragment() {
 
     private fun onSendSuccess(isSuccess: Boolean) {
         if (isSuccess) {
-            FeedbackSendSuccessDialogFragment.show(parentFragmentManager)
+            FeedbackSendSuccessDialogFragment.show(
+                parentFragmentManager,
+                FeedbackSendSuccessDialogType.FEEDBACK
+            )
             navigateUp()
         }
     }
