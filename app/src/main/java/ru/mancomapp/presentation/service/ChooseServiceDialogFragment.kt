@@ -26,6 +26,14 @@ class ChooseServiceDialogFragment : DialogFragment() {
     private lateinit var serviceTypeAdapter: ServiceTypeAdapter
     private val serviceTypes = mutableListOf<ServiceType>()
 
+    private val selectTypeCallback = object : ServiceTypeAdapter.Callback {
+        override fun onServiceTypeClick(serviceType: ServiceType) {
+            dialog?.dismiss()
+
+            // TODO: save selected type
+        }
+    }
+
     init {
         initServiceTypes()
     }
@@ -34,29 +42,11 @@ class ChooseServiceDialogFragment : DialogFragment() {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             val layout: View = LayoutInflater.from(it).inflate(R.layout.dialog_choose_service_type, null, false)
-
-            val dialog = builder
+            initLayout(layout)
+            builder
                 .setView(layout)
                 .setNegativeButton(R.string.close) { dialog, id -> /* Do nothing */ }
                 .create()
-
-            with(layout) {
-                choose_service_type_list.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-
-                val selectTypeCallback = object : ServiceTypeAdapter.Callback {
-                    override fun onServiceTypeClick(serviceType: ServiceType) {
-                        dialog.dismiss()
-
-                        // TODO: save selected type
-                    }
-                }
-
-                serviceTypeAdapter = ServiceTypeAdapter(selectTypeCallback)
-                choose_service_type_list.adapter = serviceTypeAdapter
-                serviceTypeAdapter.submitList(serviceTypes)
-            }
-
-            dialog
         } ?: throw IllegalStateException("Activity cannot be null")
     }
 
@@ -65,5 +55,14 @@ class ChooseServiceDialogFragment : DialogFragment() {
         serviceTypes.add(ServiceType.ELECTRICIAN)
         serviceTypes.add(ServiceType.CARPENTER)
         serviceTypes.add(ServiceType.OTHER)
+    }
+
+    private fun initLayout(layout: View) {
+        with(layout) {
+            choose_service_type_list.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            serviceTypeAdapter = ServiceTypeAdapter(selectTypeCallback)
+            choose_service_type_list.adapter = serviceTypeAdapter
+            serviceTypeAdapter.submitList(serviceTypes)
+        }
     }
 }
