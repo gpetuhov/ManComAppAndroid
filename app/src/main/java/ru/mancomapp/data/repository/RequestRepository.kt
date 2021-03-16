@@ -10,9 +10,12 @@ class RequestRepository {
     suspend fun getRequests(): List<Request> {
         // TODO: implement
         // TODO: handle errors
-
         delay(5000)
+        return getDummyRequests()
+    }
 
+    // TODO: remove this
+    private fun getDummyRequests(): List<Request> {
         val requests = mutableListOf<Request>()
 
         (1..100).forEach {
