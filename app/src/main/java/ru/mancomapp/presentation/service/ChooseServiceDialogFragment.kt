@@ -35,17 +35,28 @@ class ChooseServiceDialogFragment : DialogFragment() {
             val builder = AlertDialog.Builder(it)
             val layout: View = LayoutInflater.from(it).inflate(R.layout.dialog_choose_service_type, null, false)
 
+            val dialog = builder
+                .setView(layout)
+                .setNegativeButton(R.string.close) { dialog, id -> /* Do nothing */ }
+                .create()
+
             with(layout) {
                 choose_service_type_list.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-                serviceTypeAdapter = ServiceTypeAdapter()
+
+                val selectTypeCallback = object : ServiceTypeAdapter.Callback {
+                    override fun onServiceTypeClick(serviceType: ServiceType) {
+                        dialog.dismiss()
+
+                        // TODO: save selected type
+                    }
+                }
+
+                serviceTypeAdapter = ServiceTypeAdapter(selectTypeCallback)
                 choose_service_type_list.adapter = serviceTypeAdapter
                 serviceTypeAdapter.submitList(serviceTypes)
             }
 
-            builder
-                .setView(layout)
-                .setNegativeButton(R.string.close) { dialog, id -> /* Do nothing */ }
-                .create()
+            dialog
         } ?: throw IllegalStateException("Activity cannot be null")
     }
 
