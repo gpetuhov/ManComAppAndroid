@@ -40,6 +40,7 @@
     <string name="request_status_new">New</string>
     <string name="request_status_on_review">On review</string>
     <string name="request_status_complete">Complete</string>
+    <string name="load_request_history_error">Error loading request history</string>
 
     <!-- Feedback fragment -->
     <string name="new_feedback">New feedback</string>

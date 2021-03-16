@@ -39,6 +39,7 @@
     <string name="request_status_new">Новая</string>
     <string name="request_status_on_review">На рассмотрении</string>
     <string name="request_status_complete">Выполнено</string>
+    <string name="load_request_history_error">Ошибка загрузки истории обращений</string>
 
     <!-- Feedback fragment -->
     <string name="new_feedback">Новое обращение</string>
