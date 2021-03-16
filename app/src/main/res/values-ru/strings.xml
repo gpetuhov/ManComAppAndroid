@@ -54,4 +54,9 @@
     <string name="add_file_error">Ошибка выбора файла</string>
     <string name="max_files_error">Максимальное количество файлов уже добавлено</string>
 
+    <!-- Service fragment -->
+    <string name="get_service">Заказать услугу</string>
+    <string name="choose_service">Выбрать услугу</string>
+    <string name="write_comment_hint">Напишите Ваш комментарий</string>
+
 </resources>
