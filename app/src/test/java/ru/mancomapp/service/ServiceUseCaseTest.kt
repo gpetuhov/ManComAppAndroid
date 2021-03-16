@@ -4,13 +4,13 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
-import org.mockito.Mockito
-import ru.mancomapp.data.repository.ServiceRepository
+import ru.mancomapp.di.components.DaggerTestAppComponent
 import ru.mancomapp.domain.models.service.Service
 import ru.mancomapp.domain.models.service.ServiceType
 import ru.mancomapp.domain.usecase.service.ServiceCommentEmptyException
 import ru.mancomapp.domain.usecase.service.ServiceTypeNotSelectedException
 import ru.mancomapp.domain.usecase.service.ServiceUseCase
+import javax.inject.Inject
 
 class ServiceUseCaseTest {
 
@@ -18,14 +18,16 @@ class ServiceUseCaseTest {
         private const val COMMENT = "Comment"
     }
 
-    private val serviceRepositoryMock = Mockito.mock(ServiceRepository::class.java)
-    private lateinit var serviceUseCase: ServiceUseCase
+    @Inject lateinit var serviceUseCase: ServiceUseCase
+
     private lateinit var service: Service
 
     @Before
     fun initFeedback() {
+        val appComponent = DaggerTestAppComponent.builder().build()
+        appComponent.inject(this)
+
         service = Service()
-        serviceUseCase = ServiceUseCase(serviceRepositoryMock)
     }
 
     @Test(expected = ServiceTypeNotSelectedException::class)
