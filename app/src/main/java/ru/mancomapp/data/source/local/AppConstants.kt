@@ -7,6 +7,7 @@ class AppConstants {
             const val IMAGE = "image/*"
             const val PDF = "application/pdf"
             const val FEEDBACK_MAX_FILES = 5
+            const val SERVICE_MAX_FILES = 5
         }
     }
 }
