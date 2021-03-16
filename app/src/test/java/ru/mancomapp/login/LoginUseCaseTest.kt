@@ -4,12 +4,12 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
-import org.mockito.Mockito
-import ru.mancomapp.data.repository.LoginRepository
+import ru.mancomapp.di.components.DaggerTestAppComponent
 import ru.mancomapp.domain.models.LoginCredentials
 import ru.mancomapp.domain.usecase.login.LoginCredentialsEmptyException
 import ru.mancomapp.domain.usecase.login.LoginUseCase
 import ru.mancomapp.domain.usecase.login.PrivacyPolicyNotConfirmedException
+import javax.inject.Inject
 
 class LoginUseCaseTest {
 
@@ -18,14 +18,16 @@ class LoginUseCaseTest {
         private const val PASSWORD = "password"
     }
 
-    private val loginRepositoryMock = Mockito.mock(LoginRepository::class.java)
-    private lateinit var loginUseCase: LoginUseCase
+    @Inject lateinit var loginUseCase: LoginUseCase
+
     private lateinit var loginCredentials: LoginCredentials
 
     @Before
     fun initLoginCredentials() {
+        val appComponent = DaggerTestAppComponent.builder().build()
+        appComponent.inject(this)
+
         loginCredentials = LoginCredentials()
-        loginUseCase = LoginUseCase(loginRepositoryMock)
     }
 
     @Test(expected = LoginCredentialsEmptyException::class)
