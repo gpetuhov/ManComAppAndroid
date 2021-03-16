@@ -2,6 +2,7 @@ package ru.mancomapp.login
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.newSingleThreadContext
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
@@ -31,6 +32,7 @@ class LoginViewModelTest {
     @get:Rule
     val rule = InstantTaskExecutorRule()
 
+    @ExperimentalCoroutinesApi
     @Before
     fun initViewModel() {
         App.appComponent = DaggerTestAppComponent.builder().build()
@@ -40,6 +42,7 @@ class LoginViewModelTest {
         loginCredentials = LoginCredentials()
     }
 
+    @ExperimentalCoroutinesApi
     @After
     fun tearDown() {
         Dispatchers.resetMain()
