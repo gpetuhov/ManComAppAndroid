@@ -1,4 +1,4 @@
-package ru.mancomapp.domain.usecase
+package ru.mancomapp.domain.usecase.request
 
 import ru.mancomapp.data.repository.RequestRepository
 

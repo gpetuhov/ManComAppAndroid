@@ -12,7 +12,7 @@ import ru.mancomapp.App
 import ru.mancomapp.data.repository.RequestRepository
 import ru.mancomapp.di.components.DaggerTestAppComponent
 import ru.mancomapp.domain.models.request.Request
-import ru.mancomapp.domain.usecase.RequestUseCase
+import ru.mancomapp.domain.usecase.request.RequestUseCase
 import ru.mancomapp.presentation.requests.RequestsViewModel
 
 class FeedbackViewModelTest {

@@ -64,7 +64,7 @@ class ServiceViewModel : ViewModel() {
         }
     }
 
-    fun send() {
+    fun sendRequest() {
         // TODO: implement
     }
 

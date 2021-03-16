@@ -9,7 +9,7 @@ import kotlinx.coroutines.*
 import ru.mancomapp.App
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.request.Request
-import ru.mancomapp.domain.usecase.RequestUseCase
+import ru.mancomapp.domain.usecase.request.RequestUseCase
 import javax.inject.Inject
 
 class RequestsViewModel : ViewModel() {

@@ -124,6 +124,6 @@ class ServiceFragment : Fragment() {
         // TODO: implement
         toast("Service request send")
 
-        viewModel.send()
+        viewModel.sendRequest()
     }
 }

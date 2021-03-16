@@ -7,7 +7,7 @@ import ru.mancomapp.data.repository.FeedbackRepository
 import ru.mancomapp.data.repository.LoginRepository
 import ru.mancomapp.data.repository.RequestRepository
 import ru.mancomapp.domain.usecase.login.LoginUseCase
-import ru.mancomapp.domain.usecase.RequestUseCase
+import ru.mancomapp.domain.usecase.request.RequestUseCase
 import ru.mancomapp.domain.usecase.feedback.FeedbackUseCase
 import javax.inject.Singleton
 
