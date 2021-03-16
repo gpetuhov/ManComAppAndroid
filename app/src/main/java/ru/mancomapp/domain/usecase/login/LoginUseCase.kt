@@ -3,13 +3,13 @@ package ru.mancomapp.domain.usecase.login
 import ru.mancomapp.data.repository.LoginRepository
 import ru.mancomapp.domain.models.LoginCredentials
 
-open class LoginUseCase(private val loginRepository: LoginRepository) {
+class LoginUseCase(private val loginRepository: LoginRepository) {
 
     @Throws(
         LoginCredentialsEmptyException::class,
         PrivacyPolicyNotConfirmedException::class
     )
-    open suspend fun login(
+    suspend fun login(
         loginCredentials: LoginCredentials,
         onLoginRequestStarted: suspend () -> Unit
     ) {

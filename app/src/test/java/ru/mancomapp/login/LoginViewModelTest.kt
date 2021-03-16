@@ -47,36 +47,40 @@ class LoginViewModelTest {
     }
 
     @Test
-    fun login_emptyLoginEmptyPassword_errorLoginEmpty() {
+    fun login_emptyLoginEmptyPassword_errorCredentialsEmpty() {
         viewModel.login(loginCredentials)
+        delay()
         assertFalse(viewModel.isLoginStarted.value ?: false)
         assertFalse(viewModel.isLoginSuccess.value ?: false)
         assertEquals(R.string.login_input_empty, viewModel.isLoginError.value)
     }
 
     @Test
-    fun login_emptyLogin_errorLoginEmpty() {
+    fun login_emptyLogin_errorCredentialsEmpty() {
         loginCredentials.password = PASSWORD
         viewModel.login(loginCredentials)
+        delay()
         assertFalse(viewModel.isLoginStarted.value ?: false)
         assertFalse(viewModel.isLoginSuccess.value ?: false)
         assertEquals(R.string.login_input_empty, viewModel.isLoginError.value)
     }
 
     @Test
-    fun login_emptyPassword_errorLoginEmpty() {
+    fun login_emptyPassword_errorCredentialsEmpty() {
         loginCredentials.login = LOGIN
         viewModel.login(loginCredentials)
+        delay()
         assertFalse(viewModel.isLoginStarted.value ?: false)
         assertFalse(viewModel.isLoginSuccess.value ?: false)
         assertEquals(R.string.login_input_empty, viewModel.isLoginError.value)
     }
 
     @Test
-    fun login_privacyPolicyNotConfirmed_errorLoginEmpty() {
+    fun login_privacyPolicyNotConfirmed_errorPrivacyPolicy() {
         loginCredentials.login = LOGIN
         loginCredentials.password = PASSWORD
         viewModel.login(loginCredentials)
+        delay()
         assertFalse(viewModel.isLoginStarted.value ?: false)
         assertFalse(viewModel.isLoginSuccess.value ?: false)
         assertEquals(R.string.privacy_policy_confirm_error, viewModel.isLoginError.value)
@@ -88,6 +92,7 @@ class LoginViewModelTest {
         loginCredentials.password = PASSWORD
         loginCredentials.isPrivacyPolicyConfirmed = true
         viewModel.login(loginCredentials)
+        delay()
         assertTrue(viewModel.isLoginStarted.value ?: false)
     }
 
@@ -97,7 +102,9 @@ class LoginViewModelTest {
         loginCredentials.password = PASSWORD
         loginCredentials.isPrivacyPolicyConfirmed = true
         viewModel.login(loginCredentials)
-        Thread.sleep(300)
+        delay()
         assertTrue(viewModel.isLoginSuccess.value ?: false)
     }
+
+    private fun delay() = Thread.sleep(300)
 }
