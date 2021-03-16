@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_feedback.*
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.Attachment
+import ru.mancomapp.domain.models.Feedback
 import ru.mancomapp.utils.extensions.hideSoftKeyboard
 import ru.mancomapp.utils.extensions.setVisible
 import ru.mancomapp.utils.extensions.startPicker
@@ -104,7 +105,7 @@ class FeedbackFragment : Fragment() {
     }
 
     private fun onSendButtonClick() {
-        val feedback = FeedbackViewModel.Feedback().apply {
+        val feedback = Feedback().apply {
             title = feedback_title_input.text.toString()
             content = feedback_content_input.text.toString()
         }

@@ -11,6 +11,7 @@ import ru.mancomapp.R
 import ru.mancomapp.App
 import ru.mancomapp.domain.models.Attachment
 import ru.mancomapp.data.source.local.AppConstants
+import ru.mancomapp.domain.models.Feedback
 import ru.mancomapp.utils.getFileName
 
 class FeedbackViewModel : ViewModel() {
@@ -82,12 +83,5 @@ class FeedbackViewModel : ViewModel() {
                 isSendSuccessLiveDataMutable.postValue(isSuccess)
             }
         }
-    }
-
-    class Feedback {
-        var title: String = ""
-        var content: String = ""
-
-        fun isEmpty() = title.isEmpty() || content.isEmpty()
     }
 }

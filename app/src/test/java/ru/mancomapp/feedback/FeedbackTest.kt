@@ -4,7 +4,7 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
-import ru.mancomapp.presentation.feedback.FeedbackViewModel
+import ru.mancomapp.domain.models.Feedback
 
 class FeedbackTest {
 
@@ -13,11 +13,11 @@ class FeedbackTest {
         private const val CONTENT = "Content"
     }
 
-    private lateinit var feedback: FeedbackViewModel.Feedback
+    private lateinit var feedback: Feedback
 
     @Before
     fun initFeedback() {
-        feedback = FeedbackViewModel.Feedback()
+        feedback = Feedback()
     }
 
     @Test
