@@ -12,24 +12,31 @@ import ru.mancomapp.App
 import ru.mancomapp.domain.models.Attachment
 import ru.mancomapp.data.source.local.AppConstants
 import ru.mancomapp.domain.models.Feedback
+import ru.mancomapp.domain.usecase.feedback.FeedbackEmptyException
+import ru.mancomapp.domain.usecase.feedback.FeedbackUseCase
 import ru.mancomapp.utils.getFileName
+import javax.inject.Inject
 
 class FeedbackViewModel : ViewModel() {
 
+    @Inject lateinit var feedbackUseCase: FeedbackUseCase
+
     var isSendStarted: LiveData<Boolean>
     var isSendSuccess: LiveData<Boolean>
-    var isSendError: LiveData<String>
+    var isSendError: LiveData<Int>
     var attachments: LiveData<List<Attachment>>
 
     private val isSendStartedLiveDataMutable = MutableLiveData<Boolean>()
     private val isSendSuccessLiveDataMutable = MutableLiveData<Boolean>()
-    private val isSendErrorLiveDataMutable = MutableLiveData<String>()
+    private val isSendErrorLiveDataMutable = MutableLiveData<Int>()
     private val attachmentsLiveDataMutable = MutableLiveData<List<Attachment>>()
 
     private var sendJob: Job? = null
     private val attachmentsList = mutableListOf<Attachment>()
 
     init {
+        App.appComponent.inject(this)
+
         isSendStarted = isSendStartedLiveDataMutable
         isSendSuccess = isSendSuccessLiveDataMutable
         isSendError = isSendErrorLiveDataMutable
@@ -56,32 +63,35 @@ class FeedbackViewModel : ViewModel() {
     }
 
     fun send(feedback: Feedback) {
-        if (feedback.isEmpty()) {
-            postSendError(R.string.feedback_empty_error)
-            return
-        }
-
-        startSend(feedback)
-    }
-
-    private fun postSendError(@StringRes errorMessageId: Int) {
-        val errorMessage = App.application.getString(errorMessageId)
-        isSendErrorLiveDataMutable.postValue(errorMessage)
-    }
-
-    private fun startSend(feedback: Feedback) {
-        isSendStartedLiveDataMutable.postValue(true)
-
         sendJob = viewModelScope.launch(Dispatchers.IO) {
-            // TODO: implement
-            delay(5000)
-
-            // TODO: handle send error and no network (server unavailable)
-            val isSuccess = true
-
-            withContext(Dispatchers.Main) {
-                isSendSuccessLiveDataMutable.postValue(isSuccess)
+            try {
+                feedbackUseCase.sendFeedback(feedback) { postSendStarted() }
+                postSendSuccess()
+            } catch (e: FeedbackEmptyException) {
+                postSendError(R.string.feedback_empty_error)
+            } catch (e: Exception) {
+                // TODO: handle send error and no network (server unavailable)
             }
+        }
+    }
+
+    private suspend fun postSendStarted() {
+        withContext(Dispatchers.Main) {
+            isSendStartedLiveDataMutable.postValue(true)
+        }
+    }
+
+    private suspend fun postSendSuccess() {
+        withContext(Dispatchers.Main) {
+            isSendSuccessLiveDataMutable.postValue(true)
+        }
+    }
+
+    private suspend fun postSendError(@StringRes errorMessageId: Int) {
+        withContext(Dispatchers.Main) {
+            isSendStartedLiveDataMutable.postValue(false)
+            isSendSuccessLiveDataMutable.postValue(false)
+            isSendErrorLiveDataMutable.postValue(errorMessageId)
         }
     }
 }

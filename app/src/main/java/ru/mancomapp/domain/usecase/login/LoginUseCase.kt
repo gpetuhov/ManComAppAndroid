@@ -7,7 +7,8 @@ class LoginUseCase(private val loginRepository: LoginRepository) {
 
     @Throws(
         LoginCredentialsEmptyException::class,
-        PrivacyPolicyNotConfirmedException::class
+        PrivacyPolicyNotConfirmedException::class,
+        Exception::class
     )
     suspend fun login(
         loginCredentials: LoginCredentials,
