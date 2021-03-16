@@ -62,5 +62,7 @@
     <string name="electrician">Электротехнические работы</string>
     <string name="carpenter">Плотницкие работы</string>
     <string name="other">Другое</string>
+    <string name="close">Закрыть</string>
+    <string name="service">Услуга</string>
 
 </resources>

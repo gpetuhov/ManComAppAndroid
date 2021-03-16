@@ -86,7 +86,7 @@ class ServiceFragment : Fragment() {
 
     private fun onSendSuccess(isSuccess: Boolean) {
         if (isSuccess) {
-            FeedbackSendSuccessDialogFragment().show(parentFragmentManager, "FeedbackSendSuccessDialogFragment")
+            FeedbackSendSuccessDialogFragment.show(parentFragmentManager)
             navigateUp()
         }
     }
@@ -99,8 +99,7 @@ class ServiceFragment : Fragment() {
         attachmentsAdapter.submitList(attachments)
 
     private fun onServiceTypeClick() {
-        // TODO: implement
-        toast("Service type")
+        ChooseServiceDialogFragment.show(parentFragmentManager)
     }
 
     private fun onAddFilesButtonClick() {

@@ -64,5 +64,7 @@
     <string name="electrician">Electrician</string>
     <string name="carpenter">Carpenter</string>
     <string name="other">Other</string>
+    <string name="close">Close</string>
+    <string name="service">Service</string>
 
 </resources>

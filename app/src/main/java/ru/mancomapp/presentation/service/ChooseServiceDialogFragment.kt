@@ -1,4 +1,4 @@
-package ru.mancomapp.presentation.feedback
+package ru.mancomapp.presentation.service
 
 import android.app.Dialog
 import android.os.Bundle
@@ -9,23 +9,23 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import ru.mancomapp.R
 
-class FeedbackSendSuccessDialogFragment : DialogFragment() {
+class ChooseServiceDialogFragment : DialogFragment() {
 
     companion object {
-        private const val TAG = "FeedbackSendSuccessDialogFragment"
+        private const val TAG = "ChooseServiceDialogFragment"
 
         fun show(fragmentManager: FragmentManager) {
-            FeedbackSendSuccessDialogFragment().show(fragmentManager, TAG)
+            ChooseServiceDialogFragment().show(fragmentManager, TAG)
         }
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
-            val layout: View = LayoutInflater.from(it).inflate(R.layout.dialog_feedback_send_success, null, false)
+            val layout: View = LayoutInflater.from(it).inflate(R.layout.dialog_choose_service_type, null, false)
             builder
                 .setView(layout)
-                .setPositiveButton(R.string.ok) { dialog, id -> /* Do nothing */ }
+                .setNegativeButton(R.string.close) { dialog, id -> /* Do nothing */ }
                 .create()
         } ?: throw IllegalStateException("Activity cannot be null")
     }
