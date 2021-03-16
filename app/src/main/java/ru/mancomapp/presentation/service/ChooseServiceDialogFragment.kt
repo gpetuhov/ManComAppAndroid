@@ -13,14 +13,18 @@ import kotlinx.android.synthetic.main.dialog_choose_service_type.view.*
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.service.ServiceType
 
-class ChooseServiceDialogFragment : DialogFragment() {
+class ChooseServiceDialogFragment(private val callback: Callback) : DialogFragment() {
 
     companion object {
         private const val TAG = "ChooseServiceDialogFragment"
 
-        fun show(fragmentManager: FragmentManager) {
-            ChooseServiceDialogFragment().show(fragmentManager, TAG)
+        fun show(fragmentManager: FragmentManager, callback: Callback) {
+            ChooseServiceDialogFragment(callback).show(fragmentManager, TAG)
         }
+    }
+
+    interface Callback {
+        fun onSelectServiceType(serviceType: ServiceType)
     }
 
     private lateinit var serviceTypeAdapter: ServiceTypeAdapter
@@ -29,8 +33,7 @@ class ChooseServiceDialogFragment : DialogFragment() {
     private val selectTypeCallback = object : ServiceTypeAdapter.Callback {
         override fun onServiceTypeClick(serviceType: ServiceType) {
             dialog?.dismiss()
-
-            // TODO: save selected type
+            callback.onSelectServiceType(serviceType)
         }
     }
 

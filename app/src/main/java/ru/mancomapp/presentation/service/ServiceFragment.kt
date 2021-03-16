@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_service.*
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.Attachment
+import ru.mancomapp.domain.models.service.ServiceType
 import ru.mancomapp.presentation.feedback.AttachmentsAdapter
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogFragment
 import ru.mancomapp.utils.extensions.hideSoftKeyboard
@@ -29,6 +30,13 @@ class ServiceFragment : Fragment() {
 
     private lateinit var viewModel: ServiceViewModel
     private lateinit var attachmentsAdapter: AttachmentsAdapter
+
+    private val serviceTypeCallback = object : ChooseServiceDialogFragment.Callback {
+        override fun onSelectServiceType(serviceType: ServiceType) {
+            // TODO: implement
+            toast(serviceType.nameId)
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_service, container, false)
@@ -98,9 +106,8 @@ class ServiceFragment : Fragment() {
     private fun updateAttachmentsUI(attachments: List<Attachment>) =
         attachmentsAdapter.submitList(attachments)
 
-    private fun onServiceTypeClick() {
-        ChooseServiceDialogFragment.show(parentFragmentManager)
-    }
+    private fun onServiceTypeClick() =
+        ChooseServiceDialogFragment.show(parentFragmentManager, serviceTypeCallback)
 
     private fun onAddFilesButtonClick() {
         if (viewModel.isAddAttachmentsAllowed()) {
