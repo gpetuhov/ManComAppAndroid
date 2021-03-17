@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_management_request.view.*
+import kotlinx.android.synthetic.main.item_person_pass_request.view.*
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.request.Request
 import ru.mancomapp.domain.models.request.RequestStatus
@@ -15,6 +16,8 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
     companion object {
         private const val MANAGEMENT_REQUEST_TYPE = 0
         private const val SERVICE_REQUEST_TYPE = 1
+        private const val PERSON_PASS_REQUEST_TYPE = 2
+        private const val CAR_PASS_REQUEST_TYPE = 3
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -28,6 +31,13 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
             SERVICE_REQUEST_TYPE -> {
                 val view = layoutInflater.inflate(R.layout.item_management_request, parent, false)
                 ServiceRequestItemViewHolder(view)
+            }
+            PERSON_PASS_REQUEST_TYPE -> {
+                val view = layoutInflater.inflate(R.layout.item_person_pass_request, parent, false)
+                PersonPassRequestItemViewHolder(view)
+            }
+            CAR_PASS_REQUEST_TYPE -> {
+                TODO()
             }
             else -> throw IllegalStateException("Undefined ViewType")
         }
@@ -43,6 +53,9 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
             is ServiceRequestItemViewHolder -> {
                 holder.bind(request as Request.Service)
             }
+            is PersonPassRequestItemViewHolder -> {
+                holder.bind(request as Request.PersonPass)
+            }
         }
     }
 
@@ -50,7 +63,8 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
         return when (getItem(position)) {
             is Request.Management -> MANAGEMENT_REQUEST_TYPE
             is Request.Service -> SERVICE_REQUEST_TYPE
-            else -> throw IllegalStateException("Undefined ViewType")
+            is Request.PersonPass -> PERSON_PASS_REQUEST_TYPE
+            is Request.CarPass -> CAR_PASS_REQUEST_TYPE
         }
     }
 
@@ -87,6 +101,16 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
             itemView.request_title.text = itemView.context.getString(request.type.nameId)
             itemView.request_content.text = request.comment
             itemView.request_status.text = getRequestStatus(request)
+        }
+    }
+
+    private class PersonPassRequestItemViewHolder(itemView: View) : RequestItemViewHolder(itemView) {
+        fun bind(request: Request.PersonPass) {
+            val requestNumber = getRequestNumber(request)
+            itemView.request_person_pass_number.text = requestNumber
+            itemView.request_person_name.text = request.personName
+            itemView.request_person_pass_access_type.text = itemView.context.getString(request.accessType.nameId)
+            itemView.request_person_pass_status.text = getRequestStatus(request)
         }
     }
 }
