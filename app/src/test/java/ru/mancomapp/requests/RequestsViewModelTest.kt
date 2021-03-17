@@ -7,7 +7,10 @@ import kotlinx.coroutines.test.setMain
 import org.junit.*
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
+import org.junit.runner.RunWith
+import org.mockito.Mock
 import org.mockito.Mockito
+import org.mockito.junit.MockitoJUnitRunner
 import ru.mancomapp.App
 import ru.mancomapp.data.repository.RequestRepository
 import ru.mancomapp.di.components.DaggerTestAppComponent
@@ -15,7 +18,10 @@ import ru.mancomapp.domain.models.request.Request
 import ru.mancomapp.domain.usecase.request.RequestUseCase
 import ru.mancomapp.presentation.requests.RequestsViewModel
 
+@RunWith(MockitoJUnitRunner::class)
 class FeedbackViewModelTest {
+
+    @Mock lateinit var requestRepositoryMock: RequestRepository
 
     private lateinit var viewModel: RequestsViewModel
 
@@ -50,7 +56,6 @@ class FeedbackViewModelTest {
     @Test
     fun loadRequestHistory_noErrors_resultNotNull() {
         runBlocking {
-            val requestRepositoryMock = Mockito.mock(RequestRepository::class.java)
             val requests: List<Request> = emptyList()
             Mockito.`when`(requestRepositoryMock.getRequests()).thenReturn(requests)
             val requestUseCase = RequestUseCase(requestRepositoryMock)
