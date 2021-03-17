@@ -70,5 +70,10 @@
     <!-- Security fragment -->
     <string name="person_pass">Заказать пропуск на человека</string>
     <string name="car_pass">Заказать пропуск на машину</string>
+    <string name="access_type">Тип посещения</string>
+    <string name="access_type_apartment">Допуск в апартмент</string>
+    <string name="access_type_lobby">Допуск только в лобби</string>
+    <string name="access_type_territory">Заезд на придомовую территорию</string>
+    <string name="access_type_guest_parking">Заезд на гостевой паркинг</string>
 
 </resources>

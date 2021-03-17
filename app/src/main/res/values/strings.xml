@@ -72,5 +72,10 @@
     <!-- Security fragment -->
     <string name="person_pass">Person pass</string>
     <string name="car_pass">Car pass</string>
+    <string name="access_type">Access type</string>
+    <string name="access_type_apartment">Apartment access</string>
+    <string name="access_type_lobby">Lobby access</string>
+    <string name="access_type_territory">Territory access</string>
+    <string name="access_type_guest_parking">Guest parking access</string>
 
 </resources>
