@@ -49,7 +49,18 @@
         android:id="@+id/securityFragment"
         android:name="ru.mancomapp.presentation.security.SecurityFragment"
         android:label="SecurityFragment"
-        tools:layout="@layout/fragment_security" />
+        tools:layout="@layout/fragment_security" >
+        <action
+            android:id="@+id/action_securityFragment_to_personPassFragment"
+            app:destination="@id/personPassFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+        <action
+            android:id="@+id/action_securityFragment_to_carPassFragment"
+            app:destination="@id/carPassFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
 
     <fragment
         android:id="@+id/paymentsFragment"
@@ -68,5 +79,17 @@
         android:name="ru.mancomapp.presentation.service.ServiceFragment"
         android:label="ServiceFragment"
         tools:layout="@layout/fragment_service" />
+
+    <fragment
+        android:id="@+id/personPassFragment"
+        android:name="ru.mancomapp.presentation.passperson.PersonPassFragment"
+        android:label="PersonPassFragment"
+        tools:layout="@layout/fragment_person_pass" />
+
+    <fragment
+        android:id="@+id/carPassFragment"
+        android:name="ru.mancomapp.presentation.passcar.CarPassFragment"
+        android:label="CarPassFragment"
+        tools:layout="@layout/fragment_car_pass" />
 
 </navigation>
