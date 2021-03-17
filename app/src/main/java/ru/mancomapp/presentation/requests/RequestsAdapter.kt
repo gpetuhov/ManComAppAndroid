@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.item_car_pass_request.view.*
 import kotlinx.android.synthetic.main.item_management_request.view.*
 import kotlinx.android.synthetic.main.item_person_pass_request.view.*
 import ru.mancomapp.R
@@ -37,7 +38,8 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
                 PersonPassRequestItemViewHolder(view)
             }
             CAR_PASS_REQUEST_TYPE -> {
-                TODO()
+                val view = layoutInflater.inflate(R.layout.item_car_pass_request, parent, false)
+                CarPassRequestItemViewHolder(view)
             }
             else -> throw IllegalStateException("Undefined ViewType")
         }
@@ -55,6 +57,9 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
             }
             is PersonPassRequestItemViewHolder -> {
                 holder.bind(request as Request.PersonPass)
+            }
+            is CarPassRequestItemViewHolder -> {
+                holder.bind(request as Request.CarPass)
             }
         }
     }
@@ -111,6 +116,17 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
             itemView.request_person_name.text = request.personName
             itemView.request_person_pass_access_type.text = itemView.context.getString(request.accessType.nameId)
             itemView.request_person_pass_status.text = getRequestStatus(request)
+        }
+    }
+
+    private class CarPassRequestItemViewHolder(itemView: View) : RequestItemViewHolder(itemView) {
+        fun bind(request: Request.CarPass) {
+            val requestNumber = getRequestNumber(request)
+            itemView.request_car_pass_number.text = requestNumber
+            itemView.request_car_model.text = request.carModel
+            itemView.request_car_number.text = request.carNumber
+            itemView.request_car_pass_access_type.text = itemView.context.getString(request.accessType.nameId)
+            itemView.request_car_pass_status.text = getRequestStatus(request)
         }
     }
 }
