@@ -9,8 +9,6 @@ class RequestsDiffCallback : DiffUtil.ItemCallback<Request>() {
     }
 
     override fun areContentsTheSame(oldItem: Request, newItem: Request): Boolean {
-        return oldItem.title == newItem.title
-                && oldItem.content == newItem.content
-                && oldItem.status == newItem.status
+        return oldItem.status == newItem.status
     }
 }

@@ -5,32 +5,62 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_request.view.*
+import kotlinx.android.synthetic.main.item_management_request.view.*
 import ru.mancomapp.R
+import ru.mancomapp.domain.models.request.ManagementRequest
 import ru.mancomapp.domain.models.request.Request
 import ru.mancomapp.domain.models.request.RequestStatus
+import ru.mancomapp.domain.models.request.ServiceRequest
 
-class RequestsAdapter : ListAdapter<Request, RequestsAdapter.RequestItemViewHolder>(RequestsDiffCallback()) {
+class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RequestItemViewHolder {
+    companion object {
+        private const val MANAGEMENT_REQUEST_TYPE = 0
+        private const val SERVICE_REQUEST_TYPE = 1
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.item_request, parent, false)
-        return RequestItemViewHolder(view)
+
+        return when (viewType) {
+            MANAGEMENT_REQUEST_TYPE -> {
+                val view = layoutInflater.inflate(R.layout.item_management_request, parent, false)
+                ManagementRequestItemViewHolder(view)
+            }
+            SERVICE_REQUEST_TYPE -> {
+                val view = layoutInflater.inflate(R.layout.item_management_request, parent, false)
+                ServiceRequestItemViewHolder(view)
+            }
+            else -> throw IllegalStateException("Undefined ViewType")
+        }
     }
 
-    override fun onBindViewHolder(holder: RequestItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val request = getItem(position)
-        holder.bind(request)
+
+        when (holder) {
+            is ManagementRequestItemViewHolder -> {
+                holder.bind(request as ManagementRequest)
+            }
+            is ServiceRequestItemViewHolder -> {
+                holder.bind(request as ServiceRequest)
+            }
+        }
     }
 
-    class RequestItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    override fun getItemViewType(position: Int): Int {
+        return when (getItem(position)) {
+            is ManagementRequest -> MANAGEMENT_REQUEST_TYPE
+            is ServiceRequest -> SERVICE_REQUEST_TYPE
+            else -> throw IllegalStateException("Undefined ViewType")
+        }
+    }
 
-        fun bind(request: Request) {
-            val requestNumber = itemView.context.getString(R.string.request_number, request.id.toString())
-            itemView.request_number.text = requestNumber
-            itemView.request_title.text = request.title
-            itemView.request_content.text = request.content
+    private open class RequestItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        protected fun getRequestNumber(request: Request) =
+            itemView.context.getString(R.string.request_number, request.id.toString())
 
+        protected fun getRequestStatus(request: Request): String {
             val requestStatus = itemView.context.getString(
                 when(request.status) {
                     RequestStatus.NEW -> R.string.request_status_new
@@ -38,8 +68,27 @@ class RequestsAdapter : ListAdapter<Request, RequestsAdapter.RequestItemViewHold
                     RequestStatus.COMPLETE -> R.string.request_status_complete
                 }
             )
-            val requestStatusText = itemView.context.getString(R.string.request_status, requestStatus)
-            itemView.request_status.text = requestStatusText
+            return itemView.context.getString(R.string.request_status, requestStatus)
+        }
+    }
+
+    private class ManagementRequestItemViewHolder(itemView: View) : RequestItemViewHolder(itemView) {
+        fun bind(request: ManagementRequest) {
+            val requestNumber = getRequestNumber(request)
+            itemView.request_number.text = requestNumber
+            itemView.request_title.text = request.title
+            itemView.request_content.text = request.content
+            itemView.request_status.text = getRequestStatus(request)
+        }
+    }
+
+    private class ServiceRequestItemViewHolder(itemView: View) : RequestItemViewHolder(itemView) {
+        fun bind(request: ServiceRequest) {
+            val requestNumber = getRequestNumber(request)
+            itemView.request_number.text = requestNumber
+            itemView.request_title.text = itemView.context.getString(request.type.nameId)
+            itemView.request_content.text = request.comment
+            itemView.request_status.text = getRequestStatus(request)
         }
     }
 }

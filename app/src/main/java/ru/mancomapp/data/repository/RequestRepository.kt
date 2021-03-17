@@ -1,8 +1,11 @@
 package ru.mancomapp.data.repository
 
 import kotlinx.coroutines.delay
+import ru.mancomapp.domain.models.request.ManagementRequest
 import ru.mancomapp.domain.models.request.Request
 import ru.mancomapp.domain.models.request.RequestStatus
+import ru.mancomapp.domain.models.request.ServiceRequest
+import ru.mancomapp.domain.models.service.ServiceType
 
 class RequestRepository {
 
@@ -18,18 +21,31 @@ class RequestRepository {
     private fun getDummyRequests(): List<Request> {
         val requests = mutableListOf<Request>()
 
-        (1..100).forEach {
-            val request = Request().apply {
-                id = it
-                title = "Тема обращения ывдоад ываоы вадл выалв ыалвы оалдвыо адывл оадлыв оавы оа ывдла овы"
-                content = "Lsjdkf lfkjs fljsf lsdkjf adslkfj lksdjfj dfklsdjfl " +
-                        "ksdfj l4jfl43j fl4k3qj f43 jqfkl4jgflk43jglfk jerlgkjl4k " +
-                        "2jgl2k45 jglk43j5 glk34j glk4j 3g42lk gjklgj fgkfjdlgjfd g" +
-                        "klfjdlskfj dslkfj asdlkfjsldak fjdslkj fldskf jl dsjflkdas fj" +
-                        "lsdfk dsl;fkdl;skf ;adsk f;lsdak fdsjkfh q34f hqkjewhfkejwhf" +
-                        "dlkgjds flkjsd fkljdsflkjsdflkj dsflk jdsfjasdlkfjadslkjfdlksfj" +
-                        "sdflkja dsfljdsflkj sdflkjdsf."
-                status = RequestStatus.NEW
+        (1..100).forEach { index ->
+            val request: Request
+
+            if (index % 2 == 0) {
+                request = ManagementRequest().apply {
+                    id = index
+                    title = "Тема обращения ывдоад ываоы вадл выалв ыалвы оалдвыо адывл оадлыв оавы оа ывдла овы"
+                    content = "Lsjdkf lfkjs fljsf lsdkjf adslkfj lksdjfj dfklsdjfl " +
+                            "ksdfj l4jfl43j fl4k3qj f43 jqfkl4jgflk43jglfk jerlgkjl4k " +
+                            "2jgl2k45 jglk43j5 glk34j glk4j 3g42lk gjklgj fgkfjdlgjfd g" +
+                            "klfjdlskfj dslkfj asdlkfjsldak fjdslkj fldskf jl dsjflkdas fj" +
+                            "lsdfk dsl;fkdl;skf ;adsk f;lsdak fdsjkfh q34f hqkjewhfkejwhf" +
+                            "dlkgjds flkjsd fkljdsflkjsdflkj dsflk jdsfjasdlkfjadslkjfdlksfj" +
+                            "sdflkja dsfljdsflkj sdflkjdsf."
+                    status = RequestStatus.NEW
+                }
+            } else {
+                request = ServiceRequest().apply {
+                    id = index
+                    type = ServiceType.PLUMBER
+                    comment = "Dfjo34 34jt kjq oigfjraofiud foiuf8934fjklj42 tkt4j4oljt 34otj 43oi2tj4t3j o4ijto34jt " +
+                            "kltj 4tk2 tkl 34 tj34tj tk34" +
+                            "34kj klj 2tt34tj 43l tj4 tj34jt34jtkl 34jtkl34jt."
+                    status = RequestStatus.ON_REVIEW
+                }
             }
 
             requests.add(request)
