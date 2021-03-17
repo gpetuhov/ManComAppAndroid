@@ -1,10 +1,8 @@
 package ru.mancomapp.data.repository
 
 import kotlinx.coroutines.delay
-import ru.mancomapp.domain.models.request.ManagementRequest
 import ru.mancomapp.domain.models.request.Request
 import ru.mancomapp.domain.models.request.RequestStatus
-import ru.mancomapp.domain.models.request.ServiceRequest
 import ru.mancomapp.domain.models.service.ServiceType
 
 class RequestRepository {
@@ -25,7 +23,7 @@ class RequestRepository {
             val request: Request
 
             if (index % 2 == 0) {
-                request = ManagementRequest().apply {
+                request = Request.Management().apply {
                     id = index
                     title = "Тема обращения ывдоад ываоы вадл выалв ыалвы оалдвыо адывл оадлыв оавы оа ывдла овы"
                     content = "Lsjdkf lfkjs fljsf lsdkjf adslkfj lksdjfj dfklsdjfl " +
@@ -38,7 +36,7 @@ class RequestRepository {
                     status = RequestStatus.NEW
                 }
             } else {
-                request = ServiceRequest().apply {
+                request = Request.Service().apply {
                     id = index
                     type = ServiceType.PLUMBER
                     comment = "Dfjo34 34jt kjq oigfjraofiud foiuf8934fjklj42 tkt4j4oljt 34otj 43oi2tj4t3j o4ijto34jt " +
