@@ -79,5 +79,8 @@
     <!-- Person pass fragment -->
     <string name="guest_name">ФИО гостя</string>
     <string name="visit_date">Дата визита</string>
+    <string name="guest_name_empty_error">Пожалуйста, введите ФИО гостя</string>
+    <string name="pass_date_empty_error">Пожалуйста, выберите дату визита</string>
+    <string name="access_type_empty_error">Пожалуйста, выберите тип посещения</string>
 
 </resources>

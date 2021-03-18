@@ -106,9 +106,7 @@ class PersonPassFragment : Fragment() {
         toast("Select access type")
     }
 
-    private fun onSendButtonClick() {
-        // TODO: implement
-        toast("Send")
-    }
+    private fun onSendButtonClick() =
+        viewModel.sendRequest(person_pass_name_input.text.toString())
 }
 
