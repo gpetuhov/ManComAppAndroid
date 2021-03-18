@@ -78,4 +78,8 @@
     <string name="access_type_territory">Territory access</string>
     <string name="access_type_guest_parking">Guest parking access</string>
 
+    <!-- Person pass fragment -->
+    <string name="guest_name">Guest name</string>
+    <string name="visit_date">Visit date</string>
+
 </resources>

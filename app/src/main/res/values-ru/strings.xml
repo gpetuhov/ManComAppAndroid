@@ -76,4 +76,8 @@
     <string name="access_type_territory">Заезд на придомовую территорию</string>
     <string name="access_type_guest_parking">Заезд на гостевой паркинг</string>
 
+    <!-- Person pass fragment -->
+    <string name="guest_name">ФИО гостя</string>
+    <string name="visit_date">Дата визита</string>
+
 </resources>
