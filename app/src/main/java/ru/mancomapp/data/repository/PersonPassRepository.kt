@@ -1,12 +1,12 @@
 package ru.mancomapp.data.repository
 
 import kotlinx.coroutines.delay
-import ru.mancomapp.domain.models.Feedback
+import ru.mancomapp.domain.models.pass.PersonPass
 
-class FeedbackRepository {
+class PersonPassRepository {
 
     @Throws(Exception::class)
-    suspend fun sendFeedback(feedback: Feedback) {
+    suspend fun sendRequest(personPass: PersonPass) {
         // TODO
         delay(5000)
 
