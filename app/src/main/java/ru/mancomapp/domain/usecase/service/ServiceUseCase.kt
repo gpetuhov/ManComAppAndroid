@@ -21,6 +21,6 @@ class ServiceUseCase(private val serviceRepository: ServiceRepository) {
         onSendStarted()
         serviceRepository.sendRequest(service)
 
-        // TODO: handle login error and no network (server unavailable)
+        // TODO: handle send error and no network (server unavailable)
     }
 }
