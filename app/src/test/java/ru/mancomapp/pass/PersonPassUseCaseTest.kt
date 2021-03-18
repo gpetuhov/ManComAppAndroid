@@ -18,16 +18,12 @@ class PersonPassUseCaseTest {
 
     companion object {
         private const val NAME = "Name"
-        private const val YEAR = 2021
-        private const val MONTH = 3
-        private const val DAY = 18
-        private const val TIME_IN_MILLIS = 1616056739495
+        private val PASS_DATE = PersonPassTestData.getPassDate()
     }
 
     @Inject lateinit var personUseCase: PersonPassUseCase
 
     private lateinit var personPass: PersonPass
-    private lateinit var passDate: PassDate
 
     @Before
     fun init() {
@@ -35,13 +31,12 @@ class PersonPassUseCaseTest {
         appComponent.inject(this)
 
         personPass = PersonPass()
-        initPassDate()
     }
 
     @Test(expected = PersonNameEmptyException::class)
     fun sendRequest_nameEmpty_throwsException() {
         runBlocking {
-            personPass.passDate = passDate
+            personPass.passDate = PASS_DATE
             personPass.accessType = PersonPassAccessType.OTHER
             personUseCase.sendRequest(personPass) { /* Do nothing */ }
         }
@@ -60,7 +55,7 @@ class PersonPassUseCaseTest {
     fun sendRequest_accessTypeNotSelected_throwsException() {
         runBlocking {
             personPass.personName = NAME
-            personPass.passDate = passDate
+            personPass.passDate = PASS_DATE
             personUseCase.sendRequest(personPass) { /* Do nothing */ }
         }
     }
@@ -69,20 +64,12 @@ class PersonPassUseCaseTest {
     fun sendRequest_validPersonPass_sendStarted() {
         runBlocking {
             personPass.personName = NAME
-            personPass.passDate = passDate
+            personPass.passDate = PASS_DATE
             personPass.accessType = PersonPassAccessType.OTHER
 
             var isSendStarted = false
             personUseCase.sendRequest(personPass) { isSendStarted = true }
             assertTrue(isSendStarted)
         }
-    }
-
-    private fun initPassDate() {
-        passDate = PassDate()
-        passDate.year = YEAR
-        passDate.month = MONTH
-        passDate.day = DAY
-        passDate.timeInMillis = TIME_IN_MILLIS
     }
 }
