@@ -14,7 +14,7 @@ open class FeedbackBaseViewModel : SendRequestBaseViewModel() {
 
     private val attachmentsLiveDataMutable = MutableLiveData<List<Attachment>>()
 
-    private val attachmentsList = mutableListOf<Attachment>()
+    protected val attachmentsList = mutableListOf<Attachment>()
 
     init {
         attachments = attachmentsLiveDataMutable
