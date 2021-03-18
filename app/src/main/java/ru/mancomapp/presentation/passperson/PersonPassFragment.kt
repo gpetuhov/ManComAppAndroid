@@ -37,11 +37,8 @@ class PersonPassFragment : Fragment() {
         findNavController().navigateUp()
     }
 
-    private fun onSelectDateClick() {
+    private fun onSelectDateClick() =
         DatePickerDialogFragment.show(parentFragmentManager, passDateCallback)
-
-        // TODO: handle result
-    }
 
     private fun onSelectAccessTypeClick() {
         // TODO: implement
