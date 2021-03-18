@@ -1,5 +1,7 @@
 package ru.mancomapp.domain.models.request
 
+import ru.mancomapp.domain.models.pass.CarPassAccessType
+import ru.mancomapp.domain.models.pass.PersonPassAccessType
 import ru.mancomapp.domain.models.service.ServiceType
 
 sealed class Request {

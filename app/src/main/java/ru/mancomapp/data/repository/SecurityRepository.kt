@@ -1,8 +1,8 @@
 package ru.mancomapp.data.repository
 
 import kotlinx.coroutines.delay
-import ru.mancomapp.domain.models.request.CarPassAccessType
-import ru.mancomapp.domain.models.request.PersonPassAccessType
+import ru.mancomapp.domain.models.pass.CarPassAccessType
+import ru.mancomapp.domain.models.pass.PersonPassAccessType
 import ru.mancomapp.domain.models.request.Request
 import ru.mancomapp.domain.models.request.RequestStatus
 

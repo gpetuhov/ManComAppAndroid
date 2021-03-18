@@ -8,9 +8,17 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_person_pass.*
 import ru.mancomapp.R
+import ru.mancomapp.domain.models.pass.PassDate
 import ru.mancomapp.utils.extensions.toast
 
 class PersonPassFragment : Fragment() {
+
+    private val passDateCallback = object : DatePickerDialogFragment.Callback {
+        override fun onDateSelected(passDate: PassDate) {
+            // TODO: save selected date
+            toast("${passDate.year}.${passDate.month}.${passDate.day}")
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_person_pass, container, false)
@@ -30,7 +38,7 @@ class PersonPassFragment : Fragment() {
     }
 
     private fun onSelectDateClick() {
-        DatePickerDialogFragment.show(parentFragmentManager)
+        DatePickerDialogFragment.show(parentFragmentManager, passDateCallback)
 
         // TODO: handle result
     }
