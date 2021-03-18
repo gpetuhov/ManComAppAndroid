@@ -10,14 +10,19 @@ import ru.mancomapp.domain.models.pass.PassDate
 import java.util.*
 
 class DatePickerDialogFragment(
-    private val callback: Callback
+    private val callback: Callback,
+    private val selectedPassDate: PassDate
 ) : DialogFragment(), DatePickerDialog.OnDateSetListener {
 
     companion object {
         private const val TAG = "DatePickerDialogFragment"
 
-        fun show(fragmentManager: FragmentManager, callback: Callback) {
-            DatePickerDialogFragment(callback).show(fragmentManager, TAG)
+        fun show(
+            fragmentManager: FragmentManager,
+            selectedPassDate: PassDate,
+            callback: Callback
+        ) {
+            DatePickerDialogFragment(callback, selectedPassDate).show(fragmentManager, TAG)
         }
     }
 
@@ -27,10 +32,21 @@ class DatePickerDialogFragment(
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
-            val calendar = Calendar.getInstance()
-            val year = calendar.get(Calendar.YEAR)
-            val month = calendar.get(Calendar.MONTH)
-            val day = calendar.get(Calendar.DAY_OF_MONTH)
+            val year: Int
+            val month: Int
+            val day: Int
+
+            if (selectedPassDate.isEmpty()) {
+                val calendar = Calendar.getInstance()
+                year = calendar.get(Calendar.YEAR)
+                month = calendar.get(Calendar.MONTH)
+                day = calendar.get(Calendar.DAY_OF_MONTH)
+            } else {
+                year = selectedPassDate.year
+                month = selectedPassDate.month
+                day = selectedPassDate.day
+            }
+
             DatePickerDialog(it, this, year, month, day)
         } ?: throw IllegalStateException("Activity cannot be null")
     }

@@ -98,8 +98,13 @@ class PersonPassFragment : Fragment() {
         person_pass_access_type_name.text = getString(accessType.nameId)
     }
 
-    private fun onSelectDateClick() =
-        DatePickerDialogFragment.show(parentFragmentManager, passDateCallback)
+    private fun onSelectDateClick() {
+        DatePickerDialogFragment.show(
+            parentFragmentManager,
+            viewModel.selectedPassDate,
+            passDateCallback
+        )
+    }
 
     private fun onSelectAccessTypeClick() {
         // TODO: implement

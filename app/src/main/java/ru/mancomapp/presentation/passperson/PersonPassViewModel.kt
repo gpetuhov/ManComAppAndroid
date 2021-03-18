@@ -27,7 +27,7 @@ class PersonPassViewModel : SendRequestBaseViewModel() {
     private val passDateLiveDataMutable = MutableLiveData<PassDate>()
     private val accessTypeLiveDataMutable = MutableLiveData<PersonPassAccessType>()
 
-    private var selectedPassDate: PassDate = PassDate()
+    var selectedPassDate: PassDate = PassDate()
     private var selectedAccessType: PersonPassAccessType = PersonPassAccessType.NOT_SELECTED
 
     init {
