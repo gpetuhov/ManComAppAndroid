@@ -6,7 +6,7 @@ import org.junit.Before
 import org.junit.Test
 import ru.mancomapp.domain.models.pass.PassDate
 
-class FeedbackTest {
+class PassDateTest {
 
     companion object {
         private const val YEAR = 2021

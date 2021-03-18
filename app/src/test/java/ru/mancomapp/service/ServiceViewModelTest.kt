@@ -22,7 +22,6 @@ class ServiceViewModelTest {
     }
 
     private lateinit var viewModel: ServiceViewModel
-    private lateinit var service: Service
 
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
 
@@ -36,7 +35,6 @@ class ServiceViewModelTest {
         Dispatchers.setMain(mainThreadSurrogate)
 
         viewModel = ServiceViewModel()
-        service = Service()
     }
 
     @ExperimentalCoroutinesApi

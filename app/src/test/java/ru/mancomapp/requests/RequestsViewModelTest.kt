@@ -19,7 +19,7 @@ import ru.mancomapp.domain.usecase.request.RequestUseCase
 import ru.mancomapp.presentation.requests.RequestsViewModel
 
 @RunWith(MockitoJUnitRunner::class)
-class FeedbackViewModelTest {
+class RequestsViewModelTest {
 
     @Mock lateinit var requestRepositoryMock: RequestRepository
 
