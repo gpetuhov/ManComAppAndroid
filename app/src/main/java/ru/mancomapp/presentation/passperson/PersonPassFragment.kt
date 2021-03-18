@@ -15,6 +15,9 @@ import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogType
 import ru.mancomapp.utils.extensions.hideSoftKeyboard
 import ru.mancomapp.utils.extensions.setVisible
 import ru.mancomapp.utils.extensions.toast
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PersonPassFragment : Fragment() {
 
@@ -78,10 +81,16 @@ class PersonPassFragment : Fragment() {
         findNavController().navigateUp()
     }
 
-    private fun updatePassDateUI(passDate: PassDate) {
-        // TODO: implement
-        val dateString = "${passDate.year}.${passDate.month}.${passDate.day}"
-        person_pass_date_input.setText(dateString)
+    private fun updatePassDateUI(passDate: PassDate) =
+        person_pass_date_input.setText(getFormattedDate(passDate))
+
+    private fun getFormattedDate(passDate: PassDate): String {
+        if (passDate.isEmpty()) return ""
+
+        val calendar = Calendar.getInstance()
+        calendar.set(passDate.year, passDate.month, passDate.day)
+        val format = SimpleDateFormat.getDateInstance(DateFormat.SHORT)
+        return format.format(calendar.time)
     }
 
     private fun onSelectDateClick() =

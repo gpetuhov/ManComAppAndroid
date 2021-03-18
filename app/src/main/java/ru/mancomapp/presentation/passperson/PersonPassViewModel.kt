@@ -15,6 +15,7 @@ class PersonPassViewModel : SendRequestBaseViewModel() {
 
     init {
         passDate = passDateLiveDataMutable
+        passDateLiveDataMutable.postValue(selectedPassDate)
     }
 
     fun saveSelectedDate(passDate: PassDate) {
