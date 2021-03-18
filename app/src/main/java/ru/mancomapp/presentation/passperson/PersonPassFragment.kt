@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_person_pass.*
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.pass.PassDate
+import ru.mancomapp.domain.models.pass.PersonPassAccessType
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogFragment
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogType
 import ru.mancomapp.utils.extensions.hideSoftKeyboard
@@ -18,7 +19,6 @@ import ru.mancomapp.utils.extensions.toast
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
-
 class PersonPassFragment : Fragment() {
 
     private lateinit var viewModel: PersonPassViewModel
@@ -48,6 +48,7 @@ class PersonPassFragment : Fragment() {
         viewModel.sendError.observe(viewLifecycleOwner, { errorMessage -> toast(errorMessage) })
         viewModel.isSendSuccess.observe(viewLifecycleOwner, { isSuccess -> onSendSuccess(isSuccess) })
         viewModel.passDate.observe(viewLifecycleOwner, { passDate -> updatePassDateUI(passDate) })
+        viewModel.accessType.observe(viewLifecycleOwner, { accessType -> updateAccessTypeUI(accessType) })
     }
 
     private fun onSendStarted(isStarted: Boolean) {
@@ -93,6 +94,10 @@ class PersonPassFragment : Fragment() {
         return format.format(calendar.time)
     }
 
+    private fun updateAccessTypeUI(accessType: PersonPassAccessType) {
+        person_pass_access_type_name.text = getString(accessType.nameId)
+    }
+
     private fun onSelectDateClick() =
         DatePickerDialogFragment.show(parentFragmentManager, passDateCallback)
 
@@ -106,3 +111,4 @@ class PersonPassFragment : Fragment() {
         toast("Send")
     }
 }
+
