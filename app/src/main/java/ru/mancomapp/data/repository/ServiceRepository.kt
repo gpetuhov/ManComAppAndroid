@@ -10,6 +10,6 @@ class ServiceRepository {
         // TODO
         delay(5000)
 
-        // TODO: handle login error and no network (server unavailable)
+        // TODO: handle send error and no network (server unavailable)
     }
 }

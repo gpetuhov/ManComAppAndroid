@@ -7,6 +7,7 @@ import ru.mancomapp.data.repository.*
 import ru.mancomapp.domain.usecase.login.LoginUseCase
 import ru.mancomapp.domain.usecase.request.RequestUseCase
 import ru.mancomapp.domain.usecase.feedback.FeedbackUseCase
+import ru.mancomapp.domain.usecase.pass.PersonPassUseCase
 import ru.mancomapp.domain.usecase.security.SecurityUseCase
 import ru.mancomapp.domain.usecase.service.ServiceUseCase
 import javax.inject.Singleton
@@ -63,4 +64,14 @@ class TestAppModule {
     @Singleton
     fun providesSecurityUseCase(securityRepository: SecurityRepository) =
         SecurityUseCase(securityRepository)
+
+    @Provides
+    @Singleton
+    fun providesPersonPassRepository(): PersonPassRepository =
+        Mockito.mock(PersonPassRepository::class.java)
+
+    @Provides
+    @Singleton
+    fun providesPersonPassUseCase(personPassRepository: PersonPassRepository) =
+        PersonPassUseCase(personPassRepository)
 }

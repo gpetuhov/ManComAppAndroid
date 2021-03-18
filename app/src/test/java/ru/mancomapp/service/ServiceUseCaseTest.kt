@@ -23,7 +23,7 @@ class ServiceUseCaseTest {
     private lateinit var service: Service
 
     @Before
-    fun initFeedback() {
+    fun init() {
         val appComponent = DaggerTestAppComponent.builder().build()
         appComponent.inject(this)
 

@@ -1,4 +1,4 @@
-package ru.mancomapp.domain.models.request
+package ru.mancomapp.domain.models.pass
 
 import androidx.annotation.StringRes
 import ru.mancomapp.R
