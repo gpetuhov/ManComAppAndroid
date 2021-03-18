@@ -8,13 +8,6 @@ import ru.mancomapp.domain.models.pass.PassDate
 
 class PassDateTest {
 
-    companion object {
-        private const val YEAR = 2021
-        private const val MONTH = 3
-        private const val DAY = 18
-        private const val TIME_IN_MILLIS = 1616056739495
-    }
-
     private lateinit var passDate: PassDate
 
     @Before
@@ -29,42 +22,39 @@ class PassDateTest {
 
     @Test
     fun isEmpty_emptyYear_true() {
-        passDate.month = MONTH
-        passDate.day = DAY
-        passDate.timeInMillis = TIME_IN_MILLIS
+        passDate.month = PersonPassTestData.MONTH
+        passDate.day = PersonPassTestData.DAY
+        passDate.timeInMillis = PersonPassTestData.TIME_IN_MILLIS
         assertTrue(passDate.isEmpty())
     }
 
     @Test
     fun isEmpty_emptyMonth_true() {
-        passDate.year = YEAR
-        passDate.day = DAY
-        passDate.timeInMillis = TIME_IN_MILLIS
+        passDate.year = PersonPassTestData.YEAR
+        passDate.day = PersonPassTestData.DAY
+        passDate.timeInMillis = PersonPassTestData.TIME_IN_MILLIS
         assertTrue(passDate.isEmpty())
     }
 
     @Test
     fun isEmpty_emptyDay_true() {
-        passDate.year = YEAR
-        passDate.month = MONTH
-        passDate.timeInMillis = TIME_IN_MILLIS
+        passDate.year = PersonPassTestData.YEAR
+        passDate.month = PersonPassTestData.MONTH
+        passDate.timeInMillis = PersonPassTestData.TIME_IN_MILLIS
         assertTrue(passDate.isEmpty())
     }
 
     @Test
     fun isEmpty_emptyTimeInMillis_true() {
-        passDate.year = YEAR
-        passDate.month = MONTH
-        passDate.day = DAY
+        passDate.year = PersonPassTestData.YEAR
+        passDate.month = PersonPassTestData.MONTH
+        passDate.day = PersonPassTestData.DAY
         assertTrue(passDate.isEmpty())
     }
 
     @Test
     fun isEmpty_notEmpty_false() {
-        passDate.year = YEAR
-        passDate.month = MONTH
-        passDate.day = DAY
-        passDate.timeInMillis = TIME_IN_MILLIS
+        passDate = PersonPassTestData.getPassDate()
         assertFalse(passDate.isEmpty())
     }
 }
