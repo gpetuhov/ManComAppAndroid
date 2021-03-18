@@ -11,25 +11,17 @@ import org.junit.Assert.*
 import ru.mancomapp.App
 import ru.mancomapp.R
 import ru.mancomapp.di.components.DaggerTestAppComponent
-import ru.mancomapp.domain.models.pass.PassDate
 import ru.mancomapp.domain.models.pass.PersonPassAccessType
-import ru.mancomapp.domain.models.service.Service
-import ru.mancomapp.domain.models.service.ServiceType
 import ru.mancomapp.presentation.passperson.PersonPassViewModel
-import ru.mancomapp.presentation.service.ServiceViewModel
 
 class PersonPassViewModelTest {
 
     companion object {
         private const val NAME = "Name"
-        private const val YEAR = 2021
-        private const val MONTH = 3
-        private const val DAY = 18
-        private const val TIME_IN_MILLIS = 1616056739495
+        private val PASS_DATE = PersonPassTestData.getPassDate()
     }
 
     private lateinit var viewModel: PersonPassViewModel
-    private lateinit var passDate: PassDate
 
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
 
@@ -43,7 +35,6 @@ class PersonPassViewModelTest {
         Dispatchers.setMain(mainThreadSurrogate)
 
         viewModel = PersonPassViewModel()
-        initPassDate()
     }
 
     @ExperimentalCoroutinesApi
@@ -55,7 +46,7 @@ class PersonPassViewModelTest {
 
     @Test
     fun sendRequest_nameEmpty_errorNameEmpty() {
-        viewModel.saveSelectedDate(passDate)
+        viewModel.saveSelectedDate(PASS_DATE)
         viewModel.saveSelectedAccessType(PersonPassAccessType.OTHER)
         viewModel.sendRequest("")
         delay()
@@ -87,7 +78,7 @@ class PersonPassViewModelTest {
 
     @Test
     fun sendRequest_validPersonPass_sendStarted() {
-        viewModel.saveSelectedDate(passDate)
+        viewModel.saveSelectedDate(PASS_DATE)
         viewModel.saveSelectedAccessType(PersonPassAccessType.OTHER)
         viewModel.sendRequest(NAME)
         delay()
@@ -96,19 +87,11 @@ class PersonPassViewModelTest {
 
     @Test
     fun sendRequest_validPersonPass_sendSuccess() {
-        viewModel.saveSelectedDate(passDate)
+        viewModel.saveSelectedDate(PASS_DATE)
         viewModel.saveSelectedAccessType(PersonPassAccessType.OTHER)
         viewModel.sendRequest(NAME)
         delay()
         assertTrue(viewModel.isSendSuccess.value ?: false)
-    }
-
-    private fun initPassDate() {
-        passDate = PassDate()
-        passDate.year = YEAR
-        passDate.month = MONTH
-        passDate.day = DAY
-        passDate.timeInMillis = TIME_IN_MILLIS
     }
 
     private fun delay() = Thread.sleep(300)
