@@ -20,12 +20,19 @@ class PersonPassFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         back_button.setOnClickListener { navigateUp() }
+        person_pass_date_input.setOnClickListener { onSelectDateClick() }
         person_pass_access_type.setOnClickListener { onSelectAccessTypeClick() }
         person_pass_send_button.setOnClickListener { onSendButtonClick() }
     }
 
     private fun navigateUp() {
         findNavController().navigateUp()
+    }
+
+    private fun onSelectDateClick() {
+        DatePickerDialogFragment.show(parentFragmentManager)
+
+        // TODO: handle result
     }
 
     private fun onSelectAccessTypeClick() {
