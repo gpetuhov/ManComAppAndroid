@@ -9,38 +9,25 @@ import ru.mancomapp.App
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.pass.CarPass
 import ru.mancomapp.domain.models.pass.CarPassAccessType
-import ru.mancomapp.domain.models.request.RequestDate
 import ru.mancomapp.domain.usecase.pass.*
-import ru.mancomapp.presentation.global.SendRequestBaseViewModel
+import ru.mancomapp.presentation.global.PassBaseViewModel
 import javax.inject.Inject
 
-class CarPassViewModel : SendRequestBaseViewModel() {
+class CarPassViewModel : PassBaseViewModel() {
 
-    // TODO: implement
     @Inject lateinit var carPassUseCase: CarPassUseCase
 
-    var requestDate: LiveData<RequestDate>
     var accessType: LiveData<CarPassAccessType>
 
-    private val requestDateLiveDataMutable = MutableLiveData<RequestDate>()
     private val accessTypeLiveDataMutable = MutableLiveData<CarPassAccessType>()
 
-    var selectedRequestDate: RequestDate = RequestDate()
     private var selectedAccessType: CarPassAccessType = CarPassAccessType.NOT_SELECTED
 
     init {
         App.appComponent.inject(this)
 
-        requestDate = requestDateLiveDataMutable
         accessType = accessTypeLiveDataMutable
-
-        requestDateLiveDataMutable.postValue(selectedRequestDate)
         accessTypeLiveDataMutable.postValue(CarPassAccessType.NOT_SELECTED)
-    }
-
-    fun saveSelectedDate(requestDate: RequestDate) {
-        selectedRequestDate = requestDate
-        requestDateLiveDataMutable.postValue(requestDate)
     }
 
     fun saveSelectedAccessType(accessType: CarPassAccessType) {
