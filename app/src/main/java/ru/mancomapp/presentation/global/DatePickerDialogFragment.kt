@@ -1,4 +1,4 @@
-package ru.mancomapp.presentation.passperson
+package ru.mancomapp.presentation.global
 
 import android.app.DatePickerDialog
 import android.app.Dialog
@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
-import ru.mancomapp.domain.models.pass.PassDate
+import ru.mancomapp.domain.models.request.RequestDate
 import java.util.*
 
 class DatePickerDialogFragment(
     private val callback: Callback,
-    private val selectedPassDate: PassDate
+    private val selectedRequestDate: RequestDate
 ) : DialogFragment(), DatePickerDialog.OnDateSetListener {
 
     companion object {
@@ -19,15 +19,15 @@ class DatePickerDialogFragment(
 
         fun show(
             fragmentManager: FragmentManager,
-            selectedPassDate: PassDate,
+            selectedRequestDate: RequestDate,
             callback: Callback
         ) {
-            DatePickerDialogFragment(callback, selectedPassDate).show(fragmentManager, TAG)
+            DatePickerDialogFragment(callback, selectedRequestDate).show(fragmentManager, TAG)
         }
     }
 
     interface Callback {
-        fun onDateSelected(passDate: PassDate)
+        fun onDateSelected(requestDate: RequestDate)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -36,15 +36,15 @@ class DatePickerDialogFragment(
             val month: Int
             val day: Int
 
-            if (selectedPassDate.isEmpty()) {
+            if (selectedRequestDate.isEmpty()) {
                 val calendar = Calendar.getInstance()
                 year = calendar.get(Calendar.YEAR)
                 month = calendar.get(Calendar.MONTH)
                 day = calendar.get(Calendar.DAY_OF_MONTH)
             } else {
-                year = selectedPassDate.year
-                month = selectedPassDate.month
-                day = selectedPassDate.day
+                year = selectedRequestDate.year
+                month = selectedRequestDate.month
+                day = selectedRequestDate.day
             }
 
             DatePickerDialog(it, this, year, month, day)
@@ -56,13 +56,13 @@ class DatePickerDialogFragment(
         calendar.set(year, month, day)
         val timeInMillis = calendar.timeInMillis
 
-        val passDate = PassDate().apply {
+        val requestDate = RequestDate().apply {
             this.year = year
             this.month = month
             this.day = day
             this.timeInMillis = timeInMillis
         }
 
-        callback.onDateSelected(passDate)
+        callback.onDateSelected(requestDate)
     }
 }

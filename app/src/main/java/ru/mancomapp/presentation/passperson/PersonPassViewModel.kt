@@ -7,42 +7,30 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import ru.mancomapp.App
 import ru.mancomapp.R
-import ru.mancomapp.domain.models.pass.PassDate
 import ru.mancomapp.domain.models.pass.PersonPass
 import ru.mancomapp.domain.models.pass.PersonPassAccessType
 import ru.mancomapp.domain.usecase.pass.AccessTypeNotSelectedException
 import ru.mancomapp.domain.usecase.pass.PassDateEmptyException
 import ru.mancomapp.domain.usecase.pass.PersonNameEmptyException
 import ru.mancomapp.domain.usecase.pass.PersonPassUseCase
-import ru.mancomapp.presentation.global.SendRequestBaseViewModel
+import ru.mancomapp.presentation.global.PassBaseViewModel
 import javax.inject.Inject
 
-class PersonPassViewModel : SendRequestBaseViewModel() {
+class PersonPassViewModel : PassBaseViewModel() {
 
     @Inject lateinit var personPassUseCase: PersonPassUseCase
 
-    var passDate: LiveData<PassDate>
     var accessType: LiveData<PersonPassAccessType>
 
-    private val passDateLiveDataMutable = MutableLiveData<PassDate>()
     private val accessTypeLiveDataMutable = MutableLiveData<PersonPassAccessType>()
 
-    var selectedPassDate: PassDate = PassDate()
     private var selectedAccessType: PersonPassAccessType = PersonPassAccessType.NOT_SELECTED
 
     init {
         App.appComponent.inject(this)
 
-        passDate = passDateLiveDataMutable
         accessType = accessTypeLiveDataMutable
-
-        passDateLiveDataMutable.postValue(selectedPassDate)
         accessTypeLiveDataMutable.postValue(PersonPassAccessType.NOT_SELECTED)
-    }
-
-    fun saveSelectedDate(passDate: PassDate) {
-        selectedPassDate = passDate
-        passDateLiveDataMutable.postValue(passDate)
     }
 
     fun saveSelectedAccessType(accessType: PersonPassAccessType) {
@@ -53,7 +41,7 @@ class PersonPassViewModel : SendRequestBaseViewModel() {
     fun sendRequest(personName: String) {
         val personPass = PersonPass().apply {
             this.personName = personName
-            this.passDate = selectedPassDate
+            this.requestDate = selectedRequestDate
 
             // TODO: restore this, when access type implemented
 //            this.accessType = selectedAccessType

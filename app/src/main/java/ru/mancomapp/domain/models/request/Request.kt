@@ -6,6 +6,7 @@ import ru.mancomapp.domain.models.service.ServiceType
 
 sealed class Request {
     var id: Int = 0
+    var date = RequestDate()
     var status: RequestStatus = RequestStatus.NEW
 
     class Management : Request() {

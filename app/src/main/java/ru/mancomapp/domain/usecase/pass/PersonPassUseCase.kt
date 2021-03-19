@@ -17,7 +17,7 @@ class PersonPassUseCase(private val personPassRepository: PersonPassRepository) 
         onSendStarted: suspend () -> Unit
     ) {
         if (personPass.personName.isEmpty()) throw PersonNameEmptyException()
-        if (personPass.passDate.isEmpty()) throw PassDateEmptyException()
+        if (personPass.requestDate.isEmpty()) throw PassDateEmptyException()
         if (personPass.accessType == PersonPassAccessType.NOT_SELECTED) throw AccessTypeNotSelectedException()
 
         onSendStarted()

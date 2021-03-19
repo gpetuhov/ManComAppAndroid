@@ -11,18 +11,19 @@ import org.junit.Assert.*
 import ru.mancomapp.App
 import ru.mancomapp.R
 import ru.mancomapp.di.components.DaggerTestAppComponent
-import ru.mancomapp.domain.models.pass.PersonPassAccessType
-import ru.mancomapp.presentation.passperson.PersonPassViewModel
+import ru.mancomapp.domain.models.pass.CarPassAccessType
+import ru.mancomapp.presentation.passcar.CarPassViewModel
 import ru.mancomapp.testdata.RequestTestData
 
-class PersonPassViewModelTest {
+class CarPassViewModelTest {
 
     companion object {
-        private const val NAME = "Name"
+        private const val CAR_MODEL = "Model"
+        private const val CAR_NUMBER = "Number"
         private val PASS_DATE = RequestTestData.getRequestDate()
     }
 
-    private lateinit var viewModel: PersonPassViewModel
+    private lateinit var viewModel: CarPassViewModel
 
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
 
@@ -35,7 +36,7 @@ class PersonPassViewModelTest {
         App.appComponent = DaggerTestAppComponent.builder().build()
         Dispatchers.setMain(mainThreadSurrogate)
 
-        viewModel = PersonPassViewModel()
+        viewModel = CarPassViewModel()
     }
 
     @ExperimentalCoroutinesApi
@@ -46,20 +47,31 @@ class PersonPassViewModelTest {
     }
 
     @Test
-    fun sendRequest_nameEmpty_errorNameEmpty() {
+    fun sendRequest_carModelEmpty_errorCarModelEmpty() {
         viewModel.saveSelectedDate(PASS_DATE)
-        viewModel.saveSelectedAccessType(PersonPassAccessType.OTHER)
-        viewModel.sendRequest("")
+        viewModel.saveSelectedAccessType(CarPassAccessType.OTHER)
+        viewModel.sendRequest("", CAR_NUMBER)
         delay()
         assertFalse(viewModel.isSendStarted.value ?: false)
         assertFalse(viewModel.isSendSuccess.value ?: false)
-        assertEquals(R.string.guest_name_empty_error, viewModel.sendError.value)
+        assertEquals(R.string.car_model_empty_error, viewModel.sendError.value)
+    }
+
+    @Test
+    fun sendRequest_carNumberEmpty_errorCarNumberEmpty() {
+        viewModel.saveSelectedDate(PASS_DATE)
+        viewModel.saveSelectedAccessType(CarPassAccessType.OTHER)
+        viewModel.sendRequest(CAR_MODEL, "")
+        delay()
+        assertFalse(viewModel.isSendStarted.value ?: false)
+        assertFalse(viewModel.isSendSuccess.value ?: false)
+        assertEquals(R.string.car_number_empty_error, viewModel.sendError.value)
     }
 
     @Test
     fun sendRequest_passDateEmpty_errorDateEmpty() {
-        viewModel.saveSelectedAccessType(PersonPassAccessType.OTHER)
-        viewModel.sendRequest(NAME)
+        viewModel.saveSelectedAccessType(CarPassAccessType.OTHER)
+        viewModel.sendRequest(CAR_MODEL, CAR_NUMBER)
         delay()
         assertFalse(viewModel.isSendStarted.value ?: false)
         assertFalse(viewModel.isSendSuccess.value ?: false)
@@ -69,8 +81,8 @@ class PersonPassViewModelTest {
     // TODO: restore this, when access type implemented
 //    @Test
 //    fun sendRequest_accessTypeNotSelected_errorAccessTypeNotSelected() {
-//        viewModel.saveSelectedDate(passDate)
-//        viewModel.sendRequest(NAME)
+//        viewModel.saveSelectedDate(PASS_DATE)
+//        viewModel.sendRequest(CAR_MODEL, CAR_NUMBER)
 //        delay()
 //        assertFalse(viewModel.isSendStarted.value ?: false)
 //        assertFalse(viewModel.isSendSuccess.value ?: false)
@@ -78,19 +90,19 @@ class PersonPassViewModelTest {
 //    }
 
     @Test
-    fun sendRequest_validPersonPass_sendStarted() {
+    fun sendRequest_validCarPass_sendStarted() {
         viewModel.saveSelectedDate(PASS_DATE)
-        viewModel.saveSelectedAccessType(PersonPassAccessType.OTHER)
-        viewModel.sendRequest(NAME)
+        viewModel.saveSelectedAccessType(CarPassAccessType.OTHER)
+        viewModel.sendRequest(CAR_MODEL, CAR_NUMBER)
         delay()
         assertTrue(viewModel.isSendStarted.value ?: false)
     }
 
     @Test
-    fun sendRequest_validPersonPass_sendSuccess() {
+    fun sendRequest_validCarPass_sendSuccess() {
         viewModel.saveSelectedDate(PASS_DATE)
-        viewModel.saveSelectedAccessType(PersonPassAccessType.OTHER)
-        viewModel.sendRequest(NAME)
+        viewModel.saveSelectedAccessType(CarPassAccessType.OTHER)
+        viewModel.sendRequest(CAR_MODEL, CAR_NUMBER)
         delay()
         assertTrue(viewModel.isSendSuccess.value ?: false)
     }
