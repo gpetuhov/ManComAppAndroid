@@ -16,9 +16,7 @@ import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogType
 import ru.mancomapp.utils.extensions.hideSoftKeyboard
 import ru.mancomapp.utils.extensions.setVisible
 import ru.mancomapp.utils.extensions.toast
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import java.util.*
+import ru.mancomapp.utils.getFormattedDate
 
 class PersonPassFragment : Fragment() {
 
@@ -85,15 +83,6 @@ class PersonPassFragment : Fragment() {
 
     private fun updatePassDateUI(requestDate: RequestDate) =
         person_pass_date_input.setText(getFormattedDate(requestDate))
-
-    private fun getFormattedDate(requestDate: RequestDate): String {
-        if (requestDate.isEmpty()) return ""
-
-        val calendar = Calendar.getInstance()
-        calendar.set(requestDate.year, requestDate.month, requestDate.day)
-        val format = SimpleDateFormat.getDateInstance(DateFormat.SHORT)
-        return format.format(calendar.time)
-    }
 
     private fun updateAccessTypeUI(accessType: PersonPassAccessType) {
         person_pass_access_type_name.text = getString(accessType.nameId)

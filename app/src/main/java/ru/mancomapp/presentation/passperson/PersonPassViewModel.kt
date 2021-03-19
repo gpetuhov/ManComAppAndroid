@@ -24,7 +24,7 @@ class PersonPassViewModel : SendRequestBaseViewModel() {
     var requestDate: LiveData<RequestDate>
     var accessType: LiveData<PersonPassAccessType>
 
-    private val passDateLiveDataMutable = MutableLiveData<RequestDate>()
+    private val requestDateLiveDataMutable = MutableLiveData<RequestDate>()
     private val accessTypeLiveDataMutable = MutableLiveData<PersonPassAccessType>()
 
     var selectedRequestDate: RequestDate = RequestDate()
@@ -33,16 +33,16 @@ class PersonPassViewModel : SendRequestBaseViewModel() {
     init {
         App.appComponent.inject(this)
 
-        requestDate = passDateLiveDataMutable
+        requestDate = requestDateLiveDataMutable
         accessType = accessTypeLiveDataMutable
 
-        passDateLiveDataMutable.postValue(selectedRequestDate)
+        requestDateLiveDataMutable.postValue(selectedRequestDate)
         accessTypeLiveDataMutable.postValue(PersonPassAccessType.NOT_SELECTED)
     }
 
     fun saveSelectedDate(requestDate: RequestDate) {
         selectedRequestDate = requestDate
-        passDateLiveDataMutable.postValue(requestDate)
+        requestDateLiveDataMutable.postValue(requestDate)
     }
 
     fun saveSelectedAccessType(accessType: PersonPassAccessType) {

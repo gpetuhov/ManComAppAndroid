@@ -12,7 +12,7 @@ class SecurityRepository {
     // TODO: remove this
     companion object {
         const val YEAR = 2021
-        const val MONTH = 3
+        const val MONTH = 2
         const val DAY = 18
         const val TIME_IN_MILLIS = 1616056739495
     }
@@ -30,10 +30,10 @@ class SecurityRepository {
         val requests = mutableListOf<Request>()
 
         val requestDate = RequestDate().apply {
-            year = RequestRepository.YEAR
-            month = RequestRepository.MONTH
-            day = RequestRepository.DAY
-            timeInMillis = RequestRepository.TIME_IN_MILLIS
+            year = YEAR
+            month = MONTH
+            day = DAY
+            timeInMillis = TIME_IN_MILLIS
         }
 
         (1..100).forEach { index ->

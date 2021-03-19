@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.item_person_pass_request.view.*
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.request.Request
 import ru.mancomapp.domain.models.request.RequestStatus
+import ru.mancomapp.utils.getFormattedDate
 
 class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDiffCallback()) {
 
@@ -92,20 +93,26 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
     private class ManagementRequestItemViewHolder(itemView: View) : RequestItemViewHolder(itemView) {
         fun bind(request: Request.Management) {
             val requestNumber = getRequestNumber(request)
-            itemView.request_number.text = requestNumber
-            itemView.request_title.text = request.title
-            itemView.request_content.text = request.content
-            itemView.request_status.text = getRequestStatus(request)
+            with(itemView) {
+                request_number.text = requestNumber
+                request_date.text = getFormattedDate(request.date)
+                request_title.text = request.title
+                request_content.text = request.content
+                request_status.text = getRequestStatus(request)
+            }
         }
     }
 
     private class ServiceRequestItemViewHolder(itemView: View) : RequestItemViewHolder(itemView) {
         fun bind(request: Request.Service) {
             val requestNumber = getRequestNumber(request)
-            itemView.request_number.text = requestNumber
-            itemView.request_title.text = itemView.context.getString(request.type.nameId)
-            itemView.request_content.text = request.comment
-            itemView.request_status.text = getRequestStatus(request)
+            with(itemView) {
+                request_number.text = requestNumber
+                request_date.text = getFormattedDate(request.date)
+                request_title.text = itemView.context.getString(request.type.nameId)
+                request_content.text = request.comment
+                request_status.text = getRequestStatus(request)
+            }
         }
     }
 

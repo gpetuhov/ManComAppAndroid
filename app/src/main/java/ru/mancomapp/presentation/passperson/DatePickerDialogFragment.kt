@@ -56,13 +56,13 @@ class DatePickerDialogFragment(
         calendar.set(year, month, day)
         val timeInMillis = calendar.timeInMillis
 
-        val passDate = RequestDate().apply {
+        val requestDate = RequestDate().apply {
             this.year = year
             this.month = month
             this.day = day
             this.timeInMillis = timeInMillis
         }
 
-        callback.onDateSelected(passDate)
+        callback.onDateSelected(requestDate)
     }
 }

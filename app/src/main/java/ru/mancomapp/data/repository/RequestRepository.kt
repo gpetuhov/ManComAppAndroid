@@ -11,7 +11,7 @@ class RequestRepository {
     // TODO: remove this
     companion object {
         const val YEAR = 2021
-        const val MONTH = 3
+        const val MONTH = 2
         const val DAY = 18
         const val TIME_IN_MILLIS = 1616056739495
     }
