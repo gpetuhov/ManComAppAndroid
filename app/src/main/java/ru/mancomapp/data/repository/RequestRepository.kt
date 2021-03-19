@@ -2,10 +2,19 @@ package ru.mancomapp.data.repository
 
 import kotlinx.coroutines.delay
 import ru.mancomapp.domain.models.request.Request
+import ru.mancomapp.domain.models.request.RequestDate
 import ru.mancomapp.domain.models.request.RequestStatus
 import ru.mancomapp.domain.models.service.ServiceType
 
 class RequestRepository {
+
+    // TODO: remove this
+    companion object {
+        const val YEAR = 2021
+        const val MONTH = 3
+        const val DAY = 18
+        const val TIME_IN_MILLIS = 1616056739495
+    }
 
     @Throws(Exception::class)
     suspend fun getRequests(): List<Request> {
@@ -22,9 +31,17 @@ class RequestRepository {
         (1..100).forEach { index ->
             val request: Request
 
+            val requestDate = RequestDate().apply {
+                year = YEAR
+                month = MONTH
+                day = DAY
+                timeInMillis = TIME_IN_MILLIS
+            }
+
             if (index % 2 == 0) {
                 request = Request.Management().apply {
                     id = index
+                    date = requestDate
                     title = "Тема обращения ывдоад ываоы вадл выалв ыалвы оалдвыо адывл оадлыв оавы оа ывдла овы"
                     content = "Lsjdkf lfkjs fljsf lsdkjf adslkfj lksdjfj dfklsdjfl " +
                             "ksdfj l4jfl43j fl4k3qj f43 jqfkl4jgflk43jglfk jerlgkjl4k " +
@@ -38,6 +55,7 @@ class RequestRepository {
             } else {
                 request = Request.Service().apply {
                     id = index
+                    date = requestDate
                     type = ServiceType.PLUMBER
                     comment = "Dfjo34 34jt kjq oigfjraofiud foiuf8934fjklj42 tkt4j4oljt 34otj 43oi2tj4t3j o4ijto34jt " +
                             "kltj 4tk2 tkl 34 tj34tj tk34" +

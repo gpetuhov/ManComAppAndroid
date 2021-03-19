@@ -4,9 +4,18 @@ import kotlinx.coroutines.delay
 import ru.mancomapp.domain.models.pass.CarPassAccessType
 import ru.mancomapp.domain.models.pass.PersonPassAccessType
 import ru.mancomapp.domain.models.request.Request
+import ru.mancomapp.domain.models.request.RequestDate
 import ru.mancomapp.domain.models.request.RequestStatus
 
 class SecurityRepository {
+
+    // TODO: remove this
+    companion object {
+        const val YEAR = 2021
+        const val MONTH = 3
+        const val DAY = 18
+        const val TIME_IN_MILLIS = 1616056739495
+    }
 
     @Throws(Exception::class)
     suspend fun getRequests(): List<Request> {
@@ -20,12 +29,20 @@ class SecurityRepository {
     private fun getDummyRequests(): List<Request> {
         val requests = mutableListOf<Request>()
 
+        val requestDate = RequestDate().apply {
+            year = RequestRepository.YEAR
+            month = RequestRepository.MONTH
+            day = RequestRepository.DAY
+            timeInMillis = RequestRepository.TIME_IN_MILLIS
+        }
+
         (1..100).forEach { index ->
             val request: Request
 
             if (index % 2 == 0) {
                 request = Request.PersonPass().apply {
                     id = index
+                    date = requestDate
                     personName = "Иванов Иван Иванович"
                     accessType = PersonPassAccessType.APARTMENT
                     status = RequestStatus.NEW
@@ -33,6 +50,7 @@ class SecurityRepository {
             } else {
                 request = Request.CarPass().apply {
                     id = index
+                    date = requestDate
                     carModel = "Мерседес"
                     carNumber = "X000XX000"
                     accessType = CarPassAccessType.GUEST_PARKING
