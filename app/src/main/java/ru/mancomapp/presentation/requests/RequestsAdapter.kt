@@ -119,10 +119,13 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
     private class PersonPassRequestItemViewHolder(itemView: View) : RequestItemViewHolder(itemView) {
         fun bind(request: Request.PersonPass) {
             val requestNumber = getRequestNumber(request)
-            itemView.request_person_pass_number.text = requestNumber
-            itemView.request_person_name.text = request.personName
-            itemView.request_person_pass_access_type.text = itemView.context.getString(request.accessType.nameId)
-            itemView.request_person_pass_status.text = getRequestStatus(request)
+            with(itemView) {
+                request_person_pass_number.text = requestNumber
+                request_person_pass_date.text = getFormattedDate(request.date)
+                request_person_name.text = request.personName
+                request_person_pass_access_type.text = itemView.context.getString(request.accessType.nameId)
+                request_person_pass_status.text = getRequestStatus(request)
+            }
         }
     }
 
