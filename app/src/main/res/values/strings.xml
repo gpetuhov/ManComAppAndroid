@@ -85,4 +85,8 @@
     <string name="pass_date_empty_error">Please select visit date</string>
     <string name="access_type_empty_error">Please select access type</string>
 
+    <!-- Car pass fragment -->
+    <string name="car_model">Car model</string>
+    <string name="car_number">Car number</string>
+
 </resources>
