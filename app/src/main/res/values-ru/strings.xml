@@ -86,5 +86,7 @@
     <!-- Car pass fragment -->
     <string name="car_model">Марка авто</string>
     <string name="car_number">Номер авто</string>
+    <string name="car_model_empty_error">Пожалуйста, введите марку авто</string>
+    <string name="car_number_empty_error">Пожалуйста, введите номер авто</string>
 
 </resources>

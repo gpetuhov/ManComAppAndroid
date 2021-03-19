@@ -88,5 +88,7 @@
     <!-- Car pass fragment -->
     <string name="car_model">Car model</string>
     <string name="car_number">Car number</string>
+    <string name="car_model_empty_error">Please enter car model</string>
+    <string name="car_number_empty_error">Please enter car number</string>
 
 </resources>
