@@ -132,11 +132,14 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
     private class CarPassRequestItemViewHolder(itemView: View) : RequestItemViewHolder(itemView) {
         fun bind(request: Request.CarPass) {
             val requestNumber = getRequestNumber(request)
-            itemView.request_car_pass_number.text = requestNumber
-            itemView.request_car_model.text = request.carModel
-            itemView.request_car_number.text = request.carNumber
-            itemView.request_car_pass_access_type.text = itemView.context.getString(request.accessType.nameId)
-            itemView.request_car_pass_status.text = getRequestStatus(request)
+            with(itemView) {
+                request_car_pass_number.text = requestNumber
+                request_car_pass_date.text = getFormattedDate(request.date)
+                request_car_model.text = request.carModel
+                request_car_number.text = request.carNumber
+                request_car_pass_access_type.text = itemView.context.getString(request.accessType.nameId)
+                request_car_pass_status.text = getRequestStatus(request)
+            }
         }
     }
 }
