@@ -1,6 +1,6 @@
-package ru.mancomapp.domain.models.pass
+package ru.mancomapp.domain.models.request
 
-class PassDate {
+class RequestDate {
     var year: Int = 0
     var month: Int = 0
     var day: Int = 0

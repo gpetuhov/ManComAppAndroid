@@ -13,12 +13,13 @@ import ru.mancomapp.R
 import ru.mancomapp.di.components.DaggerTestAppComponent
 import ru.mancomapp.domain.models.pass.PersonPassAccessType
 import ru.mancomapp.presentation.passperson.PersonPassViewModel
+import ru.mancomapp.testdata.RequestTestData
 
 class PersonPassViewModelTest {
 
     companion object {
         private const val NAME = "Name"
-        private val PASS_DATE = PersonPassTestData.getPassDate()
+        private val PASS_DATE = RequestTestData.getRequestDate()
     }
 
     private lateinit var viewModel: PersonPassViewModel

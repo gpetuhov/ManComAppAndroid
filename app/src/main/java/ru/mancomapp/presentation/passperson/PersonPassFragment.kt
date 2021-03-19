@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_person_pass.*
 import ru.mancomapp.R
-import ru.mancomapp.domain.models.pass.PassDate
+import ru.mancomapp.domain.models.request.RequestDate
 import ru.mancomapp.domain.models.pass.PersonPassAccessType
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogFragment
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogType
@@ -19,12 +19,13 @@ import ru.mancomapp.utils.extensions.toast
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
+
 class PersonPassFragment : Fragment() {
 
     private lateinit var viewModel: PersonPassViewModel
 
     private val passDateCallback = object : DatePickerDialogFragment.Callback {
-        override fun onDateSelected(passDate: PassDate) = viewModel.saveSelectedDate(passDate)
+        override fun onDateSelected(requestDate: RequestDate) = viewModel.saveSelectedDate(requestDate)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -47,7 +48,7 @@ class PersonPassFragment : Fragment() {
         viewModel.isSendStarted.observe(viewLifecycleOwner, { isStarted -> onSendStarted(isStarted) })
         viewModel.sendError.observe(viewLifecycleOwner, { errorMessage -> toast(errorMessage) })
         viewModel.isSendSuccess.observe(viewLifecycleOwner, { isSuccess -> onSendSuccess(isSuccess) })
-        viewModel.passDate.observe(viewLifecycleOwner, { passDate -> updatePassDateUI(passDate) })
+        viewModel.requestDate.observe(viewLifecycleOwner, { passDate -> updatePassDateUI(passDate) })
         viewModel.accessType.observe(viewLifecycleOwner, { accessType -> updateAccessTypeUI(accessType) })
     }
 
@@ -82,14 +83,14 @@ class PersonPassFragment : Fragment() {
         findNavController().navigateUp()
     }
 
-    private fun updatePassDateUI(passDate: PassDate) =
-        person_pass_date_input.setText(getFormattedDate(passDate))
+    private fun updatePassDateUI(requestDate: RequestDate) =
+        person_pass_date_input.setText(getFormattedDate(requestDate))
 
-    private fun getFormattedDate(passDate: PassDate): String {
-        if (passDate.isEmpty()) return ""
+    private fun getFormattedDate(requestDate: RequestDate): String {
+        if (requestDate.isEmpty()) return ""
 
         val calendar = Calendar.getInstance()
-        calendar.set(passDate.year, passDate.month, passDate.day)
+        calendar.set(requestDate.year, requestDate.month, requestDate.day)
         val format = SimpleDateFormat.getDateInstance(DateFormat.SHORT)
         return format.format(calendar.time)
     }
@@ -101,7 +102,7 @@ class PersonPassFragment : Fragment() {
     private fun onSelectDateClick() {
         DatePickerDialogFragment.show(
             parentFragmentManager,
-            viewModel.selectedPassDate,
+            viewModel.selectedRequestDate,
             passDateCallback
         )
     }

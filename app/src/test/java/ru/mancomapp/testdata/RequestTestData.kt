@@ -1,16 +1,16 @@
-package ru.mancomapp.pass
+package ru.mancomapp.testdata
 
-import ru.mancomapp.domain.models.pass.PassDate
+import ru.mancomapp.domain.models.request.RequestDate
 
-class PersonPassTestData {
+class RequestTestData {
     companion object {
         const val YEAR = 2021
         const val MONTH = 3
         const val DAY = 18
         const val TIME_IN_MILLIS = 1616056739495
 
-        fun getPassDate(): PassDate {
-            return PassDate().apply {
+        fun getRequestDate(): RequestDate {
+            return RequestDate().apply {
                 year = YEAR
                 month = MONTH
                 day = DAY
