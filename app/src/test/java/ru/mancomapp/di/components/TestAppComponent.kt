@@ -3,6 +3,7 @@ package ru.mancomapp.di.components
 import dagger.Component
 import ru.mancomapp.di.modules.TestAppModule
 import ru.mancomapp.login.LoginUseCaseTest
+import ru.mancomapp.pass.CarPassUseCaseTest
 import ru.mancomapp.pass.PersonPassUseCaseTest
 import ru.mancomapp.presentation.feedback.FeedbackViewModel
 import ru.mancomapp.presentation.login.LoginViewModel
@@ -17,4 +18,5 @@ interface TestAppComponent : AppComponent {
     fun inject(loginUseCaseTest: LoginUseCaseTest)
     fun inject(serviceUseCaseTest: ServiceUseCaseTest)
     fun inject(personPassUseCaseTest: PersonPassUseCaseTest)
+    fun inject(carPassUseCaseTest: CarPassUseCaseTest)
 }

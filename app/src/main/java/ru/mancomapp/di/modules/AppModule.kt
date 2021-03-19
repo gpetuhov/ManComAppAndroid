@@ -9,6 +9,7 @@ import ru.mancomapp.data.source.local.AppPrefs
 import ru.mancomapp.domain.usecase.login.LoginUseCase
 import ru.mancomapp.domain.usecase.request.RequestUseCase
 import ru.mancomapp.domain.usecase.feedback.FeedbackUseCase
+import ru.mancomapp.domain.usecase.pass.CarPassUseCase
 import ru.mancomapp.domain.usecase.pass.PersonPassUseCase
 import ru.mancomapp.domain.usecase.security.SecurityUseCase
 import ru.mancomapp.domain.usecase.service.ServiceUseCase
@@ -78,4 +79,13 @@ class AppModule {
     @Singleton
     fun providesPersonPassUseCase(personPassRepository: PersonPassRepository) =
         PersonPassUseCase(personPassRepository)
+
+    @Provides
+    @Singleton
+    fun providesCarPassRepository() = CarPassRepository()
+
+    @Provides
+    @Singleton
+    fun providesCarPassUseCase(carPassRepository: CarPassRepository) =
+        CarPassUseCase(carPassRepository)
 }
