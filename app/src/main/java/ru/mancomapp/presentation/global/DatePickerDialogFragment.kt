@@ -1,4 +1,4 @@
-package ru.mancomapp.presentation.passperson
+package ru.mancomapp.presentation.global
 
 import android.app.DatePickerDialog
 import android.app.Dialog
