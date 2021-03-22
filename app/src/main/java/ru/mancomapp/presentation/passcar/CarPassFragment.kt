@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -40,6 +41,8 @@ class CarPassFragment : Fragment() {
         car_pass_date_input.setOnClickListener { onSelectDateClick() }
         car_pass_access_type.setOnClickListener { onSelectAccessTypeClick() }
         car_pass_send_button.setOnClickListener { onSendButtonClick() }
+
+        initBackPressedCallback()
     }
 
     private fun subscribeViewModel() {
@@ -109,5 +112,14 @@ class CarPassFragment : Fragment() {
             carModel = car_model_input.text.toString(),
             carNumber = car_number_input.text.toString()
         )
+    }
+
+    private fun initBackPressedCallback() {
+        val onBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (viewModel.isBackPressedAllowed) navigateUp()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
     }
 }
