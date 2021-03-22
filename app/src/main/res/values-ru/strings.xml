@@ -100,5 +100,6 @@
     <string name="bill_status_paid">Оплачен</string>
     <string name="bill_status_not_paid">Не оплачен</string>
     <string name="bill_status_in_progress">В обработке</string>
+    <string name="bill_total_rub">%d Р.</string>
 
 </resources>

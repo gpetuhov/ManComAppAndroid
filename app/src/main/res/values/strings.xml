@@ -102,5 +102,6 @@
     <string name="bill_status_paid">Paid</string>
     <string name="bill_status_not_paid">Not paid</string>
     <string name="bill_status_in_progress">In progress</string>
+    <string name="bill_total_rub">%d RUB.</string>
 
 </resources>

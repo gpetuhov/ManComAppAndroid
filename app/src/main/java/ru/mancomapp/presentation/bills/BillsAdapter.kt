@@ -38,7 +38,7 @@ class BillsAdapter(
             itemView.bill_number.text = itemView.context.getString(R.string.bills_number, bill.id)
             itemView.bill_date.text = getFormattedDate(bill.date)
             itemView.bill_title.text = bill.title
-            itemView.bill_total.text = bill.total.toString()
+            itemView.bill_total.text = itemView.context.getString(R.string.bill_total_rub, bill.total)
             itemView.bill_status.text = itemView.context.getString(bill.status.nameId)
             itemView.bill_root.setOnClickListener { callback.onBillClick(bill) }
         }
