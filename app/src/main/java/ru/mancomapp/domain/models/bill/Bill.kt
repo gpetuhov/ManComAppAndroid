@@ -1,8 +1,9 @@
 package ru.mancomapp.domain.models.bill
 
 import ru.mancomapp.domain.models.request.RequestDate
+import java.io.Serializable
 
-class Bill {
+class Bill : Serializable {
     var id: String = ""
     var date: RequestDate = RequestDate()
     var title: String = ""

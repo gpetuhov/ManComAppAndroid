@@ -102,6 +102,10 @@
         android:id="@+id/billFragment"
         android:name="ru.mancomapp.presentation.bills.BillFragment"
         android:label="BillFragment"
-        tools:layout="@layout/fragment_bill" />
+        tools:layout="@layout/fragment_bill" >
+        <argument
+            android:name="bill"
+            app:argType="ru.mancomapp.domain.models.bill.Bill"/>
+    </fragment>
 
 </navigation>

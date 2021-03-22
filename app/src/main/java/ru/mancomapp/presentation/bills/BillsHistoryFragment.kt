@@ -23,10 +23,7 @@ class BillsHistoryFragment : Fragment() {
     private lateinit var viewModel: BillsViewModel
 
     private val onBillClickCallback = object : BillsAdapter.Callback {
-        override fun onBillClick(bill: Bill) {
-            // TODO: implement
-            toast("Bill ${bill.id}")
-        }
+        override fun onBillClick(bill: Bill) = navigateToBillFragment(bill)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -85,8 +82,8 @@ class BillsHistoryFragment : Fragment() {
 
     private fun navigateUp() = findNavController().navigateUp()
 
-    private fun navigateToBillFragment() {
-        val action = BillsHistoryFragmentDirections.actionBillsHistoryFragmentToBillFragment()
+    private fun navigateToBillFragment(bill: Bill) {
+        val action = BillsHistoryFragmentDirections.actionBillsHistoryFragmentToBillFragment(bill)
         navigate(action)
     }
 
