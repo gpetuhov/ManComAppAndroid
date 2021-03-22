@@ -111,7 +111,7 @@ class RequestDateTest {
         val otherRequestDate = RequestTestData.getRequestDate()
         assertTrue(requestDate.equals(otherRequestDate))
     }
-    
+
     private fun getOtherRequestDate(): RequestDate {
         return RequestDate().apply {
             year = YEAR
