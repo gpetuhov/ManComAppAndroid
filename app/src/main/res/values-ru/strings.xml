@@ -89,4 +89,7 @@
     <string name="car_model_empty_error">Пожалуйста, введите марку авто</string>
     <string name="car_number_empty_error">Пожалуйста, введите номер авто</string>
 
+    <!-- Payments fragment -->
+    <string name="bills_and_payments">Начисления и платежи</string>
+
 </resources>
