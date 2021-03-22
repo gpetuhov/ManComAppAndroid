@@ -66,7 +66,13 @@
         android:id="@+id/billsHistoryFragment"
         android:name="ru.mancomapp.presentation.bills.BillsHistoryFragment"
         android:label="BillsHistoryFragment"
-        tools:layout="@layout/fragment_bills_history" />
+        tools:layout="@layout/fragment_bills_history" >
+        <action
+            android:id="@+id/action_billsHistoryFragment_to_billFragment"
+            app:destination="@id/billFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
 
     <fragment
         android:id="@+id/feedbackFragment"
@@ -91,5 +97,11 @@
         android:name="ru.mancomapp.presentation.passcar.CarPassFragment"
         android:label="CarPassFragment"
         tools:layout="@layout/fragment_car_pass" />
+
+    <fragment
+        android:id="@+id/billFragment"
+        android:name="ru.mancomapp.presentation.bills.BillFragment"
+        android:label="BillFragment"
+        tools:layout="@layout/fragment_bill" />
 
 </navigation>

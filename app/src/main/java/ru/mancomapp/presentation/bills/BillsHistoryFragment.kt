@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_bills_history.*
 import ru.mancomapp.R
@@ -23,5 +24,14 @@ class BillsHistoryFragment : Fragment() {
 
     private fun navigateUp() {
         findNavController().navigateUp()
+    }
+
+    private fun navigateToBillFragment() {
+        val action = BillsHistoryFragmentDirections.actionBillsHistoryFragmentToBillFragment()
+        navigate(action)
+    }
+
+    private fun navigate(action: NavDirections) {
+        findNavController().navigate(action)
     }
 }
