@@ -7,4 +7,11 @@ class RequestDate {
     var timeInMillis: Long = 0
 
     fun isEmpty() = year == 0 || month == -1 || day == 0 || timeInMillis == 0L
+
+    fun equals(other: RequestDate): Boolean {
+        return year == other.year
+                && month == other.month
+                && day == other.day
+                && timeInMillis == other.timeInMillis
+    }
 }

@@ -98,5 +98,9 @@
     <string name="unpaid_bills_count">Unpaid bills count: %d</string>
     <string name="all_bills_paid">Congratulations, all bills are paid</string>
     <string name="bills_history">Bills history</string>
+    <string name="bills_number">Bill # %s from</string>
+    <string name="bill_status_paid">Paid</string>
+    <string name="bill_status_not_paid">Not paid</string>
+    <string name="bill_status_in_progress">In progress</string>
 
 </resources>

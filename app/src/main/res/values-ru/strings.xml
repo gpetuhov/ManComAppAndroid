@@ -96,5 +96,9 @@
     <string name="unpaid_bills_count">Количество неоплаченных счетов: %d</string>
     <string name="all_bills_paid">Поздравляем, все счета оплачены</string>
     <string name="bills_history">История счетов</string>
+    <string name="bills_number">Счет № %s от</string>
+    <string name="bill_status_paid">Оплачен</string>
+    <string name="bill_status_not_paid">Не оплачен</string>
+    <string name="bill_status_in_progress">В обработке</string>
 
 </resources>
