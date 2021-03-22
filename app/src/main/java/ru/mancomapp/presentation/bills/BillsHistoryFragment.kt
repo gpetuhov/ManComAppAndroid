@@ -9,6 +9,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_bills_history.*
 import ru.mancomapp.R
+import ru.mancomapp.utils.extensions.setVisible
 
 class BillsHistoryFragment : Fragment() {
 
@@ -33,5 +34,16 @@ class BillsHistoryFragment : Fragment() {
 
     private fun navigate(action: NavDirections) {
         findNavController().navigate(action)
+    }
+
+    private fun showUnpaidBillsStatus(unpaidBillsCount: Int) {
+        val message = if (unpaidBillsCount == 0) {
+            getString(R.string.all_bills_paid)
+        } else {
+            getString(R.string.unpaid_bills_count, unpaidBillsCount)
+        }
+
+        unpaid_bills_status.text = message
+        unpaid_bills_status.setVisible(true)
     }
 }
