@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -51,10 +52,8 @@ class ServiceFragment : Fragment() {
         add_files_button.setOnClickListener { onAddFilesButtonClick() }
         service_send_button.setOnClickListener { onSendButtonClick() }
 
-        files_list.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        files_list.isNestedScrollingEnabled = false
-        attachmentsAdapter = AttachmentsAdapter()
-        files_list.adapter = attachmentsAdapter
+        initAttachmentList()
+        initBackPressedCallback()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -127,4 +126,20 @@ class ServiceFragment : Fragment() {
 
     private fun onSendButtonClick() =
         viewModel.sendRequest(service_comment_input.text.toString())
+
+    private fun initAttachmentList() {
+        files_list.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        files_list.isNestedScrollingEnabled = false
+        attachmentsAdapter = AttachmentsAdapter()
+        files_list.adapter = attachmentsAdapter
+    }
+
+    private fun initBackPressedCallback() {
+        val onBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (viewModel.isBackPressedAllowed) navigateUp()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
+    }
 }
