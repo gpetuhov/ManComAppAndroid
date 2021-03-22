@@ -91,7 +91,7 @@
 
     <!-- Payments fragment -->
     <string name="bills_and_payments">Начисления и платежи</string>
-    <string name="new_bill">Новый счет</string>
+    <string name="bill">Счет</string>
     <string name="bill_total">Сумма</string>
 
 </resources>

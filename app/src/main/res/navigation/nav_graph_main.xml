@@ -22,8 +22,8 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
         <action
-            android:id="@+id/action_homeFragment_to_paymentsFragment"
-            app:destination="@id/paymentsFragment"
+            android:id="@+id/action_homeFragment_to_billsHistoryFragment"
+            app:destination="@id/billsHistoryFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
     </fragment>
@@ -63,10 +63,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/paymentsFragment"
-        android:name="ru.mancomapp.presentation.payments.PaymentsFragment"
-        android:label="PaymentsFragment"
-        tools:layout="@layout/fragment_payments" />
+        android:id="@+id/billsHistoryFragment"
+        android:name="ru.mancomapp.presentation.bills.BillsHistoryFragment"
+        android:label="BillsHistoryFragment"
+        tools:layout="@layout/fragment_bills_history" />
 
     <fragment
         android:id="@+id/feedbackFragment"

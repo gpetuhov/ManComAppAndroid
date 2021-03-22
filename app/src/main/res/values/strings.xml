@@ -93,7 +93,7 @@
 
     <!-- Payments fragment -->
     <string name="bills_and_payments">Bills and payments</string>
-    <string name="new_bill">New bill</string>
+    <string name="bill">Bill</string>
     <string name="bill_total">Total</string>
 
 </resources>
