@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import org.mockito.Mockito
 import ru.mancomapp.data.repository.*
+import ru.mancomapp.domain.usecase.bill.BillUseCase
 import ru.mancomapp.domain.usecase.login.LoginUseCase
 import ru.mancomapp.domain.usecase.request.RequestUseCase
 import ru.mancomapp.domain.usecase.feedback.FeedbackUseCase
@@ -85,4 +86,14 @@ class TestAppModule {
     @Singleton
     fun providesCarPassUseCase(carPassRepository: CarPassRepository) =
         CarPassUseCase(carPassRepository)
+
+    @Provides
+    @Singleton
+    fun providesBillRepository(): BillRepository =
+        Mockito.mock(BillRepository::class.java)
+
+    @Provides
+    @Singleton
+    fun providesBillUseCase(billRepository: BillRepository) =
+        BillUseCase(billRepository)
 }

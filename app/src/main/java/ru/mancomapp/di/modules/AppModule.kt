@@ -6,6 +6,7 @@ import dagger.Provides
 import ru.mancomapp.App
 import ru.mancomapp.data.repository.*
 import ru.mancomapp.data.source.local.AppPrefs
+import ru.mancomapp.domain.usecase.bill.BillUseCase
 import ru.mancomapp.domain.usecase.login.LoginUseCase
 import ru.mancomapp.domain.usecase.request.RequestUseCase
 import ru.mancomapp.domain.usecase.feedback.FeedbackUseCase
@@ -88,4 +89,13 @@ class AppModule {
     @Singleton
     fun providesCarPassUseCase(carPassRepository: CarPassRepository) =
         CarPassUseCase(carPassRepository)
+
+    @Provides
+    @Singleton
+    fun providesBillRepository() = BillRepository()
+
+    @Provides
+    @Singleton
+    fun providesBillUseCase(billRepository: BillRepository) =
+        BillUseCase(billRepository)
 }
