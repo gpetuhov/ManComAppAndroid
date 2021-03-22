@@ -97,5 +97,6 @@
     <string name="bill_total">Total</string>
     <string name="unpaid_bills_count">Unpaid bills count: %d</string>
     <string name="all_bills_paid">Congratulations, all bills are paid</string>
+    <string name="bills_history">Bills history</string>
 
 </resources>
