@@ -104,5 +104,6 @@
     <string name="bill_status_in_progress">In progress</string>
     <string name="bill_total_rub">%d RUB.</string>
     <string name="load_bill_history_error">Error loading bill history</string>
+    <string name="bills_empty">No bills</string>
 
 </resources>

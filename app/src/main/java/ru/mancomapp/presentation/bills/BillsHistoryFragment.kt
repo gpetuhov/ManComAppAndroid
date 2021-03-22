@@ -57,9 +57,7 @@ class BillsHistoryFragment : Fragment() {
         viewModel.billHistory.observe(viewLifecycleOwner, { bills -> updateBillsUI(bills) })
     }
 
-    private fun showProgress(isVisible: Boolean) {
-        // TODO: implement
-    }
+    private fun showProgress(isVisible: Boolean) = load_bills_progress.setVisible(isVisible)
 
     private fun updateBillsUI(bills: List<Bill>) {
         showUnpaidBillsStatus(bills)
@@ -81,24 +79,16 @@ class BillsHistoryFragment : Fragment() {
         unpaid_bills_status.setVisible(true)
     }
 
-    private fun showBills(isVisible: Boolean) {
-        bills_list.setVisible(isVisible)
-    }
+    private fun showBills(isVisible: Boolean) = bills_list.setVisible(isVisible)
 
-    private fun showBillsEmpty(isVisible: Boolean) {
-        // TODO: implement
-    }
+    private fun showBillsEmpty(isVisible: Boolean) = bills_empty.setVisible(isVisible)
 
-    private fun navigateUp() {
-        findNavController().navigateUp()
-    }
+    private fun navigateUp() = findNavController().navigateUp()
 
     private fun navigateToBillFragment() {
         val action = BillsHistoryFragmentDirections.actionBillsHistoryFragmentToBillFragment()
         navigate(action)
     }
 
-    private fun navigate(action: NavDirections) {
-        findNavController().navigate(action)
-    }
+    private fun navigate(action: NavDirections) = findNavController().navigate(action)
 }

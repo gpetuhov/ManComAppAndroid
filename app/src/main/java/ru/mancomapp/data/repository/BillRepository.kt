@@ -40,7 +40,7 @@ class BillRepository {
                 date = billDate
                 title = "Ежемесячный счет за услуги УК"
                 total = 1000
-                status = BillStatus.PAID
+                status = if (index % 2 == 0) BillStatus.PAID else BillStatus.NOT_PAID
                 fileName = "Dummy.pdf"
                 fileUrl = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
             }
