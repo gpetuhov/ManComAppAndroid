@@ -58,6 +58,7 @@ class CarPassFragment : Fragment() {
     }
 
     private fun enableControls(isEnabled: Boolean) {
+        back_button.isEnabled = isEnabled
         car_model_input.isEnabled = isEnabled
         car_number_input.isEnabled = isEnabled
         car_pass_date_input.isEnabled = isEnabled

@@ -72,6 +72,7 @@ class FeedbackFragment : Fragment() {
     }
 
     private fun enableControls(isEnabled: Boolean) {
+        back_button.isEnabled = isEnabled
         feedback_title_input.isEnabled = isEnabled
         feedback_content_input.isEnabled = isEnabled
         add_files_button.isEnabled = isEnabled

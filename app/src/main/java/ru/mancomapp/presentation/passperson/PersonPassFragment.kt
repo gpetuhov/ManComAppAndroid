@@ -58,6 +58,7 @@ class PersonPassFragment : Fragment() {
     }
 
     private fun enableControls(isEnabled: Boolean) {
+        back_button.isEnabled = isEnabled
         person_pass_name_input.isEnabled = isEnabled
         person_pass_date_input.isEnabled = isEnabled
         person_pass_access_type.isEnabled = isEnabled
