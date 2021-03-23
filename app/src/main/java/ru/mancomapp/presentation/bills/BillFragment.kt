@@ -20,6 +20,8 @@ class BillFragment : Fragment() {
         val args = BillFragmentArgs.fromBundle(requireArguments())
         val bill = args.bill
 
+        bill_number.text = getString(R.string.bill_number, bill.id)
+
         // TODO: change this
         bill_file_name.text = bill.id
 

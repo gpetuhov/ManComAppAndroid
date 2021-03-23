@@ -104,4 +104,7 @@
     <string name="load_bill_history_error">Ошибка загрузки истории счетов</string>
     <string name="bills_empty">Счета отсутствуют</string>
 
+    <!-- Bill fragment -->
+    <string name="bill_number">Счет № %s</string>
+
 </resources>
