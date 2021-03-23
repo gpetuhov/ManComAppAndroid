@@ -101,4 +101,30 @@
         app:layout_constraintTop_toBottomOf="@id/bill_total_label"
         tools:text="1000 Р." />
 
+    <TextView
+        android:id="@+id/bill_title_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layout_margin"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginEnd="@dimen/layout_margin"
+        android:text="@string/bill_title"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_total" />
+
+    <TextView
+        android:id="@+id/bill_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layout_margin"
+        android:layout_marginTop="@dimen/half_layout_margin"
+        android:layout_marginEnd="@dimen/layout_margin"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_title_label"
+        tools:text="@string/bill_title" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
