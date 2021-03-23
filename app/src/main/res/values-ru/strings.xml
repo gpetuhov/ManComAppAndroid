@@ -110,5 +110,6 @@
     <string name="bill_status_paid_details">Оплаченный счёт</string>
     <string name="bill_status_not_paid_details">Неоплаченный счёт</string>
     <string name="bill_status_in_progress_details">Счёт в обработке</string>
+    <string name="date">Дата:</string>
 
 </resources>

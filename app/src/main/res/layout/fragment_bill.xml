@@ -50,6 +50,32 @@
         tools:text="@string/bill_status_paid_details" />
 
     <TextView
+        android:id="@+id/bill_date_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layout_margin"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginEnd="@dimen/layout_margin"
+        android:text="@string/date"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_status" />
+
+    <TextView
+        android:id="@+id/bill_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layout_margin"
+        android:layout_marginTop="@dimen/half_layout_margin"
+        android:layout_marginEnd="@dimen/layout_margin"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_date_label"
+        tools:text="2021.03.23" />
+
+    <TextView
         android:id="@+id/bill_total_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -60,7 +86,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bill_status" />
+        app:layout_constraintTop_toBottomOf="@id/bill_date" />
 
     <TextView
         android:id="@+id/bill_total"
