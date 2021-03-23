@@ -21,9 +21,7 @@ class BillFragment : Fragment() {
         val bill = args.bill
 
         bill_number.text = getString(R.string.bill_number, bill.id)
-
-        // TODO: change this
-        bill_file_name.text = bill.id
+        bill_status.text = getString(bill.status.detailsId)
 
         // TODO
     }

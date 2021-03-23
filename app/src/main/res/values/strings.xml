@@ -108,5 +108,9 @@
 
     <!-- Bill fragment -->
     <string name="bill_number">Bill # %s</string>
+    <string name="status">Status:</string>
+    <string name="bill_status_paid_details">Paid bill</string>
+    <string name="bill_status_not_paid_details">Not paid bill</string>
+    <string name="bill_status_in_progress_details">Bill in progress</string>
 
 </resources>

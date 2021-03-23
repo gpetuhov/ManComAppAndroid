@@ -22,17 +22,32 @@
         tools:text="Счет № 111" />
 
     <TextView
-        android:id="@+id/bill_file_name"
+        android:id="@+id/bill_status_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layout_margin"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginEnd="@dimen/layout_margin"
+        android:text="@string/status"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_number" />
+
+    <TextView
+        android:id="@+id/bill_status"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/layout_margin"
         android:layout_marginTop="@dimen/half_layout_margin"
         android:layout_marginEnd="@dimen/layout_margin"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bill_number"
-        tools:text="Bill.pdf" />
+        app:layout_constraintTop_toBottomOf="@id/bill_status_label"
+        tools:text="@string/bill_status_paid_details" />
 
     <TextView
         android:id="@+id/bill_total_label"
@@ -45,7 +60,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bill_file_name" />
+        app:layout_constraintTop_toBottomOf="@id/bill_status" />
 
     <TextView
         android:id="@+id/bill_total"
