@@ -112,5 +112,6 @@
     <string name="date">Дата:</string>
     <string name="bill_total">Сумма:</string>
     <string name="bill_title">Наименование счёта:</string>
+    <string name="bill_details">Детализация счёта:</string>
 
 </resources>
