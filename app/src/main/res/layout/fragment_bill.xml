@@ -153,4 +153,20 @@
         app:layout_constraintTop_toBottomOf="@id/bill_details_label"
         tools:text="Bill_details.pdf" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bill_payment_button"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/proceed_to_payment"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_details"
+        app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

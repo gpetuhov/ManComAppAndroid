@@ -11,4 +11,6 @@ class Bill : Serializable {
     var status: BillStatus = BillStatus.NOT_PAID
     var fileName: String = ""
     var fileUrl: String = ""
+
+    fun isNotPaid() = status == BillStatus.NOT_PAID
 }

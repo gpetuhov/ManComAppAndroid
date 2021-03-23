@@ -114,5 +114,6 @@
     <string name="bill_title">Наименование счёта:</string>
     <string name="bill_details">Детализация счёта:</string>
     <string name="browser_not_installed">Браузер не установлен</string>
+    <string name="proceed_to_payment">Перейти к оплате</string>
 
 </resources>
