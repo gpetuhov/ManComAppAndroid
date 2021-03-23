@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_bill.*
 import ru.mancomapp.R
+import ru.mancomapp.domain.models.bill.Bill
 import ru.mancomapp.utils.extensions.openWebsite
 import ru.mancomapp.utils.extensions.setVisible
 import ru.mancomapp.utils.extensions.toast
@@ -22,8 +23,13 @@ class BillFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val args = BillFragmentArgs.fromBundle(requireArguments())
-        val bill = args.bill
+        initBill()
+
+        back_button.setOnClickListener { navigateUp() }
+    }
+
+    private fun initBill() {
+        val bill = getBill()
 
         bill_number.text = getString(R.string.bill_number, bill.id)
         bill_status.text = getString(bill.status.detailsId)
@@ -36,8 +42,11 @@ class BillFragment : Fragment() {
 
         bill_payment_button.setVisible(bill.isNotPaid())
         bill_payment_button.setOnClickListener { onPaymentButtonClick() }
+    }
 
-        back_button.setOnClickListener { navigateUp() }
+    private fun getBill(): Bill {
+        val args = BillFragmentArgs.fromBundle(requireArguments())
+        return args.bill
     }
 
     private fun onPaymentButtonClick() {
