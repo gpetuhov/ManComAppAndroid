@@ -1,9 +1,11 @@
 package ru.mancomapp.domain.models.bill
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import ru.mancomapp.domain.models.request.RequestDate
-import java.io.Serializable
 
-class Bill : Serializable {
+@Parcelize
+class Bill : Parcelable {
     var id: String = ""
     var date: RequestDate = RequestDate()
     var title: String = ""

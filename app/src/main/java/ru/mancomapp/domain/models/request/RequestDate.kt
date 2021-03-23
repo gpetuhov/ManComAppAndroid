@@ -1,8 +1,10 @@
 package ru.mancomapp.domain.models.request
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-class RequestDate : Serializable {
+@Parcelize
+class RequestDate : Parcelable {
     var year: Int = 0
     var month: Int = -1
     var day: Int = 0
