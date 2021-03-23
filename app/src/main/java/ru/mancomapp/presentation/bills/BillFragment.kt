@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_bill.*
 import ru.mancomapp.R
+import ru.mancomapp.utils.extensions.openWebsite
 import ru.mancomapp.utils.getFormattedDate
 
 class BillFragment : Fragment() {
@@ -27,5 +28,7 @@ class BillFragment : Fragment() {
         bill_total.text = getString(R.string.bill_total_rub, bill.total)
         bill_title.text = bill.title
         bill_details.text = bill.fileName
+
+        bill_details.setOnClickListener { openWebsite(bill.fileUrl) }
     }
 }

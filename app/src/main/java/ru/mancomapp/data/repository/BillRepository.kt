@@ -41,8 +41,8 @@ class BillRepository {
                 title = "Ежемесячный счет за услуги УК"
                 total = 1000
                 status = if (index % 2 == 0) BillStatus.PAID else BillStatus.NOT_PAID
-                fileName = "Dummy.pdf"
-                fileUrl = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                fileName = "Sample.pdf"
+                fileUrl = "https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf"
             }
 
             bills.add(bill)

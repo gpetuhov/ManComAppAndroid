@@ -113,5 +113,6 @@
     <string name="bill_total">Сумма:</string>
     <string name="bill_title">Наименование счёта:</string>
     <string name="bill_details">Детализация счёта:</string>
+    <string name="browser_not_installed">Браузер не установлен</string>
 
 </resources>

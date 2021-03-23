@@ -1,6 +1,8 @@
 package ru.mancomapp.domain.models.request
 
-class RequestDate {
+import java.io.Serializable
+
+class RequestDate : Serializable {
     var year: Int = 0
     var month: Int = -1
     var day: Int = 0

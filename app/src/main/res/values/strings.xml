@@ -115,5 +115,6 @@
     <string name="bill_total">Total:</string>
     <string name="bill_title">Bill title:</string>
     <string name="bill_details">Bill details:</string>
+    <string name="browser_not_installed">Browser not installed</string>
 
 </resources>
