@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_login"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="ru.mancomapp.presentation.login.WelcomeFragment"
+        android:label="WelcomeFragment"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_getCredentialsFragment"
+            app:destination="@id/getCredentialsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="ru.mancomapp.presentation.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/getCredentialsFragment"
+        android:name="ru.mancomapp.presentation.login.GetCredentialsFragment"
+        android:label="GetCredentialsFragment"
+        tools:layout="@layout/fragment_get_credentials" />
+
+</navigation>

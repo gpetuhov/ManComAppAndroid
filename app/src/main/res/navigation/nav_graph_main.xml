@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="ru.mancomapp.presentation.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_requestsFragment"
+            app:destination="@id/requestsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_securityFragment"
+            app:destination="@id/securityFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_billsHistoryFragment"
+            app:destination="@id/billsHistoryFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/requestsFragment"
+        android:name="ru.mancomapp.presentation.requests.RequestsFragment"
+        android:label="RequestsFragment"
+        tools:layout="@layout/fragment_requests" >
+        <action
+            android:id="@+id/action_requestsFragment_to_serviceFragment"
+            app:destination="@id/serviceFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+        <action
+            android:id="@+id/action_requestsFragment_to_feedbackFragment"
+            app:destination="@id/feedbackFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/securityFragment"
+        android:name="ru.mancomapp.presentation.security.SecurityFragment"
+        android:label="SecurityFragment"
+        tools:layout="@layout/fragment_security" >
+        <action
+            android:id="@+id/action_securityFragment_to_personPassFragment"
+            app:destination="@id/personPassFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+        <action
+            android:id="@+id/action_securityFragment_to_carPassFragment"
+            app:destination="@id/carPassFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/billsHistoryFragment"
+        android:name="ru.mancomapp.presentation.bills.BillsHistoryFragment"
+        android:label="BillsHistoryFragment"
+        tools:layout="@layout/fragment_bills_history" >
+        <action
+            android:id="@+id/action_billsHistoryFragment_to_billFragment"
+            app:destination="@id/billFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/feedbackFragment"
+        android:name="ru.mancomapp.presentation.feedback.FeedbackFragment"
+        android:label="FeedbackFragment"
+        tools:layout="@layout/fragment_feedback" />
+
+    <fragment
+        android:id="@+id/serviceFragment"
+        android:name="ru.mancomapp.presentation.service.ServiceFragment"
+        android:label="ServiceFragment"
+        tools:layout="@layout/fragment_service" />
+
+    <fragment
+        android:id="@+id/personPassFragment"
+        android:name="ru.mancomapp.presentation.passperson.PersonPassFragment"
+        android:label="PersonPassFragment"
+        tools:layout="@layout/fragment_person_pass" />
+
+    <fragment
+        android:id="@+id/carPassFragment"
+        android:name="ru.mancomapp.presentation.passcar.CarPassFragment"
+        android:label="CarPassFragment"
+        tools:layout="@layout/fragment_car_pass" />
+
+    <fragment
+        android:id="@+id/billFragment"
+        android:name="ru.mancomapp.presentation.bills.BillFragment"
+        android:label="BillFragment"
+        tools:layout="@layout/fragment_bill" >
+        <argument
+            android:name="bill"
+            app:argType="ru.mancomapp.domain.models.bill.Bill"/>
+    </fragment>
+
+</navigation>
