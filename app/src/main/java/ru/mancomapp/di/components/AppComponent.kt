@@ -2,6 +2,7 @@ package ru.mancomapp.di.components
 
 import dagger.Component
 import ru.mancomapp.di.modules.AppModule
+import ru.mancomapp.presentation.bills.BillsViewModel
 import ru.mancomapp.presentation.feedback.FeedbackViewModel
 import ru.mancomapp.presentation.login.LoginViewModel
 import ru.mancomapp.presentation.passcar.CarPassViewModel
@@ -21,4 +22,5 @@ interface AppComponent {
     fun inject(securityViewModel: SecurityViewModel)
     fun inject(personPassViewModel: PersonPassViewModel)
     fun inject(carPassViewModel: CarPassViewModel)
+    fun inject(billsViewModel: BillsViewModel)
 }

@@ -89,4 +89,31 @@
     <string name="car_model_empty_error">Пожалуйста, введите марку авто</string>
     <string name="car_number_empty_error">Пожалуйста, введите номер авто</string>
 
+    <!-- Payments fragment -->
+    <string name="bills_and_payments">Начисления и платежи</string>
+    <string name="bill">Счёт</string>
+    <string name="unpaid_bills_count">Количество неоплаченных счетов: %d</string>
+    <string name="all_bills_paid">Поздравляем, все счета оплачены</string>
+    <string name="bills_history">История счетов</string>
+    <string name="bills_number">Счёт № %s от</string>
+    <string name="bill_status_paid">Оплачен</string>
+    <string name="bill_status_not_paid">Не оплачен</string>
+    <string name="bill_status_in_progress">В обработке</string>
+    <string name="bill_total_rub">%d Р.</string>
+    <string name="load_bill_history_error">Ошибка загрузки истории счетов</string>
+    <string name="bills_empty">Счета отсутствуют</string>
+
+    <!-- Bill fragment -->
+    <string name="bill_number">Счёт № %s</string>
+    <string name="status">Статус:</string>
+    <string name="bill_status_paid_details">Оплаченный счёт</string>
+    <string name="bill_status_not_paid_details">Неоплаченный счёт</string>
+    <string name="bill_status_in_progress_details">Счёт в обработке</string>
+    <string name="date">Дата:</string>
+    <string name="bill_total">Сумма:</string>
+    <string name="bill_title">Наименование счёта:</string>
+    <string name="bill_details">Детализация счёта:</string>
+    <string name="browser_not_installed">Браузер не установлен</string>
+    <string name="proceed_to_payment">Перейти к оплате</string>
+
 </resources>

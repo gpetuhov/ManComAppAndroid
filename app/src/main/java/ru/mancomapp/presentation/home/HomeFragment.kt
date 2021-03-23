@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         request_button.setOnClickListener { navigateToRequestsFragment() }
         security_button.setOnClickListener { navigateToSecurityFragment() }
-        payments_button.setOnClickListener { navigateToPaymentsFragment() }
+        payments_button.setOnClickListener { navigateToBillsHistoryFragment() }
     }
 
     private fun navigateToRequestsFragment() {
@@ -33,8 +33,8 @@ class HomeFragment : Fragment() {
         navigate(action)
     }
 
-    private fun navigateToPaymentsFragment() {
-        val action = HomeFragmentDirections.actionHomeFragmentToPaymentsFragment()
+    private fun navigateToBillsHistoryFragment() {
+        val action = HomeFragmentDirections.actionHomeFragmentToBillsHistoryFragment()
         navigate(action)
     }
 

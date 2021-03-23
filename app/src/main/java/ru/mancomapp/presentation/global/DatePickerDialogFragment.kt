@@ -47,7 +47,9 @@ class DatePickerDialogFragment(
                 day = selectedRequestDate.day
             }
 
-            DatePickerDialog(it, this, year, month, day)
+            DatePickerDialog(it, this, year, month, day).apply {
+                datePicker.minDate = System.currentTimeMillis() - 1000
+            }
         } ?: throw IllegalStateException("Activity cannot be null")
     }
 
