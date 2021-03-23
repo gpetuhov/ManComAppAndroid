@@ -92,7 +92,6 @@
     <!-- Payments fragment -->
     <string name="bills_and_payments">Начисления и платежи</string>
     <string name="bill">Счёт</string>
-    <string name="bill_total">Сумма</string>
     <string name="unpaid_bills_count">Количество неоплаченных счетов: %d</string>
     <string name="all_bills_paid">Поздравляем, все счета оплачены</string>
     <string name="bills_history">История счетов</string>
@@ -111,5 +110,6 @@
     <string name="bill_status_not_paid_details">Неоплаченный счёт</string>
     <string name="bill_status_in_progress_details">Счёт в обработке</string>
     <string name="date">Дата:</string>
+    <string name="bill_total">Сумма:</string>
 
 </resources>

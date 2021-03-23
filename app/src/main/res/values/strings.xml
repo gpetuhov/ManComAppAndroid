@@ -94,7 +94,6 @@
     <!-- Bills history fragment -->
     <string name="bills_and_payments">Bills and payments</string>
     <string name="bill">Bill</string>
-    <string name="bill_total">Total</string>
     <string name="unpaid_bills_count">Unpaid bills count: %d</string>
     <string name="all_bills_paid">Congratulations, all bills are paid</string>
     <string name="bills_history">Bills history</string>
@@ -113,5 +112,6 @@
     <string name="bill_status_not_paid_details">Not paid bill</string>
     <string name="bill_status_in_progress_details">Bill in progress</string>
     <string name="date">Date:</string>
+    <string name="bill_total">Total:</string>
 
 </resources>

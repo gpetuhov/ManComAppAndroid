@@ -24,6 +24,7 @@ class BillFragment : Fragment() {
         bill_number.text = getString(R.string.bill_number, bill.id)
         bill_status.text = getString(bill.status.detailsId)
         bill_date.text = getFormattedDate(bill.date)
+        bill_total.text = getString(R.string.bill_total_rub, bill.total)
 
         // TODO
     }
