@@ -12,4 +12,14 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="ButtonStyle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/pantone_411c</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="backgroundTint">@color/pantone_7499c</item>
+    </style>
+
 </resources>
