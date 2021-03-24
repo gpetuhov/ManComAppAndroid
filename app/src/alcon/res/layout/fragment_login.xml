@@ -87,7 +87,7 @@
         android:id="@+id/privacy_policy_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
+        android:layout_marginStart="@dimen/layout_margin"
         app:layout_constraintBottom_toBottomOf="@id/privacy_policy_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/privacy_policy_text" />

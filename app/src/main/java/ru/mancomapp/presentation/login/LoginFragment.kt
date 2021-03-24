@@ -78,6 +78,7 @@ class LoginFragment : Fragment() {
         login_input.isEnabled = isEnabled
         password_input.isEnabled = isEnabled
         privacy_policy_checkbox.isEnabled = isEnabled
+        privacy_policy_text.isEnabled = isEnabled
         login_button.isEnabled = isEnabled
     }
 
