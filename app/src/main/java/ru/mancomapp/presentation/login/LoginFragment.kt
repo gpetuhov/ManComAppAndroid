@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.alcon.fragment_login.*
-import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.login_button
 import kotlinx.android.synthetic.main.fragment_login.login_input
 import kotlinx.android.synthetic.main.fragment_login.login_progress
@@ -78,7 +77,7 @@ class LoginFragment : Fragment() {
         login_input.isEnabled = isEnabled
         password_input.isEnabled = isEnabled
         privacy_policy_checkbox.isEnabled = isEnabled
-        privacy_policy_text.isEnabled = isEnabled
+        privacy_policy_text?.isEnabled = isEnabled
         login_button.isEnabled = isEnabled
     }
 
@@ -98,7 +97,7 @@ class LoginFragment : Fragment() {
             Html.fromHtml(html)
         }
 
-        privacy_policy_text.text = result
-        privacy_policy_text.movementMethod = LinkMovementMethod.getInstance()
+        privacy_policy_text?.text = result
+        privacy_policy_text?.movementMethod = LinkMovementMethod.getInstance()
     }
 }
