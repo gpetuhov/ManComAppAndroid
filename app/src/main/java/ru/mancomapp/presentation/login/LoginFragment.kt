@@ -9,8 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.fragment_get_credentials.*
+import kotlinx.android.synthetic.alcon.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_login.login_button
+import kotlinx.android.synthetic.main.fragment_login.login_input
+import kotlinx.android.synthetic.main.fragment_login.login_progress
+import kotlinx.android.synthetic.main.fragment_login.password_input
+import kotlinx.android.synthetic.main.fragment_login.privacy_policy_checkbox
 import kotlinx.android.synthetic.main.fragment_login.welcome_text
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.LoginCredentials
@@ -92,7 +97,7 @@ class LoginFragment : Fragment() {
             Html.fromHtml(html)
         }
 
-        privacy_policy_checkbox.text = result
-        privacy_policy_checkbox.movementMethod = LinkMovementMethod.getInstance()
+        privacy_policy_text.text = result
+        privacy_policy_text.movementMethod = LinkMovementMethod.getInstance()
     }
 }
