@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Alcon -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -22,12 +25,14 @@
 
     <TextView
         android:id="@+id/login_label"
+        style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/layout_margin"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="57dp"
         android:layout_marginEnd="@dimen/layout_margin"
         android:text="@string/login"
+        android:textAllCaps="true"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,12 +55,13 @@
 
     <TextView
         android:id="@+id/password_label"
+        style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/layout_margin"
-        android:layout_marginTop="@dimen/layout_margin"
         android:layout_marginEnd="@dimen/layout_margin"
         android:text="@string/password"
+        android:textAllCaps="true"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,17 +95,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password_input" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/login_button"
-        android:layout_width="200dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="@dimen/layout_margin"
-        android:text="@string/enter"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/privacy_policy_checkbox" />
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/login_progress"
         android:layout_width="wrap_content"
@@ -107,23 +102,21 @@
         android:layout_marginTop="@dimen/layout_margin"
         android:layout_marginBottom="@dimen/layout_margin"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/copyright"
+        app:layout_constraintBottom_toTopOf="@id/login_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_button"
+        app:layout_constraintTop_toBottomOf="@id/privacy_policy_checkbox"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/loading_wave" />
 
-    <TextView
-        android:id="@+id/copyright"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/layout_margin"
-        android:layout_marginEnd="@dimen/layout_margin"
-        android:layout_marginBottom="@dimen/layout_margin"
-        android:text="@string/copyright"
-        android:textAlignment="center"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/login_button"
+        style="@style/ButtonStyle"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/enter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
