@@ -2,8 +2,6 @@ package ru.mancomapp.presentation.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Html
-import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +18,7 @@ import ru.mancomapp.R
 import ru.mancomapp.domain.models.LoginCredentials
 import ru.mancomapp.presentation.MainActivity
 import ru.mancomapp.utils.extensions.hideSoftKeyboard
+import ru.mancomapp.utils.extensions.initHtml
 import ru.mancomapp.utils.extensions.setVisible
 import ru.mancomapp.utils.extensions.toast
 
@@ -91,13 +90,6 @@ class LoginFragment : Fragment() {
 
         val html = getString(R.string.privacy_policy_confirm_2, policyLink, conditionsLink)
 
-        val result = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY)
-        } else {
-            Html.fromHtml(html)
-        }
-
-        privacy_policy_text?.text = result
-        privacy_policy_text?.movementMethod = LinkMovementMethod.getInstance()
+        initHtml(privacy_policy_text, html)
     }
 }
