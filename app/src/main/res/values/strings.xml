@@ -21,8 +21,13 @@
     <string name="password">Password</string>
     <string name="password_hint">Enter password</string>
     <string name="privacy_policy_confirm">I agree to Privacy Policy…</string>
+    <string name="policy">Privacy Policy</string>
+    <string name="conditions">Conditions</string>
+    <string name="privacy_policy_confirm_2">I confirm that I agree with %s and %s of confidentiality</string>
     <string name="login_input_empty">Please enter login and password</string>
     <string name="privacy_policy_confirm_error">Accept Privacy Policy to continue using application</string>
+    <string name="privacy_policy_url" translatable="false">https://www.google.com/</string>
+    <string name="confidentiality_url" translatable="false">https://www.google.com/</string>
 
     <!-- HomeFragment -->
     <string name="choose_section">Choose section</string>

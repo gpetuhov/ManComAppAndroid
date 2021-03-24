@@ -2,12 +2,16 @@ package ru.mancomapp.presentation.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Html
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import kotlinx.android.synthetic.main.fragment_get_credentials.*
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_login.welcome_text
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.LoginCredentials
 import ru.mancomapp.presentation.MainActivity
@@ -30,6 +34,8 @@ class LoginFragment : Fragment() {
 
         welcome_text.text = getString(R.string.welcome_message, getString(R.string.app_name))
         login_button.setOnClickListener { onLoginButtonClick() }
+
+        initConfirmPrivacyPolicy()
     }
 
     private fun onLoginButtonClick() {
@@ -72,5 +78,21 @@ class LoginFragment : Fragment() {
 
     private fun showProgress(isVisible: Boolean) {
         login_progress.setVisible(isVisible)
+    }
+
+    private fun initConfirmPrivacyPolicy() {
+        val policyLink = "<b><a href=\"${getString(R.string.privacy_policy_url)}\">${getString(R.string.policy)}</a></b>"
+        val conditionsLink = "<b><a href=\"${getString(R.string.confidentiality_url)}\">${getString(R.string.conditions)}</a></b>"
+
+        val html = getString(R.string.privacy_policy_confirm_2, policyLink, conditionsLink)
+
+        val result = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY)
+        } else {
+            Html.fromHtml(html)
+        }
+
+        privacy_policy_checkbox.text = result
+        privacy_policy_checkbox.movementMethod = LinkMovementMethod.getInstance()
     }
 }
