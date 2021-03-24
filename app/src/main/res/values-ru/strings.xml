@@ -3,7 +3,7 @@
     <string name="app_version">Версия: %s</string>
 
     <!-- WelcomeFragment -->
-    <string name="welcome_message">Добро пожаловать в приложение\n%s</string>
+    <string name="welcome_message">Добро пожаловать в\nприложение %s</string>
     <string name="enter">Войти</string>
     <string name="get_credentials">Получить данные для входа</string>
     <string name="demo_version">Демо версия</string>
