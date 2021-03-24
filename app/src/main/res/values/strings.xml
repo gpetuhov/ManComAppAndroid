@@ -7,7 +7,7 @@
     <string name="enter">Enter</string>
     <string name="get_credentials">Get credentials</string>
     <string name="demo_version">Demo version</string>
-    <string name="copyright">Disclaimer, copyright etc.</string>
+    <string name="copyright">Disclaimer, copyright</string>
 
     <!-- GetCredentialsFragment -->
     <string name="get_credentials_info">Contact Management Company to get credentials. You can see working hours %s</string>
