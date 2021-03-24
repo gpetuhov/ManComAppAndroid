@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Alcon -->
+
+<resources>
+
+    <!-- Fonts -->
+
+    <style name="TextStyle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/pantone_411c</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+</resources>
