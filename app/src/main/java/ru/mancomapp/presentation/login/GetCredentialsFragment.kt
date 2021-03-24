@@ -26,7 +26,7 @@ class GetCredentialsFragment : Fragment() {
     private fun initText() {
         welcome_text.text = getString(R.string.welcome_message, getString(R.string.app_name))
 
-        val getCredentialsLink = "<a href=\"${getString(R.string.get_credentials_schedule_url)}\">${getString(R.string.here)}</a>"
+        val getCredentialsLink = "<b><a href=\"${getString(R.string.get_credentials_schedule_url)}\">${getString(R.string.here)}</a></b>"
         val html = getString(R.string.get_credentials_info, getCredentialsLink)
 
         val result = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
