@@ -27,7 +27,7 @@
     <string name="privacy_policy_confirm_error">Для продолжения использования приложения Вы должны принять условия соглашения и политики</string>
 
     <!-- HomeFragment -->
-    <string name="choose_section">Выберите интересующий вас раздел:</string>
+    <string name="choose_section">Выберите интересующий вас раздел</string>
     <string name="management_company_requests">Заявки в управляющую компанию</string>
     <string name="pass_and_security">Заказ пропусков и служба безопасности</string>
     <string name="payments">Начисления и платежи</string>
