@@ -37,7 +37,7 @@
     <string name="order_service">Заказать услугу</string>
     <string name="requests_history">История заявок</string>
     <string name="requests_empty">Заявки отсутствуют</string>
-    <string name="request_number">Обращение # %s</string>
+    <string name="request_number">Заявка №%s</string>
     <string name="request_status">Статус заявки: %s</string>
     <string name="request_status_new">Новая</string>
     <string name="request_status_on_review">На рассмотрении</string>

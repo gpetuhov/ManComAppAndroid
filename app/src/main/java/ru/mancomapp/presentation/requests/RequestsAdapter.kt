@@ -12,6 +12,7 @@ import ru.mancomapp.R
 import ru.mancomapp.domain.models.request.Request
 import ru.mancomapp.domain.models.request.RequestStatus
 import ru.mancomapp.utils.getFormattedDate
+import ru.mancomapp.utils.getLongFormattedDate
 
 class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDiffCallback()) {
 
@@ -95,7 +96,7 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
             val requestNumber = getRequestNumber(request)
             with(itemView) {
                 request_number.text = requestNumber
-                request_date.text = getFormattedDate(request.date)
+                request_date.text = getLongFormattedDate(request.date)
                 request_title.text = request.title
                 request_content.text = request.content
                 request_status.text = getRequestStatus(request)
@@ -108,7 +109,7 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
             val requestNumber = getRequestNumber(request)
             with(itemView) {
                 request_number.text = requestNumber
-                request_date.text = getFormattedDate(request.date)
+                request_date.text = getLongFormattedDate(request.date)
                 request_title.text = itemView.context.getString(request.type.nameId)
                 request_content.text = request.comment
                 request_status.text = getRequestStatus(request)
