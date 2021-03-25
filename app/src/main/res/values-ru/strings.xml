@@ -35,7 +35,7 @@
     <!-- Requests fragment -->
     <string name="write_feedback">Написать обращение</string>
     <string name="order_service">Заказать услугу</string>
-    <string name="requests_history">История обращений</string>
+    <string name="requests_history">История заявок</string>
     <string name="requests_empty">Заявки отсутствуют</string>
     <string name="request_number">Обращение # %s</string>
     <string name="request_status">Статус заявки: %s</string>
