@@ -1,5 +1,9 @@
 package ru.mancomapp.presentation.requests
 
+import android.graphics.Typeface
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.StyleSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +14,6 @@ import kotlinx.android.synthetic.main.item_management_request.view.*
 import kotlinx.android.synthetic.main.item_person_pass_request.view.*
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.request.Request
-import ru.mancomapp.domain.models.request.RequestStatus
 import ru.mancomapp.utils.getFormattedDate
 import ru.mancomapp.utils.getLongFormattedDate
 
@@ -79,15 +82,15 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
         protected fun getRequestNumber(request: Request) =
             itemView.context.getString(R.string.request_number, request.id.toString())
 
-        protected fun getRequestStatus(request: Request): String {
-            val requestStatus = itemView.context.getString(
-                when(request.status) {
-                    RequestStatus.NEW -> R.string.request_status_new
-                    RequestStatus.ON_REVIEW -> R.string.request_status_on_review
-                    RequestStatus.COMPLETE -> R.string.request_status_complete
-                }
-            )
-            return itemView.context.getString(R.string.request_status, requestStatus)
+        protected fun getRequestStatus(request: Request): SpannableStringBuilder {
+            val part1 = itemView.context.getString(R.string.request_status)
+            val part2 = itemView.context.getString(request.status.nameId)
+            val text = "$part1 $part2"
+
+            val spannableStringBuilder = SpannableStringBuilder(text)
+            val bold = StyleSpan(Typeface.BOLD)
+            spannableStringBuilder.setSpan(bold, part1.length + 1, text.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+            return spannableStringBuilder
         }
     }
 
