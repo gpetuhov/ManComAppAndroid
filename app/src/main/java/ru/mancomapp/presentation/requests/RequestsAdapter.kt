@@ -125,7 +125,7 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
             val requestNumber = getRequestNumber(request)
             with(itemView) {
                 request_person_pass_number.text = requestNumber
-                request_person_pass_date.text = getFormattedDate(request.date)
+                request_person_pass_date.text = getLongFormattedDate(request.date)
                 request_person_name.text = request.personName
                 request_person_pass_access_type.text = itemView.context.getString(request.accessType.nameId)
                 request_person_pass_status.text = getRequestStatus(request)
@@ -138,7 +138,7 @@ class RequestsAdapter : ListAdapter<Request, RecyclerView.ViewHolder>(RequestsDi
             val requestNumber = getRequestNumber(request)
             with(itemView) {
                 request_car_pass_number.text = requestNumber
-                request_car_pass_date.text = getFormattedDate(request.date)
+                request_car_pass_date.text = getLongFormattedDate(request.date)
                 request_car_model.text = request.carModel
                 request_car_number.text = request.carNumber
                 request_car_pass_access_type.text = itemView.context.getString(request.accessType.nameId)
