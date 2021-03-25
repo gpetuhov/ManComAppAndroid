@@ -7,6 +7,7 @@
     <style name="AppTheme.LoginActivity" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:statusBarColor">@color/md_white_1000</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="colorPrimary">@color/pantone_7499c</item>
         <item name="colorSecondary">@color/pantone_407c</item>
         <item name="colorSecondaryVariant">@color/pantone_411c</item>
     </style>
@@ -14,6 +15,7 @@
     <style name="AppTheme.MainActivity" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:statusBarColor">@color/md_white_1000</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="colorPrimary">@color/pantone_7499c</item>
         <item name="colorSecondary">@color/pantone_407c</item>
         <item name="colorSecondaryVariant">@color/pantone_411c</item>
     </style>

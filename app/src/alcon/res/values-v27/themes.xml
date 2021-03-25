@@ -6,6 +6,7 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">@color/md_white_1000</item>
         <item name="android:windowLightNavigationBar">true</item>
+        <item name="colorPrimary">@color/pantone_7499c</item>
         <item name="colorSecondary">@color/pantone_407c</item>
         <item name="colorSecondaryVariant">@color/pantone_411c</item>
     </style>
@@ -15,6 +16,7 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">@color/md_white_1000</item>
         <item name="android:windowLightNavigationBar">true</item>
+        <item name="colorPrimary">@color/pantone_7499c</item>
         <item name="colorSecondary">@color/pantone_407c</item>
         <item name="colorSecondaryVariant">@color/pantone_411c</item>
     </style>
