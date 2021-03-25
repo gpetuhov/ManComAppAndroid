@@ -32,7 +32,7 @@
     <!-- HomeFragment -->
     <string name="choose_section">Choose section</string>
     <string name="management_company_requests">Management company requests</string>
-    <string name="pass_and_security">Passes and security</string>
+    <string name="pass_order">Pass order</string>
     <string name="payments">Payments</string>
 
     <!-- Requests fragment -->
