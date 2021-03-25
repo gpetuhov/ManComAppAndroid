@@ -26,6 +26,12 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="TextMediumStyle">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/pantone_411c</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="ButtonStyle">
         <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textColor">@color/pantone_411c</item>
