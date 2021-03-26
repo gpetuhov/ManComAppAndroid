@@ -125,7 +125,7 @@
         android:id="@+id/files_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/layout_margin"
+        android:layout_marginTop="@dimen/half_layout_margin"
         android:layout_marginBottom="@dimen/layout_margin"
         app:layout_constraintBottom_toTopOf="@id/feedback_send_button"
         app:layout_constraintEnd_toEndOf="parent"
