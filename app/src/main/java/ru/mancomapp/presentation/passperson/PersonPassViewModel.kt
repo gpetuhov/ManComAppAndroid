@@ -42,10 +42,7 @@ class PersonPassViewModel : PassBaseViewModel() {
         val personPass = PersonPass().apply {
             this.personName = personName
             this.requestDate = selectedRequestDate
-
-            // TODO: restore this, when access type implemented
-//            this.accessType = selectedAccessType
-            this.accessType = PersonPassAccessType.OTHER
+            this.accessType = selectedAccessType
         }
 
         sendJob = viewModelScope.launch(Dispatchers.IO) {

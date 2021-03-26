@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="@dimen/button_size"
+        android:layout_height="@dimen/button_size"
+        android:layout_marginStart="@dimen/layout_margin"
+        android:layout_marginTop="@dimen/layout_margin"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="center"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_back_grey" />
+
+    <TextView
+        android:id="@+id/bill_number"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="22dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAlignment="center"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Счет № 111" />
+
+    <TextView
+        android:id="@+id/bill_status_label"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="22dp"
+        android:text="@string/status"
+        android:textAllCaps="true"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_number" />
+
+    <TextView
+        android:id="@+id/bill_status"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/bill_property_background"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_status_label"
+        tools:text="@string/bill_status_paid_details" />
+
+    <TextView
+        android:id="@+id/bill_date_label"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:text="@string/date"
+        android:textAllCaps="true"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_status" />
+
+    <TextView
+        android:id="@+id/bill_date"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/bill_property_background"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_date_label"
+        tools:text="2021.03.23" />
+
+    <TextView
+        android:id="@+id/bill_total_label"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:text="@string/bill_total"
+        android:textAllCaps="true"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_date" />
+
+    <TextView
+        android:id="@+id/bill_total"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/bill_property_background"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_total_label"
+        tools:text="1000 Р." />
+
+    <TextView
+        android:id="@+id/bill_title_label"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:text="@string/bill_title"
+        android:textAllCaps="true"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_total" />
+
+    <TextView
+        android:id="@+id/bill_title"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/bill_property_background"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_title_label"
+        tools:text="@string/bill_title" />
+
+    <TextView
+        android:id="@+id/bill_file_label"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:text="@string/view_bill"
+        android:textAllCaps="true"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_title" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bill_file_button"
+        style="@style/SelectorButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_file_label"
+        tools:text="Sample.pdf" />
+
+    <TextView
+        android:id="@+id/bill_details_label"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:text="@string/bill_details"
+        android:textAllCaps="true"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_file_button" />
+
+    <TextView
+        android:id="@+id/bill_details"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="22dp"
+        android:background="@drawable/bill_property_background"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/bill_payment_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_details_label"
+        tools:text="Детали счета" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bill_payment_button"
+        style="@style/ButtonStyle"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/proceed_to_payment"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

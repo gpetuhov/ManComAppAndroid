@@ -3,11 +3,11 @@
     <string name="app_version">Версия: %s</string>
 
     <!-- WelcomeFragment -->
-    <string name="welcome_message">Добро пожаловать в приложение\n%s</string>
+    <string name="welcome_message">Добро пожаловать в\nприложение %s</string>
     <string name="enter">Войти</string>
     <string name="get_credentials">Получить данные для входа</string>
     <string name="demo_version">Демо версия</string>
-    <string name="copyright">Дисклеймер, копирайт и т.д.</string>
+    <string name="copyright">Дисклеймер, копирайт</string>
 
     <!-- GetCredentialsFragment -->
     <string name="get_credentials_info">Для получения логина и пароля обратитесь в управляющую компанию. С графиком работы можете ознакомиться %s</string>
@@ -20,36 +20,39 @@
     <string name="password">Пароль</string>
     <string name="password_hint">Введите пароль</string>
     <string name="privacy_policy_confirm">Ознакомлен с Политикой обработки персональных данных и даю согласие…</string>
+    <string name="privacy_policy_confirm_2">Подтверждаю свое согласие с %s обработки персональных данных и %s конфиденциальности</string>
+    <string name="policy">Политикой</string>
+    <string name="conditions">Условиями</string>
     <string name="login_input_empty">Пожалуйста, заполните оба поля \"Логин\" и \"Пароль\"</string>
     <string name="privacy_policy_confirm_error">Для продолжения использования приложения Вы должны принять условия соглашения и политики</string>
 
     <!-- HomeFragment -->
-    <string name="choose_section">Выберите интересующий вас раздел:</string>
+    <string name="choose_section">Выберите интересующий вас раздел</string>
     <string name="management_company_requests">Заявки в управляющую компанию</string>
-    <string name="pass_and_security">Заказ пропусков и служба безопасности</string>
+    <string name="pass_order">Заказ пропусков</string>
     <string name="payments">Начисления и платежи</string>
 
     <!-- Requests fragment -->
     <string name="write_feedback">Написать обращение</string>
     <string name="order_service">Заказать услугу</string>
-    <string name="requests_history">История обращений</string>
+    <string name="requests_history">История заявок</string>
     <string name="requests_empty">Заявки отсутствуют</string>
-    <string name="request_number">Обращение # %s</string>
-    <string name="request_status">Статус заявки: %s</string>
-    <string name="request_status_new">Новая</string>
-    <string name="request_status_on_review">На рассмотрении</string>
-    <string name="request_status_complete">Выполнено</string>
+    <string name="request_number">Заявка №%s</string>
+    <string name="request_status">Статус заявки:</string>
+    <string name="request_status_new">новая</string>
+    <string name="request_status_on_review">на рассмотрении</string>
+    <string name="request_status_complete">выполнена</string>
     <string name="load_request_history_error">Ошибка загрузки истории обращений</string>
 
     <!-- Feedback fragment -->
     <string name="new_feedback">Новое обращение</string>
     <string name="feedback_title">Тема обращения</string>
     <string name="feedback_hint">Введите Ваше обращение</string>
-    <string name="add_files">Добавьте до 5 файлов (jpeg, pdf)</string>
+    <string name="add_files">Добавьте до 5 файлов:</string>
     <string name="send">Отправить</string>
     <string name="feedback_empty_error">Тема или обращение не заполнено</string>
     <string name="success">Успешно</string>
-    <string name="feedback_send_success">Обращение отправлено в Управляющую Компанию, Вы сможете отслеживать статус заявки в разделе \"История обращений\"</string>
+    <string name="feedback_send_success">Обращение отправлено в Управляющую Компанию, Вы сможете отслеживать статус заявки в разделе \"История заявок\"</string>
     <string name="complete_action_using">Завершить действие с использованием</string>
     <string name="add_file_error">Ошибка выбора файла</string>
     <string name="max_files_error">Максимальное количество файлов уже добавлено</string>
@@ -58,34 +61,40 @@
     <string name="get_service">Заказать услугу</string>
     <string name="choose_service">Выбрать услугу</string>
     <string name="choose_service_error">Пожалуйста, выберите услугу</string>
-    <string name="write_comment_hint">Напишите Ваш комментарий</string>
+    <string name="write_comment_hint">Введите Ваш комментарий</string>
     <string name="plumber">Сантехнические работы</string>
     <string name="electrician">Электротехнические работы</string>
     <string name="carpenter">Плотницкие работы</string>
     <string name="other">Другое</string>
     <string name="close">Закрыть</string>
     <string name="service">Услуга</string>
-    <string name="service_request_send_success">Заявка отправлена в Управляющую Компанию, Вы сможете отслеживать статус заявки в разделе \"История обращений\"</string>
+    <string name="service_request_send_success">Заявка отправлена в Управляющую Компанию, Вы сможете отслеживать статус заявки в разделе \"История заявок\"</string>
+    <string name="choose">Выберите…</string>
 
     <!-- Security fragment -->
-    <string name="person_pass">Заказать пропуск на человека</string>
-    <string name="car_pass">Заказать пропуск на машину</string>
+    <string name="person_pass">Пропуск на посетителя</string>
+    <string name="car_pass">Пропуск на автомобиль</string>
     <string name="access_type">Тип посещения</string>
     <string name="access_type_apartment">Допуск в апартмент</string>
     <string name="access_type_lobby">Допуск только в лобби</string>
     <string name="access_type_territory">Заезд на придомовую территорию</string>
     <string name="access_type_guest_parking">Заезд на гостевой паркинг</string>
+    <string name="pass_type_one_time">Разовый пропуск</string>
+    <string name="pass_type_day">Суточный, более 1 входа</string>
 
     <!-- Person pass fragment -->
-    <string name="guest_name">ФИО гостя</string>
+    <string name="get_person_pass">Заказать пропуск на посетителя</string>
+    <string name="visitor_name">ФИО посетителя</string>
     <string name="visit_date">Дата визита</string>
+    <string name="pass_type">Тип пропуска</string>
     <string name="guest_name_empty_error">Пожалуйста, введите ФИО гостя</string>
     <string name="pass_date_empty_error">Пожалуйста, выберите дату визита</string>
-    <string name="access_type_empty_error">Пожалуйста, выберите тип посещения</string>
+    <string name="access_type_empty_error">Пожалуйста, выберите тип пропуска</string>
 
     <!-- Car pass fragment -->
-    <string name="car_model">Марка авто</string>
-    <string name="car_number">Номер авто</string>
+    <string name="get_car_pass">Заказать пропуск на автомобиль</string>
+    <string name="car_model">Марка автомобиля</string>
+    <string name="car_number">Номер автомобиля</string>
     <string name="car_model_empty_error">Пожалуйста, введите марку авто</string>
     <string name="car_number_empty_error">Пожалуйста, введите номер авто</string>
 
@@ -99,7 +108,7 @@
     <string name="bill_status_paid">Оплачен</string>
     <string name="bill_status_not_paid">Не оплачен</string>
     <string name="bill_status_in_progress">В обработке</string>
-    <string name="bill_total_rub">%d Р.</string>
+    <string name="bill_total_rub">%d р.</string>
     <string name="load_bill_history_error">Ошибка загрузки истории счетов</string>
     <string name="bills_empty">Счета отсутствуют</string>
 
@@ -115,5 +124,6 @@
     <string name="bill_details">Детализация счёта:</string>
     <string name="browser_not_installed">Браузер не установлен</string>
     <string name="proceed_to_payment">Перейти к оплате</string>
+    <string name="view_bill">Просмотреть счёт:</string>
 
 </resources>

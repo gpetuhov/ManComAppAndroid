@@ -3,9 +3,15 @@ package ru.mancomapp.domain.models.pass
 import androidx.annotation.StringRes
 import ru.mancomapp.R
 
-enum class CarPassAccessType(@StringRes val nameId: Int) {
-    TERRITORY(R.string.access_type_territory),
-    GUEST_PARKING(R.string.access_type_guest_parking),
-    OTHER(R.string.other),
-    NOT_SELECTED(R.string.access_type)
+enum class CarPassAccessType(val id: Int, @StringRes val nameId: Int) {
+    ONE_TIME(1, R.string.pass_type_one_time),
+    DAY(2, R.string.pass_type_day),
+    OTHER(3, R.string.other),
+    NOT_SELECTED(0, R.string.choose);
+
+    companion object {
+        fun getById(id: Int): CarPassAccessType {
+            return values().firstOrNull { it.id == id } ?: NOT_SELECTED
+        }
+    }
 }

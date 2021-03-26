@@ -66,16 +66,15 @@ class PersonPassViewModelTest {
         assertEquals(R.string.pass_date_empty_error, viewModel.sendError.value)
     }
 
-    // TODO: restore this, when access type implemented
-//    @Test
-//    fun sendRequest_accessTypeNotSelected_errorAccessTypeNotSelected() {
-//        viewModel.saveSelectedDate(passDate)
-//        viewModel.sendRequest(NAME)
-//        delay()
-//        assertFalse(viewModel.isSendStarted.value ?: false)
-//        assertFalse(viewModel.isSendSuccess.value ?: false)
-//        assertEquals(R.string.access_type_empty_error, viewModel.sendError.value)
-//    }
+    @Test
+    fun sendRequest_accessTypeNotSelected_errorAccessTypeNotSelected() {
+        viewModel.saveSelectedDate(PASS_DATE)
+        viewModel.sendRequest(NAME)
+        delay()
+        assertFalse(viewModel.isSendStarted.value ?: false)
+        assertFalse(viewModel.isSendSuccess.value ?: false)
+        assertEquals(R.string.access_type_empty_error, viewModel.sendError.value)
+    }
 
     @Test
     fun sendRequest_validPersonPass_sendStarted() {

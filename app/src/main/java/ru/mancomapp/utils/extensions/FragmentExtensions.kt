@@ -5,8 +5,11 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.text.Html
+import android.text.method.LinkMovementMethod
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
@@ -41,6 +44,17 @@ fun Fragment.openWebsite(websiteUrl: String) {
             toast(R.string.browser_not_installed)
         }
     }
+}
+
+fun Fragment.initHtml(textView: TextView?, htmlString: String) {
+    val result = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+        Html.fromHtml(htmlString, Html.FROM_HTML_MODE_LEGACY)
+    } else {
+        Html.fromHtml(htmlString)
+    }
+
+    textView?.text = result
+    textView?.movementMethod = LinkMovementMethod.getInstance()
 }
 
 private fun hideSoftKeyboard(activity: Activity?, view: View?) {

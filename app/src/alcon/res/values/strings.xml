@@ -6,4 +6,9 @@
     <!-- TODO: change this -->
     <string name="get_credentials_schedule_url" translatable="false">http://www.alcongroup.ru/contacts/</string>
 
+    <!-- Login fragment -->
+    <!-- TODO: change this -->
+    <string name="privacy_policy_url" translatable="false">http://www.alcongroup.ru/</string>
+    <string name="confidentiality_url" translatable="false">http://www.alcongroup.ru/</string>
+
 </resources>

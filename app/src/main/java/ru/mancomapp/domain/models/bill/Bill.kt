@@ -13,6 +13,7 @@ class Bill : Parcelable {
     var status: BillStatus = BillStatus.NOT_PAID
     var fileName: String = ""
     var fileUrl: String = ""
+    var details: String = ""
 
     fun isNotPaid() = status == BillStatus.NOT_PAID
 }

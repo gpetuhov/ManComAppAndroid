@@ -37,7 +37,7 @@
             android:layout_marginStart="@dimen/layout_margin"
             android:layout_marginTop="@dimen/layout_margin"
             android:layout_marginEnd="@dimen/layout_margin"
-            android:hint="@string/guest_name"
+            android:hint="@string/visitor_name"
             android:imeOptions="actionDone"
             android:inputType="textCapWords"
             android:singleLine="true"

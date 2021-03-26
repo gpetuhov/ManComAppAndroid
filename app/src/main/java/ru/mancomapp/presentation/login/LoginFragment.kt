@@ -7,11 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.alcon.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_login.login_button
+import kotlinx.android.synthetic.main.fragment_login.login_input
+import kotlinx.android.synthetic.main.fragment_login.login_progress
+import kotlinx.android.synthetic.main.fragment_login.password_input
+import kotlinx.android.synthetic.main.fragment_login.privacy_policy_checkbox
+import kotlinx.android.synthetic.main.fragment_login.welcome_text
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.LoginCredentials
 import ru.mancomapp.presentation.MainActivity
 import ru.mancomapp.utils.extensions.hideSoftKeyboard
+import ru.mancomapp.utils.extensions.initHtml
 import ru.mancomapp.utils.extensions.setVisible
 import ru.mancomapp.utils.extensions.toast
 
@@ -30,6 +37,8 @@ class LoginFragment : Fragment() {
 
         welcome_text.text = getString(R.string.welcome_message, getString(R.string.app_name))
         login_button.setOnClickListener { onLoginButtonClick() }
+
+        initConfirmPrivacyPolicy()
     }
 
     private fun onLoginButtonClick() {
@@ -67,10 +76,20 @@ class LoginFragment : Fragment() {
         login_input.isEnabled = isEnabled
         password_input.isEnabled = isEnabled
         privacy_policy_checkbox.isEnabled = isEnabled
+        privacy_policy_text?.isEnabled = isEnabled
         login_button.isEnabled = isEnabled
     }
 
     private fun showProgress(isVisible: Boolean) {
         login_progress.setVisible(isVisible)
+    }
+
+    private fun initConfirmPrivacyPolicy() {
+        val policyLink = "<b><a href=\"${getString(R.string.privacy_policy_url)}\">${getString(R.string.policy)}</a></b>"
+        val conditionsLink = "<b><a href=\"${getString(R.string.confidentiality_url)}\">${getString(R.string.conditions)}</a></b>"
+
+        val html = getString(R.string.privacy_policy_confirm_2, policyLink, conditionsLink)
+
+        initHtml(privacy_policy_text, html)
     }
 }

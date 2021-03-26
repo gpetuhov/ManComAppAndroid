@@ -8,13 +8,21 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_car_pass.*
+import kotlinx.android.synthetic.alcon.fragment_car_pass.*
+import kotlinx.android.synthetic.main.fragment_car_pass.back_button
+import kotlinx.android.synthetic.main.fragment_car_pass.car_model_input
+import kotlinx.android.synthetic.main.fragment_car_pass.car_number_input
+import kotlinx.android.synthetic.main.fragment_car_pass.car_pass_date_input
+import kotlinx.android.synthetic.main.fragment_car_pass.car_pass_send_button
+import kotlinx.android.synthetic.main.fragment_car_pass.car_pass_send_progress
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.pass.CarPassAccessType
 import ru.mancomapp.domain.models.request.RequestDate
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogFragment
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogType
 import ru.mancomapp.presentation.global.DatePickerDialogFragment
+import ru.mancomapp.presentation.global.selectitem.SelectItem
+import ru.mancomapp.presentation.global.selectitem.SelectItemDialogFragment
 import ru.mancomapp.utils.extensions.hideSoftKeyboard
 import ru.mancomapp.utils.extensions.setVisible
 import ru.mancomapp.utils.extensions.toast
@@ -28,6 +36,13 @@ class CarPassFragment : Fragment() {
         override fun onDateSelected(requestDate: RequestDate) = viewModel.saveSelectedDate(requestDate)
     }
 
+    private val selectItemCallback = object : SelectItemDialogFragment.Callback {
+        override fun onSelectItem(item: SelectItem) {
+            val accessType = CarPassAccessType.getById(item.id)
+            viewModel.saveSelectedAccessType(accessType)
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_car_pass, container, false)
     }
@@ -39,7 +54,7 @@ class CarPassFragment : Fragment() {
 
         back_button.setOnClickListener { navigateUp() }
         car_pass_date_input.setOnClickListener { onSelectDateClick() }
-        car_pass_access_type.setOnClickListener { onSelectAccessTypeClick() }
+        car_pass_access_type_button?.setOnClickListener { onSelectAccessTypeClick() }
         car_pass_send_button.setOnClickListener { onSendButtonClick() }
 
         initBackPressedCallback()
@@ -65,7 +80,7 @@ class CarPassFragment : Fragment() {
         car_model_input.isEnabled = isEnabled
         car_number_input.isEnabled = isEnabled
         car_pass_date_input.isEnabled = isEnabled
-        car_pass_access_type.isEnabled = isEnabled
+        car_pass_access_type_button?.isEnabled = isEnabled
         car_pass_send_button.isEnabled = isEnabled
     }
 
@@ -91,7 +106,7 @@ class CarPassFragment : Fragment() {
         car_pass_date_input.setText(getFormattedDate(requestDate))
 
     private fun updateAccessTypeUI(accessType: CarPassAccessType) {
-        car_pass_access_type_name.text = getString(accessType.nameId)
+        car_pass_access_type_button?.text = getString(accessType.nameId)
     }
 
     private fun onSelectDateClick() {
@@ -103,8 +118,23 @@ class CarPassFragment : Fragment() {
     }
 
     private fun onSelectAccessTypeClick() {
-        // TODO: implement
-        toast("Select access type")
+        val items = getPassTypeItems()
+        SelectItemDialogFragment.show(
+            parentFragmentManager,
+            selectItemCallback,
+            getString(R.string.pass_type),
+            items
+        )
+    }
+
+    private fun getPassTypeItems(): List<SelectItem> {
+        val serviceTypes = mutableListOf<CarPassAccessType>()
+
+        serviceTypes.add(CarPassAccessType.ONE_TIME)
+        serviceTypes.add(CarPassAccessType.DAY)
+        serviceTypes.add(CarPassAccessType.OTHER)
+
+        return serviceTypes.map { SelectItem(it.id, getString(it.nameId)) }
     }
 
     private fun onSendButtonClick() {

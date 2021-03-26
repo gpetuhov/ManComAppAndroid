@@ -7,7 +7,7 @@
     <string name="enter">Enter</string>
     <string name="get_credentials">Get credentials</string>
     <string name="demo_version">Demo version</string>
-    <string name="copyright">Disclaimer, copyright etc.</string>
+    <string name="copyright">Disclaimer, copyright</string>
 
     <!-- GetCredentialsFragment -->
     <string name="get_credentials_info">Contact Management Company to get credentials. You can see working hours %s</string>
@@ -21,13 +21,18 @@
     <string name="password">Password</string>
     <string name="password_hint">Enter password</string>
     <string name="privacy_policy_confirm">I agree to Privacy Policy…</string>
+    <string name="policy">Privacy Policy</string>
+    <string name="conditions">Conditions</string>
+    <string name="privacy_policy_confirm_2">I confirm that I agree with %s and %s of confidentiality</string>
     <string name="login_input_empty">Please enter login and password</string>
     <string name="privacy_policy_confirm_error">Accept Privacy Policy to continue using application</string>
+    <string name="privacy_policy_url" translatable="false">https://www.google.com/</string>
+    <string name="confidentiality_url" translatable="false">https://www.google.com/</string>
 
     <!-- HomeFragment -->
     <string name="choose_section">Choose section</string>
     <string name="management_company_requests">Management company requests</string>
-    <string name="pass_and_security">Passes and security</string>
+    <string name="pass_order">Pass order</string>
     <string name="payments">Payments</string>
 
     <!-- Requests fragment -->
@@ -36,17 +41,17 @@
     <string name="requests_history">Requests history</string>
     <string name="requests_empty">No requests</string>
     <string name="request_number">Feedback # %s</string>
-    <string name="request_status">Request status: %s</string>
-    <string name="request_status_new">New</string>
-    <string name="request_status_on_review">On review</string>
-    <string name="request_status_complete">Complete</string>
+    <string name="request_status">Request status:</string>
+    <string name="request_status_new">new</string>
+    <string name="request_status_on_review">on review</string>
+    <string name="request_status_complete">complete</string>
     <string name="load_request_history_error">Error loading request history</string>
 
     <!-- Feedback fragment -->
     <string name="new_feedback">New feedback</string>
     <string name="feedback_title">Feedback title</string>
     <string name="feedback_hint">Enter your feedback</string>
-    <string name="add_files">Attach up to 5 files (jpeg, pdf)</string>
+    <string name="add_files">Attach up to 5 files:</string>
     <string name="send">Send</string>
     <string name="feedback_empty_error">Title or content is empty</string>
     <string name="success">Success</string>
@@ -68,24 +73,30 @@
     <string name="close">Close</string>
     <string name="service">Service</string>
     <string name="service_request_send_success">Service request sent successfully</string>
+    <string name="choose">Choose…</string>
 
     <!-- Security fragment -->
-    <string name="person_pass">Person pass</string>
+    <string name="person_pass">Visitor pass</string>
     <string name="car_pass">Car pass</string>
     <string name="access_type">Access type</string>
     <string name="access_type_apartment">Apartment access</string>
     <string name="access_type_lobby">Lobby access</string>
     <string name="access_type_territory">Territory access</string>
     <string name="access_type_guest_parking">Guest parking access</string>
+    <string name="pass_type_one_time">One time pass</string>
+    <string name="pass_type_day">Day pass, more than 1 entrance</string>
 
     <!-- Person pass fragment -->
-    <string name="guest_name">Guest name</string>
+    <string name="get_person_pass">Order visitor pass</string>
+    <string name="visitor_name">Visitor name</string>
     <string name="visit_date">Visit date</string>
+    <string name="pass_type">Pass type</string>
     <string name="guest_name_empty_error">Please enter guest name</string>
     <string name="pass_date_empty_error">Please select visit date</string>
-    <string name="access_type_empty_error">Please select access type</string>
+    <string name="access_type_empty_error">Please select pass type</string>
 
     <!-- Car pass fragment -->
+    <string name="get_car_pass">Order car pass</string>
     <string name="car_model">Car model</string>
     <string name="car_number">Car number</string>
     <string name="car_model_empty_error">Please enter car model</string>
@@ -101,7 +112,7 @@
     <string name="bill_status_paid">Paid</string>
     <string name="bill_status_not_paid">Not paid</string>
     <string name="bill_status_in_progress">In progress</string>
-    <string name="bill_total_rub">%d RUB.</string>
+    <string name="bill_total_rub">%d rub.</string>
     <string name="load_bill_history_error">Error loading bill history</string>
     <string name="bills_empty">No bills</string>
 
@@ -117,5 +128,6 @@
     <string name="bill_details">Bill details:</string>
     <string name="browser_not_installed">Browser not installed</string>
     <string name="proceed_to_payment">Proceed to payment</string>
+    <string name="view_bill">View bill:</string>
 
 </resources>

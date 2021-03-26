@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Alcon Group -->
+
+    <color name="pantone_411c">#5E514D</color>
+    <color name="pantone_7499c">#F1E6B2</color>
+    <color name="pantone_407c">#B2A8A2</color>
+
+</resources>

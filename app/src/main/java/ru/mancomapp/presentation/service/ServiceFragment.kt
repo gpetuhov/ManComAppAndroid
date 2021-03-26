@@ -12,13 +12,21 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.fragment_service.*
+import kotlinx.android.synthetic.alcon.fragment_service.*
+import kotlinx.android.synthetic.main.fragment_service.add_files_button
+import kotlinx.android.synthetic.main.fragment_service.back_button
+import kotlinx.android.synthetic.main.fragment_service.files_list
+import kotlinx.android.synthetic.main.fragment_service.service_comment_input
+import kotlinx.android.synthetic.main.fragment_service.service_send_button
+import kotlinx.android.synthetic.main.fragment_service.service_send_progress
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.Attachment
 import ru.mancomapp.domain.models.service.ServiceType
 import ru.mancomapp.presentation.feedback.AttachmentsAdapter
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogFragment
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogType
+import ru.mancomapp.presentation.global.selectitem.SelectItem
+import ru.mancomapp.presentation.global.selectitem.SelectItemDialogFragment
 import ru.mancomapp.utils.extensions.hideSoftKeyboard
 import ru.mancomapp.utils.extensions.setVisible
 import ru.mancomapp.utils.extensions.startPicker
@@ -33,9 +41,11 @@ class ServiceFragment : Fragment() {
     private lateinit var viewModel: ServiceViewModel
     private lateinit var attachmentsAdapter: AttachmentsAdapter
 
-    private val serviceTypeCallback = object : ChooseServiceDialogFragment.Callback {
-        override fun onSelectServiceType(serviceType: ServiceType) =
+    private val selectItemCallback = object : SelectItemDialogFragment.Callback {
+        override fun onSelectItem(item: SelectItem) {
+            val serviceType = ServiceType.getById(item.id)
             viewModel.saveServiceType(serviceType)
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -48,7 +58,7 @@ class ServiceFragment : Fragment() {
         subscribeViewModel()
 
         back_button.setOnClickListener { navigateUp() }
-        service_type.setOnClickListener { onServiceTypeClick() }
+        service_type_button?.setOnClickListener { onServiceTypeClick() }
         add_files_button.setOnClickListener { onAddFilesButtonClick() }
         service_send_button.setOnClickListener { onSendButtonClick() }
 
@@ -75,7 +85,7 @@ class ServiceFragment : Fragment() {
     }
 
     private fun updateServiceTypeUI(serviceType: ServiceType) {
-        service_type_name.text = getString(serviceType.nameId)
+        service_type_button?.text = getString(serviceType.nameId)
     }
 
     private fun onSendStarted(isStarted: Boolean) {
@@ -86,7 +96,7 @@ class ServiceFragment : Fragment() {
 
     private fun enableControls(isEnabled: Boolean) {
         back_button.isEnabled = isEnabled
-        service_type.isEnabled = isEnabled
+        service_type_button?.isEnabled = isEnabled
         service_comment_input.isEnabled = isEnabled
         add_files_button.isEnabled = isEnabled
         service_send_button.isEnabled = isEnabled
@@ -113,8 +123,26 @@ class ServiceFragment : Fragment() {
     private fun updateAttachmentsUI(attachments: List<Attachment>) =
         attachmentsAdapter.submitList(attachments)
 
-    private fun onServiceTypeClick() =
-        ChooseServiceDialogFragment.show(parentFragmentManager, serviceTypeCallback)
+    private fun onServiceTypeClick() {
+        val items = getServiceTypeItems()
+        SelectItemDialogFragment.show(
+            parentFragmentManager,
+            selectItemCallback,
+            getString(R.string.service),
+            items
+        )
+    }
+
+    private fun getServiceTypeItems(): List<SelectItem> {
+        val serviceTypes = mutableListOf<ServiceType>()
+
+        serviceTypes.add(ServiceType.PLUMBER)
+        serviceTypes.add(ServiceType.ELECTRICIAN)
+        serviceTypes.add(ServiceType.CARPENTER)
+        serviceTypes.add(ServiceType.OTHER)
+
+        return serviceTypes.map { SelectItem(it.id, getString(it.nameId)) }
+    }
 
     private fun onAddFilesButtonClick() {
         if (viewModel.isAddAttachmentsAllowed()) {

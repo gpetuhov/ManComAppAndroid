@@ -8,13 +8,20 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_person_pass.*
+import kotlinx.android.synthetic.alcon.fragment_person_pass.*
+import kotlinx.android.synthetic.main.fragment_person_pass.back_button
+import kotlinx.android.synthetic.main.fragment_person_pass.person_pass_date_input
+import kotlinx.android.synthetic.main.fragment_person_pass.person_pass_name_input
+import kotlinx.android.synthetic.main.fragment_person_pass.person_pass_send_button
+import kotlinx.android.synthetic.main.fragment_person_pass.person_pass_send_progress
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.request.RequestDate
 import ru.mancomapp.domain.models.pass.PersonPassAccessType
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogFragment
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogType
 import ru.mancomapp.presentation.global.DatePickerDialogFragment
+import ru.mancomapp.presentation.global.selectitem.SelectItem
+import ru.mancomapp.presentation.global.selectitem.SelectItemDialogFragment
 import ru.mancomapp.utils.extensions.hideSoftKeyboard
 import ru.mancomapp.utils.extensions.setVisible
 import ru.mancomapp.utils.extensions.toast
@@ -28,6 +35,13 @@ class PersonPassFragment : Fragment() {
         override fun onDateSelected(requestDate: RequestDate) = viewModel.saveSelectedDate(requestDate)
     }
 
+    private val selectItemCallback = object : SelectItemDialogFragment.Callback {
+        override fun onSelectItem(item: SelectItem) {
+            val accessType = PersonPassAccessType.getById(item.id)
+            viewModel.saveSelectedAccessType(accessType)
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_person_pass, container, false)
     }
@@ -39,7 +53,7 @@ class PersonPassFragment : Fragment() {
 
         back_button.setOnClickListener { navigateUp() }
         person_pass_date_input.setOnClickListener { onSelectDateClick() }
-        person_pass_access_type.setOnClickListener { onSelectAccessTypeClick() }
+        person_pass_access_type_button?.setOnClickListener { onSelectAccessTypeClick() }
         person_pass_send_button.setOnClickListener { onSendButtonClick() }
 
         initBackPressedCallback()
@@ -64,7 +78,7 @@ class PersonPassFragment : Fragment() {
         back_button.isEnabled = isEnabled
         person_pass_name_input.isEnabled = isEnabled
         person_pass_date_input.isEnabled = isEnabled
-        person_pass_access_type.isEnabled = isEnabled
+        person_pass_access_type_button?.isEnabled = isEnabled
         person_pass_send_button.isEnabled = isEnabled
     }
 
@@ -90,7 +104,7 @@ class PersonPassFragment : Fragment() {
         person_pass_date_input.setText(getFormattedDate(requestDate))
 
     private fun updateAccessTypeUI(accessType: PersonPassAccessType) {
-        person_pass_access_type_name.text = getString(accessType.nameId)
+        person_pass_access_type_button?.text = getString(accessType.nameId)
     }
 
     private fun onSelectDateClick() {
@@ -102,8 +116,23 @@ class PersonPassFragment : Fragment() {
     }
 
     private fun onSelectAccessTypeClick() {
-        // TODO: implement
-        toast("Select access type")
+        val items = getPassTypeItems()
+        SelectItemDialogFragment.show(
+            parentFragmentManager,
+            selectItemCallback,
+            getString(R.string.pass_type),
+            items
+        )
+    }
+
+    private fun getPassTypeItems(): List<SelectItem> {
+        val serviceTypes = mutableListOf<PersonPassAccessType>()
+
+        serviceTypes.add(PersonPassAccessType.ONE_TIME)
+        serviceTypes.add(PersonPassAccessType.DAY)
+        serviceTypes.add(PersonPassAccessType.OTHER)
+
+        return serviceTypes.map { SelectItem(it.id, getString(it.nameId)) }
     }
 
     private fun onSendButtonClick() =

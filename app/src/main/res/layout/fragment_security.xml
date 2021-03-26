@@ -21,7 +21,7 @@
         android:id="@+id/security_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/pass_and_security"
+        android:text="@string/pass_order"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/back_button" />
