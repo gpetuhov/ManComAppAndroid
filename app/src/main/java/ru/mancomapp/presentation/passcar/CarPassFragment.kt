@@ -21,6 +21,8 @@ import ru.mancomapp.domain.models.request.RequestDate
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogFragment
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogType
 import ru.mancomapp.presentation.global.DatePickerDialogFragment
+import ru.mancomapp.presentation.global.selectitem.SelectItem
+import ru.mancomapp.presentation.global.selectitem.SelectItemDialogFragment
 import ru.mancomapp.utils.extensions.hideSoftKeyboard
 import ru.mancomapp.utils.extensions.setVisible
 import ru.mancomapp.utils.extensions.toast
@@ -32,6 +34,13 @@ class CarPassFragment : Fragment() {
 
     private val passDateCallback = object : DatePickerDialogFragment.Callback {
         override fun onDateSelected(requestDate: RequestDate) = viewModel.saveSelectedDate(requestDate)
+    }
+
+    private val selectItemCallback = object : SelectItemDialogFragment.Callback {
+        override fun onSelectItem(item: SelectItem) {
+            val accessType = CarPassAccessType.getById(item.id)
+            viewModel.saveSelectedAccessType(accessType)
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -109,8 +118,23 @@ class CarPassFragment : Fragment() {
     }
 
     private fun onSelectAccessTypeClick() {
-        // TODO: implement
-        toast("Select access type")
+        val items = getPassTypeItems()
+        SelectItemDialogFragment.show(
+            parentFragmentManager,
+            selectItemCallback,
+            getString(R.string.pass_type),
+            items
+        )
+    }
+
+    private fun getPassTypeItems(): List<SelectItem> {
+        val serviceTypes = mutableListOf<CarPassAccessType>()
+
+        serviceTypes.add(CarPassAccessType.ONE_TIME)
+        serviceTypes.add(CarPassAccessType.DAY)
+        serviceTypes.add(CarPassAccessType.OTHER)
+
+        return serviceTypes.map { SelectItem(it.id, getString(it.nameId)) }
     }
 
     private fun onSendButtonClick() {

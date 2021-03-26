@@ -40,10 +40,7 @@ class CarPassViewModel : PassBaseViewModel() {
             this.carModel = carModel
             this.carNumber = carNumber
             this.requestDate = selectedRequestDate
-
-            // TODO: restore this, when access type implemented
-//            this.accessType = selectedAccessType
-            this.accessType = CarPassAccessType.OTHER
+            this.accessType = selectedAccessType
         }
 
         sendJob = viewModelScope.launch(Dispatchers.IO) {
