@@ -86,6 +86,7 @@
         android:layout_marginStart="22dp"
         android:layout_marginEnd="22dp"
         android:hint="@string/feedback_hint"
+        android:imeOptions="actionDone"
         android:inputType="textCapSentences"
         android:singleLine="true"
         android:textSize="16sp"

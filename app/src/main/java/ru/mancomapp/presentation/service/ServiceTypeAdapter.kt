@@ -3,9 +3,9 @@ package ru.mancomapp.presentation.service
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_service_type.view.*
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.service.ServiceType
 
@@ -33,9 +33,12 @@ class ServiceTypeAdapter(
         private val callback: Callback
     ) : RecyclerView.ViewHolder(itemView) {
 
+        private val serviceTypeName: TextView = itemView.findViewById(R.id.service_type_name)
+        private val serviceTypeRoot: View = itemView.findViewById(R.id.service_type_root)
+
         fun bind(serviceType: ServiceType) {
-            itemView.service_type_name.text = itemView.context.getString(serviceType.nameId)
-            itemView.service_type_root.setOnClickListener { callback.onServiceTypeClick(serviceType) }
+            serviceTypeName.text = itemView.context.getString(serviceType.nameId)
+            serviceTypeRoot.setOnClickListener { callback.onServiceTypeClick(serviceType) }
         }
     }
 }
