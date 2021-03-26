@@ -15,5 +15,6 @@ class BillsDiffCallback : DiffUtil.ItemCallback<Bill>() {
                 && oldItem.fileName == newItem.fileName
                 && oldItem.fileUrl == newItem.fileUrl
                 && oldItem.date.equals(newItem.date)
+                && oldItem.details == newItem.details
     }
 }

@@ -43,6 +43,7 @@ class BillRepository {
                 status = if (index % 2 == 0) BillStatus.PAID else BillStatus.NOT_PAID
                 fileName = "Sample.pdf"
                 fileUrl = "https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf"
+                details = "Grlkeqjglkjg erlkj erkltj qewrj qewrlkj qewrlkj ewrklj3oi4jr 1l43j 4lkjt 43kl jt32lkjt 34ltj43k2tj l34ktjl4k3 jt"
             }
 
             bills.add(bill)
