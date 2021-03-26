@@ -79,6 +79,8 @@
     <string name="access_type_lobby">Допуск только в лобби</string>
     <string name="access_type_territory">Заезд на придомовую территорию</string>
     <string name="access_type_guest_parking">Заезд на гостевой паркинг</string>
+    <string name="pass_type_one_time">Разовый пропуск</string>
+    <string name="pass_type_day">Суточный, более 1 входа</string>
 
     <!-- Person pass fragment -->
     <string name="get_person_pass">Заказать пропуск на посетителя</string>

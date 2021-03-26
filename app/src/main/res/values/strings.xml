@@ -83,6 +83,8 @@
     <string name="access_type_lobby">Lobby access</string>
     <string name="access_type_territory">Territory access</string>
     <string name="access_type_guest_parking">Guest parking access</string>
+    <string name="pass_type_one_time">One time pass</string>
+    <string name="pass_type_day">Day pass, more than 1 entrance</string>
 
     <!-- Person pass fragment -->
     <string name="get_person_pass">Order visitor pass</string>

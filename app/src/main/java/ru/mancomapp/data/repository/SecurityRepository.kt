@@ -44,7 +44,7 @@ class SecurityRepository {
                     id = index
                     date = requestDate
                     personName = "Иванов Иван Иванович"
-                    accessType = PersonPassAccessType.APARTMENT
+                    accessType = PersonPassAccessType.ONE_TIME
                     status = RequestStatus.NEW
                 }
             } else {
@@ -53,7 +53,7 @@ class SecurityRepository {
                     date = requestDate
                     carModel = "Мерседес"
                     carNumber = "X000XX000"
-                    accessType = CarPassAccessType.GUEST_PARKING
+                    accessType = CarPassAccessType.DAY
                     status = RequestStatus.ON_REVIEW
                 }
             }
