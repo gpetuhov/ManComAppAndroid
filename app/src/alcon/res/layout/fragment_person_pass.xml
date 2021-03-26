@@ -125,19 +125,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/person_pass_access_type_label" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/person_pass_send_button"
-        android:layout_width="200dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/send"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/person_pass_access_type_button" />
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/person_pass_send_progress"
         android:layout_width="wrap_content"
@@ -145,12 +132,24 @@
         android:layout_marginTop="@dimen/layout_margin"
         android:layout_marginBottom="@dimen/layout_margin"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/person_pass_send_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/person_pass_send_button"
+        app:layout_constraintTop_toBottomOf="@id/person_pass_access_type_button"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/loading_wave" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/person_pass_send_button"
+        style="@style/ButtonStyle"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/send"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
