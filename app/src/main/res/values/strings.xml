@@ -126,5 +126,6 @@
     <string name="bill_details">Bill details:</string>
     <string name="browser_not_installed">Browser not installed</string>
     <string name="proceed_to_payment">Proceed to payment</string>
+    <string name="view_bill">View bill:</string>
 
 </resources>

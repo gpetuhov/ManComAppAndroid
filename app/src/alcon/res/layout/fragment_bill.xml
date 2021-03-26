@@ -157,6 +157,32 @@
         tools:text="@string/bill_title" />
 
     <TextView
+        android:id="@+id/bill_file_label"
+        style="@style/TextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:text="@string/view_bill"
+        android:textAllCaps="true"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_title" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bill_file_button"
+        style="@style/SelectorButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_file_label"
+        tools:text="Sample.pdf" />
+
+    <TextView
         android:id="@+id/bill_details_label"
         style="@style/TextStyle"
         android:layout_width="0dp"
@@ -168,7 +194,7 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bill_title" />
+        app:layout_constraintTop_toBottomOf="@id/bill_file_button" />
 
     <TextView
         android:id="@+id/bill_details"
