@@ -12,8 +12,8 @@ plugins {
     id "androidx.navigation.safeargs.kotlin"
 }
 
-def appVersionCode = 202    // NOTICE that version code and name may be DIFFERENT
-def appVersionName = "0.2.2"
+def appVersionCode = 203    // NOTICE that version code and name may be DIFFERENT
+def appVersionName = "0.2.3"
 
 def applicationIdAlcon = "ru.alconmanagementapp"
 def applicationIdOther = "ru.mancomapp"
