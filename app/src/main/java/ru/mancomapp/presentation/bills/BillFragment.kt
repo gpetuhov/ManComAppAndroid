@@ -37,8 +37,11 @@ class BillFragment : Fragment() {
         bill_date.text = getLongFormattedDate(bill.date)
         bill_total.text = getString(R.string.bill_total_rub, bill.total)
         bill_title.text = bill.title
+
+        // TODO: change this
         bill_details.text = bill.fileName
 
+        // TODO: change this
         bill_details.setOnClickListener { openWebsite(bill.fileUrl) }
 
         bill_payment_button.setVisible(bill.isNotPaid())
