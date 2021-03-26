@@ -52,7 +52,7 @@
     <string name="send">Отправить</string>
     <string name="feedback_empty_error">Тема или обращение не заполнено</string>
     <string name="success">Успешно</string>
-    <string name="feedback_send_success">Обращение отправлено в Управляющую Компанию, Вы сможете отслеживать статус заявки в разделе \"История обращений\"</string>
+    <string name="feedback_send_success">Обращение отправлено в Управляющую Компанию, Вы сможете отслеживать статус заявки в разделе \"История заявок\"</string>
     <string name="complete_action_using">Завершить действие с использованием</string>
     <string name="add_file_error">Ошибка выбора файла</string>
     <string name="max_files_error">Максимальное количество файлов уже добавлено</string>
@@ -68,7 +68,7 @@
     <string name="other">Другое</string>
     <string name="close">Закрыть</string>
     <string name="service">Услуга</string>
-    <string name="service_request_send_success">Заявка отправлена в Управляющую Компанию, Вы сможете отслеживать статус заявки в разделе \"История обращений\"</string>
+    <string name="service_request_send_success">Заявка отправлена в Управляющую Компанию, Вы сможете отслеживать статус заявки в разделе \"История заявок\"</string>
 
     <!-- Security fragment -->
     <string name="person_pass">Пропуск на посетителя</string>
