@@ -94,6 +94,7 @@
     <string name="access_type_empty_error">Please select access type</string>
 
     <!-- Car pass fragment -->
+    <string name="get_car_pass">Order car pass</string>
     <string name="car_model">Car model</string>
     <string name="car_number">Car number</string>
     <string name="car_model_empty_error">Please enter car model</string>

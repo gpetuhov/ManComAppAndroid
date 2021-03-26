@@ -90,8 +90,9 @@
     <string name="access_type_empty_error">Пожалуйста, выберите тип посещения</string>
 
     <!-- Car pass fragment -->
-    <string name="car_model">Марка авто</string>
-    <string name="car_number">Номер авто</string>
+    <string name="get_car_pass">Заказать пропуск на автомобиль</string>
+    <string name="car_model">Марка автомобиля</string>
+    <string name="car_number">Номер автомобиля</string>
     <string name="car_model_empty_error">Пожалуйста, введите марку авто</string>
     <string name="car_number_empty_error">Пожалуйста, введите номер авто</string>
 
