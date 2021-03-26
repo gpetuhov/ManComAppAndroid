@@ -12,7 +12,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.fragment_service.*
+import kotlinx.android.synthetic.alcon.fragment_service.*
+import kotlinx.android.synthetic.main.fragment_service.add_files_button
+import kotlinx.android.synthetic.main.fragment_service.back_button
+import kotlinx.android.synthetic.main.fragment_service.files_list
+import kotlinx.android.synthetic.main.fragment_service.service_comment_input
+import kotlinx.android.synthetic.main.fragment_service.service_send_button
+import kotlinx.android.synthetic.main.fragment_service.service_send_progress
+import kotlinx.android.synthetic.main.fragment_service.service_type
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.Attachment
 import ru.mancomapp.domain.models.service.ServiceType
@@ -48,7 +55,7 @@ class ServiceFragment : Fragment() {
         subscribeViewModel()
 
         back_button.setOnClickListener { navigateUp() }
-        service_type.setOnClickListener { onServiceTypeClick() }
+        service_type_button?.setOnClickListener { onServiceTypeClick() }
         add_files_button.setOnClickListener { onAddFilesButtonClick() }
         service_send_button.setOnClickListener { onSendButtonClick() }
 
@@ -75,7 +82,7 @@ class ServiceFragment : Fragment() {
     }
 
     private fun updateServiceTypeUI(serviceType: ServiceType) {
-        service_type_name.text = getString(serviceType.nameId)
+        service_type_button?.text = getString(serviceType.nameId)
     }
 
     private fun onSendStarted(isStarted: Boolean) {

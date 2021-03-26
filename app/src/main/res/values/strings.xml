@@ -73,6 +73,7 @@
     <string name="close">Close</string>
     <string name="service">Service</string>
     <string name="service_request_send_success">Service request sent successfully</string>
+    <string name="choose">Choose…</string>
 
     <!-- Security fragment -->
     <string name="person_pass">Visitor pass</string>

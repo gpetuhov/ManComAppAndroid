@@ -8,5 +8,5 @@ enum class ServiceType(@StringRes val nameId: Int) {
     ELECTRICIAN(R.string.electrician),
     CARPENTER(R.string.carpenter),
     OTHER(R.string.other),
-    NOT_SELECTED(R.string.choose_service)
+    NOT_SELECTED(R.string.choose)
 }

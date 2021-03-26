@@ -48,49 +48,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/get_service" />
 
-    <!-- TODO: change this -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/service_type"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/service_type_button"
+        style="@style/SelectorButtonStyle"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/layout_margin"
-        android:layout_marginTop="@dimen/layout_margin"
-        android:layout_marginEnd="@dimen/layout_margin"
+        android:layout_height="33dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:text="@string/choose"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/service_type_label">
-
-        <TextView
-            android:id="@+id/service_type_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@id/choose_service_arrow"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/choose_service" />
-
-        <ImageView
-            android:id="@+id/choose_service_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/service_type_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/service_type_name"
-            app:srcCompat="@drawable/ic_keyboard_arrow_down_black" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/half_layout_margin"
-            android:background="@color/md_grey_600"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/service_type_name" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@id/service_type_label" />
 
     <TextView
         android:id="@+id/service_comment_label"
@@ -104,7 +72,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/service_type" />
+        app:layout_constraintTop_toBottomOf="@id/service_type_button" />
 
     <EditText
         android:id="@+id/service_comment_input"
