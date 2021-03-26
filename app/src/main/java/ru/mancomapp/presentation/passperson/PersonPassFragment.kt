@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.alcon.fragment_person_pass.*
-import kotlinx.android.synthetic.main.fragment_person_pass.*
 import kotlinx.android.synthetic.main.fragment_person_pass.back_button
 import kotlinx.android.synthetic.main.fragment_person_pass.person_pass_date_input
 import kotlinx.android.synthetic.main.fragment_person_pass.person_pass_name_input
@@ -21,6 +20,8 @@ import ru.mancomapp.domain.models.pass.PersonPassAccessType
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogFragment
 import ru.mancomapp.presentation.feedback.FeedbackSendSuccessDialogType
 import ru.mancomapp.presentation.global.DatePickerDialogFragment
+import ru.mancomapp.presentation.global.selectitem.SelectItem
+import ru.mancomapp.presentation.global.selectitem.SelectItemDialogFragment
 import ru.mancomapp.utils.extensions.hideSoftKeyboard
 import ru.mancomapp.utils.extensions.setVisible
 import ru.mancomapp.utils.extensions.toast
@@ -32,6 +33,13 @@ class PersonPassFragment : Fragment() {
 
     private val passDateCallback = object : DatePickerDialogFragment.Callback {
         override fun onDateSelected(requestDate: RequestDate) = viewModel.saveSelectedDate(requestDate)
+    }
+
+    private val selectItemCallback = object : SelectItemDialogFragment.Callback {
+        override fun onSelectItem(item: SelectItem) {
+            val accessType = PersonPassAccessType.getById(item.id)
+            viewModel.saveSelectedAccessType(accessType)
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -108,8 +116,23 @@ class PersonPassFragment : Fragment() {
     }
 
     private fun onSelectAccessTypeClick() {
-        // TODO: implement
-        toast("Select pass type")
+        val items = getPassTypeItems()
+        SelectItemDialogFragment.show(
+            parentFragmentManager,
+            selectItemCallback,
+            getString(R.string.pass_type),
+            items
+        )
+    }
+
+    private fun getPassTypeItems(): List<SelectItem> {
+        val serviceTypes = mutableListOf<PersonPassAccessType>()
+
+        serviceTypes.add(PersonPassAccessType.ONE_TIME)
+        serviceTypes.add(PersonPassAccessType.DAY)
+        serviceTypes.add(PersonPassAccessType.OTHER)
+
+        return serviceTypes.map { SelectItem(it.id, getString(it.nameId)) }
     }
 
     private fun onSendButtonClick() =

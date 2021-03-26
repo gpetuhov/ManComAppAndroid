@@ -89,7 +89,7 @@
     <string name="pass_type">Тип пропуска</string>
     <string name="guest_name_empty_error">Пожалуйста, введите ФИО гостя</string>
     <string name="pass_date_empty_error">Пожалуйста, выберите дату визита</string>
-    <string name="access_type_empty_error">Пожалуйста, выберите тип посещения</string>
+    <string name="access_type_empty_error">Пожалуйста, выберите тип пропуска</string>
 
     <!-- Car pass fragment -->
     <string name="get_car_pass">Заказать пропуск на автомобиль</string>

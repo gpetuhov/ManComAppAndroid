@@ -7,7 +7,7 @@ enum class PersonPassAccessType(val id: Int, @StringRes val nameId: Int) {
     ONE_TIME(1, R.string.pass_type_one_time),
     DAY(2, R.string.pass_type_day),
     OTHER(3, R.string.other),
-    NOT_SELECTED(0, R.string.pass_type);
+    NOT_SELECTED(0, R.string.choose);
 
     companion object {
         fun getById(id: Int): PersonPassAccessType {
