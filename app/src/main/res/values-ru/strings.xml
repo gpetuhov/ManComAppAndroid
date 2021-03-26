@@ -106,7 +106,7 @@
     <string name="bill_status_paid">Оплачен</string>
     <string name="bill_status_not_paid">Не оплачен</string>
     <string name="bill_status_in_progress">В обработке</string>
-    <string name="bill_total_rub">%d Р.</string>
+    <string name="bill_total_rub">%d р.</string>
     <string name="load_bill_history_error">Ошибка загрузки истории счетов</string>
     <string name="bills_empty">Счета отсутствуют</string>
 
