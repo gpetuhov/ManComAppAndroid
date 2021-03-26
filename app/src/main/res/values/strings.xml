@@ -88,6 +88,7 @@
     <string name="get_person_pass">Order visitor pass</string>
     <string name="visitor_name">Visitor name</string>
     <string name="visit_date">Visit date</string>
+    <string name="pass_type">Pass type</string>
     <string name="guest_name_empty_error">Please enter guest name</string>
     <string name="pass_date_empty_error">Please select visit date</string>
     <string name="access_type_empty_error">Please select access type</string>

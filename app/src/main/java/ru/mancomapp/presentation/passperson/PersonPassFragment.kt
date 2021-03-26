@@ -8,7 +8,13 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.alcon.fragment_person_pass.*
 import kotlinx.android.synthetic.main.fragment_person_pass.*
+import kotlinx.android.synthetic.main.fragment_person_pass.back_button
+import kotlinx.android.synthetic.main.fragment_person_pass.person_pass_date_input
+import kotlinx.android.synthetic.main.fragment_person_pass.person_pass_name_input
+import kotlinx.android.synthetic.main.fragment_person_pass.person_pass_send_button
+import kotlinx.android.synthetic.main.fragment_person_pass.person_pass_send_progress
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.request.RequestDate
 import ru.mancomapp.domain.models.pass.PersonPassAccessType
@@ -39,7 +45,7 @@ class PersonPassFragment : Fragment() {
 
         back_button.setOnClickListener { navigateUp() }
         person_pass_date_input.setOnClickListener { onSelectDateClick() }
-        person_pass_access_type.setOnClickListener { onSelectAccessTypeClick() }
+        person_pass_access_type_button?.setOnClickListener { onSelectAccessTypeClick() }
         person_pass_send_button.setOnClickListener { onSendButtonClick() }
 
         initBackPressedCallback()
@@ -64,7 +70,7 @@ class PersonPassFragment : Fragment() {
         back_button.isEnabled = isEnabled
         person_pass_name_input.isEnabled = isEnabled
         person_pass_date_input.isEnabled = isEnabled
-        person_pass_access_type.isEnabled = isEnabled
+        person_pass_access_type_button?.isEnabled = isEnabled
         person_pass_send_button.isEnabled = isEnabled
     }
 
@@ -90,7 +96,7 @@ class PersonPassFragment : Fragment() {
         person_pass_date_input.setText(getFormattedDate(requestDate))
 
     private fun updateAccessTypeUI(accessType: PersonPassAccessType) {
-        person_pass_access_type_name.text = getString(accessType.nameId)
+        person_pass_access_type_button?.text = getString(accessType.nameId)
     }
 
     private fun onSelectDateClick() {
@@ -103,7 +109,7 @@ class PersonPassFragment : Fragment() {
 
     private fun onSelectAccessTypeClick() {
         // TODO: implement
-        toast("Select access type")
+        toast("Select pass type")
     }
 
     private fun onSendButtonClick() =
