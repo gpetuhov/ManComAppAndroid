@@ -61,7 +61,7 @@
     <string name="get_service">Заказать услугу</string>
     <string name="choose_service">Выбрать услугу</string>
     <string name="choose_service_error">Пожалуйста, выберите услугу</string>
-    <string name="write_comment_hint">Напишите Ваш комментарий</string>
+    <string name="write_comment_hint">Введите Ваш комментарий</string>
     <string name="plumber">Сантехнические работы</string>
     <string name="electrician">Электротехнические работы</string>
     <string name="carpenter">Плотницкие работы</string>
