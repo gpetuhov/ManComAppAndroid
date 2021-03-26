@@ -9,7 +9,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.dialog_select_item.*
+import kotlinx.android.synthetic.main.dialog_select_item.view.*
 import ru.mancomapp.R
 
 class SelectItemDialogFragment(
@@ -62,6 +62,8 @@ class SelectItemDialogFragment(
 
     private fun initLayout(layout: View) {
         with(layout) {
+            select_item_dialog_title.text = title
+
             select_item_list.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             selectItemAdapter = SelectItemAdapter(selectItemCallback)
             select_item_list.adapter = selectItemAdapter
