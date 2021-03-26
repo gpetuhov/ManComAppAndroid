@@ -1,9 +1,6 @@
 package ru.mancomapp.presentation.bills
 
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableStringBuilder
-import android.text.style.UnderlineSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +21,7 @@ import ru.mancomapp.utils.extensions.openWebsite
 import ru.mancomapp.utils.extensions.setVisible
 import ru.mancomapp.utils.extensions.toast
 import ru.mancomapp.utils.getLongFormattedDate
+import ru.mancomapp.utils.getUnderlinedText
 
 class BillFragment : Fragment() {
 
@@ -48,7 +46,7 @@ class BillFragment : Fragment() {
         bill_total.text = getString(R.string.bill_total_rub, bill.total)
         bill_title.text = bill.title
         bill_details.text = bill.details
-        bill_file_button?.text = getBillFileName(bill)
+        bill_file_button?.text = getUnderlinedText(bill.fileName)
 
         bill_file_button?.setOnClickListener { openWebsite(bill.fileUrl) }
 
@@ -67,13 +65,4 @@ class BillFragment : Fragment() {
     }
 
     private fun navigateUp() = findNavController().navigateUp()
-
-    private fun getBillFileName(bill: Bill): SpannableStringBuilder {
-        val text = bill.fileName
-
-        val spannableStringBuilder = SpannableStringBuilder(text)
-        val underlineSpan = UnderlineSpan()
-        spannableStringBuilder.setSpan(underlineSpan, 0, text.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-        return spannableStringBuilder
-    }
 }

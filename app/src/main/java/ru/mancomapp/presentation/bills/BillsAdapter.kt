@@ -4,7 +4,6 @@ import android.graphics.Typeface
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.StyleSpan
-import android.text.style.UnderlineSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +13,7 @@ import kotlinx.android.synthetic.main.item_bill.view.*
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.bill.Bill
 import ru.mancomapp.utils.getLongFormattedDate
+import ru.mancomapp.utils.getUnderlinedText
 
 class BillsAdapter(
     private val callback: Callback
@@ -50,11 +50,7 @@ class BillsAdapter(
 
         private fun getBillNumber(bill: Bill): SpannableStringBuilder {
             val text = itemView.context.getString(R.string.bills_number, bill.id)
-
-            val spannableStringBuilder = SpannableStringBuilder(text)
-            val underlineSpan = UnderlineSpan()
-            spannableStringBuilder.setSpan(underlineSpan, 0, text.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-            return spannableStringBuilder
+            return getUnderlinedText(text)
         }
 
         private fun getBillStatus(bill: Bill): SpannableStringBuilder {
