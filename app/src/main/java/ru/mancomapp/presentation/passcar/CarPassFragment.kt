@@ -8,7 +8,13 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_car_pass.*
+import kotlinx.android.synthetic.alcon.fragment_car_pass.*
+import kotlinx.android.synthetic.main.fragment_car_pass.back_button
+import kotlinx.android.synthetic.main.fragment_car_pass.car_model_input
+import kotlinx.android.synthetic.main.fragment_car_pass.car_number_input
+import kotlinx.android.synthetic.main.fragment_car_pass.car_pass_date_input
+import kotlinx.android.synthetic.main.fragment_car_pass.car_pass_send_button
+import kotlinx.android.synthetic.main.fragment_car_pass.car_pass_send_progress
 import ru.mancomapp.R
 import ru.mancomapp.domain.models.pass.CarPassAccessType
 import ru.mancomapp.domain.models.request.RequestDate
@@ -39,7 +45,7 @@ class CarPassFragment : Fragment() {
 
         back_button.setOnClickListener { navigateUp() }
         car_pass_date_input.setOnClickListener { onSelectDateClick() }
-        car_pass_access_type.setOnClickListener { onSelectAccessTypeClick() }
+        car_pass_access_type_button?.setOnClickListener { onSelectAccessTypeClick() }
         car_pass_send_button.setOnClickListener { onSendButtonClick() }
 
         initBackPressedCallback()
@@ -65,7 +71,7 @@ class CarPassFragment : Fragment() {
         car_model_input.isEnabled = isEnabled
         car_number_input.isEnabled = isEnabled
         car_pass_date_input.isEnabled = isEnabled
-        car_pass_access_type.isEnabled = isEnabled
+        car_pass_access_type_button?.isEnabled = isEnabled
         car_pass_send_button.isEnabled = isEnabled
     }
 
@@ -91,7 +97,7 @@ class CarPassFragment : Fragment() {
         car_pass_date_input.setText(getFormattedDate(requestDate))
 
     private fun updateAccessTypeUI(accessType: CarPassAccessType) {
-        car_pass_access_type_name.text = getString(accessType.nameId)
+        car_pass_access_type_button?.text = getString(accessType.nameId)
     }
 
     private fun onSelectDateClick() {

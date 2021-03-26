@@ -129,62 +129,31 @@
         app:layout_constraintTop_toBottomOf="@id/car_pass_date_label"
         tools:ignore="Autofill" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/car_pass_access_type"
+    <TextView
+        android:id="@+id/car_pass_access_type_label"
+        style="@style/TextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/layout_margin"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="@dimen/layout_margin"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:text="@string/pass_type"
+        android:textAllCaps="true"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/car_pass_date_input">
-
-        <TextView
-            android:id="@+id/car_pass_access_type_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="@string/access_type"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@id/car_pass_access_type_arrow"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/access_type" />
-
-        <ImageView
-            android:id="@+id/car_pass_access_type_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/car_pass_access_type_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/car_pass_access_type_name"
-            app:srcCompat="@drawable/ic_keyboard_arrow_down_black" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/half_layout_margin"
-            android:background="@color/md_grey_600"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/car_pass_access_type_name" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@id/car_pass_date_input" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/car_pass_send_button"
-        android:layout_width="200dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/send"
-        android:textAllCaps="false"
+        android:id="@+id/car_pass_access_type_button"
+        style="@style/SelectorButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:text="@string/choose"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/car_pass_access_type" />
+        app:layout_constraintTop_toBottomOf="@id/car_pass_access_type_label" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/car_pass_send_progress"
@@ -193,12 +162,24 @@
         android:layout_marginTop="@dimen/layout_margin"
         android:layout_marginBottom="@dimen/layout_margin"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/car_pass_send_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/car_pass_send_button"
+        app:layout_constraintTop_toBottomOf="@id/car_pass_access_type_button"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/loading_wave" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/car_pass_send_button"
+        style="@style/ButtonStyle"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/send"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
